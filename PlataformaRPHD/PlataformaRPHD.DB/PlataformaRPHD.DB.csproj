@@ -30,7 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,9 +66,43 @@
     <Compile Include="Domain\UserName.cs" />
     <Compile Include="Domain\UserStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Classes\AttachmentRepository.cs" />
+    <Compile Include="Repositories\Classes\BaseRepository.cs" />
+    <Compile Include="Repositories\Classes\CategoryRepository.cs" />
+    <Compile Include="Repositories\Classes\HistoryMessageRepository.cs" />
+    <Compile Include="Repositories\Classes\HistoryOfTransfersRepository.cs" />
+    <Compile Include="Repositories\Classes\InteractionRepository.cs" />
+    <Compile Include="Repositories\Classes\MessageRepository.cs" />
+    <Compile Include="Repositories\Classes\RequestRepository.cs" />
+    <Compile Include="Repositories\Classes\ResolutionRepository.cs" />
+    <Compile Include="Repositories\Classes\SatisfactionSurveyRepository.cs" />
+    <Compile Include="Repositories\Classes\ServiceRepository.cs" />
+    <Compile Include="Repositories\Classes\TaskRepository.cs" />
+    <Compile Include="Repositories\Classes\TaskStatusRepository.cs" />
+    <Compile Include="Repositories\Classes\TopicRepository.cs" />
+    <Compile Include="Repositories\Classes\UserRepository.cs" />
+    <Compile Include="Repositories\Classes\UserStatusRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IAttachmentRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IBaseRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICategoryRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IHistoryMessageRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IHistoryOfTransfersRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IInteractionRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMessageRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRequestRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IResolutionRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISatisfactionSurveyRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IServiceRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITaskRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITaskStatusRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITopicRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserStatusRepository.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Repositories\" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
