@@ -253,3 +253,7 @@ ModelManifest.xml
 *.bak_002d
 *.bak_004d
 
+#Folders
+PlataformaRPHD/.vs/
+PlataformaRPHD/PlataformaRPHD.DB/obj
+PlataformaRPHD/PlataformaRPHD.DB/bin/Debug/
