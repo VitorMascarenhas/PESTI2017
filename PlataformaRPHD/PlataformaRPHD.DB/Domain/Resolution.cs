@@ -4,7 +4,7 @@ namespace PlataformaRPHD.DB.Domain
 {
     public class Resolution
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public string resolutionText { get; set; }
 
