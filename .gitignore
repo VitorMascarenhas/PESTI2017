@@ -253,8 +253,14 @@ ModelManifest.xml
 *.bak_002d
 *.bak_004d
 
-#Folders
+# Project DB
 PlataformaRPHD/.vs/
 PlataformaRPHD/PlataformaRPHD.DB/obj
 PlataformaRPHD/PlataformaRPHD.DB/bin/Debug/
 PlataformaRPHD/packages/
+
+# Project Tests
+
+PlataformaRPHD/PlataformaRPHD.Tests/obj
+PlataformaRPHD/PlataformaRPHD.Tests/bin/Debug/
+
