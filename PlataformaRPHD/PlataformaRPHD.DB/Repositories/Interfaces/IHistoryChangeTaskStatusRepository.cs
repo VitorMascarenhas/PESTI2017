@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.DB.Repositories.Interfaces
 {
-    public interface ITaskStatusRepository : IBaseRepository<ITaskStatus, int>
+    public interface IHistoryChangeTaskStatusRepository : IBaseRepository<HistoryChangeTaskStatus, int>
     {
     }
 }

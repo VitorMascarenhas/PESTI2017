@@ -8,7 +8,6 @@ namespace PlataformaRPHD.DB.Configuration
         public HistoryOfTransfersEntityConfiguration()
         {
             this.HasKey(k => k.Id);
-            Property(p => p.description).HasMaxLength(200).IsRequired();
         }
     }
 }

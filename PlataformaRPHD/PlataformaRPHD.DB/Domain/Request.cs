@@ -27,5 +27,13 @@ namespace PlataformaRPHD.DB.Domain
         {
             this.Interactions = new HashSet<Interaction>();
         }
+
+        public Request(User whoRegistered, User owner, string title, string description) : this()
+        {
+            this.WhoRegistered = whoRegistered;
+            this.Owner = owner;
+            this.Title = title;
+            this.Description = description;
+        }
     }
 }

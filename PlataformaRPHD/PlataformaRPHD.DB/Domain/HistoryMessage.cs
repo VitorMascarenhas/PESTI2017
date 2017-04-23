@@ -16,5 +16,10 @@ namespace PlataformaRPHD.DB.Domain
         {
             this.Messages = new HashSet<Message>();
         }
+
+        public HistoryMessage(int interactionId) : this()
+        {
+            this.interactionId = interactionId;
+        }
     }
 }

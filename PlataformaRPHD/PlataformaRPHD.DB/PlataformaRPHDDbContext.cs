@@ -34,7 +34,7 @@ namespace PlataformaRPHD.DB
 
         public DbSet<Domain.Task> Tasks { get; set; }
 
-        public DbSet<Domain.TaskStatus> TaskStatus { get; set; }
+        public DbSet<Domain.ITaskStatus> TaskStatus { get; set; }
 
         public DbSet<Topic> Topics { get; set; }
         
@@ -86,7 +86,7 @@ namespace PlataformaRPHD.DB
             modelBuilder.Configurations.Add(new SatisfactionSurveyEntityConfiguration());
             modelBuilder.Configurations.Add(new ServiceEntityConfiguration());
             modelBuilder.Configurations.Add(new TaskEntityConfiguration());
-            modelBuilder.Configurations.Add(new TaskStatusEntityConfiguration());
+            modelBuilder.Configurations.Add(new ITaskStatusEntityConfiguration());
             modelBuilder.Configurations.Add(new TopicEntityConfiguration());
             modelBuilder.Configurations.Add(new UserEntityConfiguration());
             modelBuilder.Configurations.Add(new UserStatusEntityConfiguration());

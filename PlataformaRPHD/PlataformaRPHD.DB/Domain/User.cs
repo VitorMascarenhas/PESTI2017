@@ -18,10 +18,15 @@ namespace PlataformaRPHD.DB.Domain
 
         public virtual UserStatus userStatus { get; set; }
 
-        private User() //EF
+        private User() // EF
         {
             this.Tasks = new HashSet<Task>();
             this.Requests = new HashSet<Request>();
+        }
+
+        public User(UserName userName)
+        {
+            this.Name = userName;
         }
     }
 }

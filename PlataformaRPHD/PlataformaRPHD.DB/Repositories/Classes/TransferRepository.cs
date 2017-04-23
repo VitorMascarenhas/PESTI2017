@@ -4,9 +4,9 @@ using System.Data.Entity;
 
 namespace PlataformaRPHD.DB.Repositories.Classes
 {
-    public class TaskStatusRepository : BaseRepository<ITaskStatus, int>, ITaskStatusRepository
+    public class TransferRepository : BaseRepository<Transfer, int>, ITransferRepository
     {
-        public TaskStatusRepository(DbContext context) : base(context)
+        public TransferRepository(DbContext context) : base(context)
         {
         }
     }

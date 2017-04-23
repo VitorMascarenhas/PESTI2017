@@ -24,13 +24,21 @@ namespace PlataformaRPHD.DB.Domain
 
         public virtual ICollection<Attachment> attachments { get; set; }
 
-        public int historyMessage { get; set; }
+        public int historyMessageId { get; set; }
 
         public virtual HistoryMessage HistoryMessage { get; set; }
 
         private Interaction() //EF
         {
             this.attachments = new HashSet<Attachment>();
+        }
+
+        public Interaction(int serviceId, int cattegoryId, int requestId) : this()
+        {
+            this.serviceId = serviceId;
+            this.categoryId = categoryId;
+            this.requestId = requestId;
+            this.HistoryMessage = new HistoryMessage(this.historyMessageId);
         }
     }
 }
