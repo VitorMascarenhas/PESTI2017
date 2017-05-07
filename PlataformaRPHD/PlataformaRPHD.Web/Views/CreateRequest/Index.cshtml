@@ -1,0 +1,24 @@
+﻿@model PlataformaRPHD.Web.ViewModels.CreateRequestViewModel
+
+@{
+    Layout = null;
+}
+
+<h2>Categories</h2>
+
+<p>
+    @Model.Title
+</p>
+
+<p>
+    @Model.Description
+</p>
+
+<table>
+    @foreach (var cat in Model.categories)
+    {
+        <tr>
+            <td>cat.Name</td>
+        </tr>
+    }
+</table>

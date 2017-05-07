@@ -1,0 +1,28 @@
+﻿using PlataformaRPHD.DB.Domain;
+using PlataformaRPHD.Web.ViewModels;
+
+namespace PlataformaRPHD.Web.App_Start
+{
+    public class MappingConfig
+    {
+        public static void RegisterMaps()
+        {
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Category, CategoryViewModel>().ReverseMap();
+                cfg.CreateMap<Attachment, AttachmentViewModel>().ReverseMap();
+                cfg.CreateMap<Request, CreateRequestViewModel>().ReverseMap();
+                //cfg.CreateMap<BusinessHours, BusinessHoursViewModel>().ReverseMap();
+                //cfg.CreateMap<Hashtag, HashtagViewModel>().ReverseMap();
+                //cfg.CreateMap<Visit, VisitViewModel>().ReverseMap();
+                //cfg.CreateMap<GpsCoordinate, GpsCoordinatesViewModel>().ReverseMap();
+
+                //cfg.CreateMap<CreatePoiViewModel, PointOfInterest>();
+
+                //cfg.CreateMap<PointOfInterest, AddPoiToVisitViewModel>();
+
+                //cfg.CreateMap<Route, RouteViewModel>().ReverseMap();
+            });
+        }
+    }
+}

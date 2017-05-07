@@ -113,6 +113,7 @@
     <Compile Include="Repositories\Classes\TaskStatusRepository.cs" />
     <Compile Include="Repositories\Classes\TopicRepository.cs" />
     <Compile Include="Repositories\Classes\TransferRepository.cs" />
+    <Compile Include="Repositories\Classes\UnitOfWork.cs" />
     <Compile Include="Repositories\Classes\UserRepository.cs" />
     <Compile Include="Repositories\Classes\UserStatusRepository.cs" />
     <Compile Include="Repositories\Interfaces\IAttachmentRepository.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Repositories\Interfaces\ITaskStatusRepository.cs" />
     <Compile Include="Repositories\Interfaces\ITopicRepository.cs" />
     <Compile Include="Repositories\Interfaces\ITransferRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUnitOfWork.cs" />
     <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUserStatusRepository.cs" />
   </ItemGroup>
