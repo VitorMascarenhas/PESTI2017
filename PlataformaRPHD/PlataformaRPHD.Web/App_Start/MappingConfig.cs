@@ -1,4 +1,4 @@
-﻿using PlataformaRPHD.DB.Domain;
+﻿using PlataformaRPHD.Domain.Entities.Entities;
 using PlataformaRPHD.Web.ViewModels;
 
 namespace PlataformaRPHD.Web.App_Start

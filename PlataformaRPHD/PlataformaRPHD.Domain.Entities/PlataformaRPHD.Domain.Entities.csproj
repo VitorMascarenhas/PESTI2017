@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8EDF4429-251A-416D-BB68-93F227191BCF}</ProjectGuid>
+    <ProjectGuid>{323ECA29-4583-46D7-AA5F-222E8AD7FF75}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PlataformaRPHD.Tests</RootNamespace>
-    <AssemblyName>PlataformaRPHD.Tests</AssemblyName>
+    <RootNamespace>PlataformaRPHD.Domain.Entities</RootNamespace>
+    <AssemblyName>PlataformaRPHD.Domain.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,36 +30,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Moq, Version=4.7.8.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
-      <HintPath>..\packages\Moq.4.7.8\lib\net45\Moq.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RequestTest.cs" />
-    <Compile Include="TaskTest.cs" />
+    <Compile Include="Entities\Attachment.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\HistoryChangeTaskStatus.cs" />
+    <Compile Include="Entities\CloseStatus.cs" />
+    <Compile Include="Entities\HistoryMessage.cs" />
+    <Compile Include="Entities\HistoryOfTransfers.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Entities\Interaction.cs" />
+    <Compile Include="Entities\ITaskStatus.cs" />
+    <Compile Include="Entities\Message.cs" />
+    <Compile Include="Entities\OpenStatus.cs" />
+    <Compile Include="Entities\Request.cs" />
+    <Compile Include="Entities\Resolution.cs" />
+    <Compile Include="Entities\SatisfactionSurvey.cs" />
+    <Compile Include="Entities\Service.cs" />
+    <Compile Include="Entities\Task.cs" />
+    <Compile Include="Entities\Topic.cs" />
+    <Compile Include="Entities\Transfer.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserName.cs" />
+    <Compile Include="Entities\UserStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PlataformaRPHD.Domain.Entities\PlataformaRPHD.Domain.Entities.csproj">
-      <Project>{323eca29-4583-46d7-aa5f-222e8ad7ff75}</Project>
-      <Name>PlataformaRPHD.Domain.Entities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

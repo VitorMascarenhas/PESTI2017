@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B9ED4344-81F5-4A48-977D-41F5143A2C58}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PlataformaRPHD.Infrastructure.Data</RootNamespace>
+    <AssemblyName>PlataformaRPHD.Infrastructure.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mappings\AttachmentMap.cs" />
+    <Compile Include="Mappings\CategoryMap.cs" />
+    <Compile Include="Mappings\HistoryChangeTaskStatusMap.cs" />
+    <Compile Include="Mappings\HistoryMessageMap.cs" />
+    <Compile Include="Mappings\HistoryOfTransfersMap.cs" />
+    <Compile Include="Mappings\InteractionMap.cs" />
+    <Compile Include="Mappings\MessageMap.cs" />
+    <Compile Include="Mappings\RequestMap.cs" />
+    <Compile Include="Mappings\ResolutionMap.cs" />
+    <Compile Include="Mappings\SatisfactionSurveyMap.cs" />
+    <Compile Include="Mappings\ServiceMap.cs" />
+    <Compile Include="Mappings\TaskMap.cs" />
+    <Compile Include="Mappings\TaskStatusMap.cs" />
+    <Compile Include="Mappings\TopicMap.cs" />
+    <Compile Include="Mappings\TransferMap.cs" />
+    <Compile Include="Mappings\UserMap.cs" />
+    <Compile Include="Mappings\UserStatusMap.cs" />
+    <Compile Include="Repositories\AttachmentRepository.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\HistoryChangeTaskStatusRepository.cs" />
+    <Compile Include="Repositories\HistoryMessageRepository.cs" />
+    <Compile Include="Repositories\HistoryOfTransfersRepository.cs" />
+    <Compile Include="Repositories\InteractionRepository.cs" />
+    <Compile Include="Repositories\IUnitOfWork.cs" />
+    <Compile Include="Repositories\MessageRepository.cs" />
+    <Compile Include="Repositories\RequestRepository.cs" />
+    <Compile Include="Repositories\ResolutionRepository.cs" />
+    <Compile Include="Repositories\SatisfactionSurveyRepository.cs" />
+    <Compile Include="Repositories\ServiceRepository.cs" />
+    <Compile Include="Repositories\TaskRepository.cs" />
+    <Compile Include="Repositories\TaskStatusRepository.cs" />
+    <Compile Include="Repositories\TopicRepository.cs" />
+    <Compile Include="Repositories\TransferRepository.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\UserStatusRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlataformaRPHD.Domain.Entities\PlataformaRPHD.Domain.Entities.csproj">
+      <Project>{323eca29-4583-46d7-aa5f-222e8ad7ff75}</Project>
+      <Name>PlataformaRPHD.Domain.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlataformaRPHD.Domain.Interfaces\PlataformaRPHD.Domain.Interfaces.csproj">
+      <Project>{326C4335-5A0C-4079-B5AA-839924F0B56F}</Project>
+      <Name>PlataformaRPHD.Domain.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

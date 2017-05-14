@@ -253,25 +253,37 @@ ModelManifest.xml
 *.bak_002d
 *.bak_004d
 
-# Project DB
+# Project Domain.Entities
+
 PlataformaRPHD/.vs/
-PlataformaRPHD/PlataformaRPHD.DB/obj
-PlataformaRPHD/PlataformaRPHD.DB/bin/Debug/
+PlataformaRPHD/PlataformaRPHD.Domain.Entities/obj
+PlataformaRPHD/PlataformaRPHD.Domain.Entities/bin/Debug/
 PlataformaRPHD/packages/
 
-# Project Tests
+# Project Domain.Interfaces
+
+PlataformaRPHD/PlataformaRPHD.Domain.Interfaces/obj
+PlataformaRPHD/PlataformaRPHD.Domain.Interfaces/bin/Debug/
+
+# Project Active Infrastructure
+
+PlataformaRPHD/PlataformaRPHD.Infrastructure.Data/obj
+PlataformaRPHD/PlataformaRPHD.Infrastructure.Data/bin/Debug/
+
+# Project PlataformaRPHD.Tests
 
 PlataformaRPHD/PlataformaRPHD.Tests/obj
-PlataformaRPHD/PlataformaRPHD.Tests/bin/Debug/
-
-# Project Active Directory
-
-PlataformaRPHD/PlataformaRPHD.ActiveDirectory/obj
-PlataformaRPHD/PlataformaRPHD.ActiveDirectory/bin/Debug/
+PlataformaRPHD/PlataformaRPHD.Tests/bin/*
 
 # Project PlataformaRPHD.Web
 
 PlataformaRPHD/PlataformaRPHD.Web/obj
 PlataformaRPHD/PlataformaRPHD.Web/bin/*
+
+
+# Project PlataformaRPHD.Domain
+
+PlataformaRPHD/PlataformaRPHD.Domain/obj
+PlataformaRPHD/PlataformaRPHD.Domain/bin/*
 
 
