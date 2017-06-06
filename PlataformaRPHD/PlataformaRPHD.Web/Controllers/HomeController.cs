@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlataformaRPHD.Web.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,8 @@ namespace PlataformaRPHD.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var model = new CategoryViewModel { Id = 1, Description = "sdfsdf", Name = "dsdsd" };
+            return View(model);
         }
 
         public ActionResult About()

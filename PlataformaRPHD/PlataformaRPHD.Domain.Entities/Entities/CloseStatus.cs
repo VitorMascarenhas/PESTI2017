@@ -24,5 +24,11 @@
             this._task.status = this;
             this._task.close = true;
         }
+
+        override
+        public string ToString()
+        {
+            return "Fechado";
+        }
     }
 }

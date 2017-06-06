@@ -1,11 +1,12 @@
-﻿using PlataformaRPHD.Domain.Entities.Entities;
+﻿using NHibernate;
+using PlataformaRPHD.Domain.Entities.Entities;
 using PlataformaRPHD.Domain.Interfaces.Interfaces;
 
 namespace PlataformaRPHD.Infrastructure.Data.Repositories
 {
     public class TopicRepository : BaseRepository<Topic>, ITopicRepository
     {
-        public TopicRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public TopicRepository(ISession session) : base(session)
         {
         }
     }

@@ -8,37 +8,40 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : IEntity
     {
-        private UnitOfWork _unitOfWork;
-        public BaseRepository(IUnitOfWork unitOfWork)
+        //private IUnitOfWork _unitOfWork;
+
+        private readonly ISession _session;
+
+        public BaseRepository(ISession session)
         {
-            _unitOfWork = (UnitOfWork)unitOfWork;
+            this._session = session;
         }
 
-        protected ISession Session { get { return _unitOfWork.Session; } }
+        //protected ISession Session { get { return _unitOfWork.Session; } }
 
         public IQueryable<T> GetAll()
         {
-            return Session.Query<T>();
+            return _session.Query<T>();
         }
 
         public T GetById(int id)
         {
-            return Session.Get<T>(id);
+            return _session.Get<T>(id);
         }
 
         public void Create(T entity)
         {
-            Session.Save(entity);
+            _session.Save(entity);
         }
 
         public void Update(T entity)
         {
-            Session.Update(entity);
+            _session.Update(entity);
         }
 
         public void Delete(int id)
         {
-            Session.Delete(Session.Load<T>(id));
+            _session.Delete(_session.Load<T>(id));
         }
     }
 }

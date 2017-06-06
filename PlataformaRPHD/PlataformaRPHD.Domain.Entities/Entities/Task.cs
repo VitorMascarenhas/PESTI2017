@@ -8,7 +8,7 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         
         public virtual User Owner { get; set; }
 
-        public ITaskStatus status { get; set; }
+        public virtual ITaskStatus status { get; set; }
 
         public virtual Interaction Interaction { get; set; }
         

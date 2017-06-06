@@ -23,9 +23,35 @@ namespace PlataformaRPHD.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+
+
+            // Inspinia script
+            bundles.Add(new ScriptBundle("~/bundles/inspinia").Include(
+                      "~/Scripts/app/inspinia.js"));
+
+            // SlimScroll
+            bundles.Add(new ScriptBundle("~/plugins/slimScroll").Include(
+                      "~/Scripts/plugins/slimScroll/jquery.slimscroll.min.js"));
+
+            // jQuery plugins
+            bundles.Add(new ScriptBundle("~/plugins/metsiMenu").Include(
+                      "~/Scripts/plugins/metisMenu/metisMenu.min.js"));
+
+            bundles.Add(new ScriptBundle("~/plugins/pace").Include(
+                      "~/Scripts/plugins/pace/pace.min.js"));
+
+
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                       "~/Content/animate.css",
+                      "~/Content/style.css"));
+
+
+            // Font Awesome icons
+            bundles.Add(new StyleBundle("~/font-awesome/css").Include(
+                      "~/fonts/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform()));
+
         }
     }
 }

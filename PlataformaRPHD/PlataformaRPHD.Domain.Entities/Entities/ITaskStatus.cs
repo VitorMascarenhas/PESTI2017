@@ -5,5 +5,7 @@
         string GetTypeStatus();
 
         void ChangeStatus();
+
+        string ToString();
     }
 }

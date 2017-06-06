@@ -23,5 +23,11 @@
         {
             this._task.status = this;
         }
+
+        override
+        public string ToString()
+        {
+            return "Aberto";
+        }
     }
 }
