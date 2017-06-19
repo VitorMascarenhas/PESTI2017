@@ -36,6 +36,12 @@
             @Html.DisplayNameFor(model => model.Name)
         </dt>
 
+    @if (Model == null)
+    {
+        
+    }
+    else
+    {
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
@@ -43,7 +49,8 @@
         <dt>
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-
+    }
+        
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>

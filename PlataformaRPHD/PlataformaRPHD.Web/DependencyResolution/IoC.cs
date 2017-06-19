@@ -16,12 +16,19 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
-namespace PlataformaRPHD.Web.DependencyResolution {
+namespace PlataformaRPHD.Web.DependencyResolution
+{
     using StructureMap;
-	
-    public static class IoC {
-        public static IContainer Initialize() {
-            return new Container(c => c.AddRegistry<DefaultRegistry>());
+
+    public static class IoC
+    {
+        public static IContainer Initialize()
+        {
+            return new Container(c =>
+            {
+                c.AddRegistry<DefaultRegistry>();
+                c.AddRegistry<NHibernateRegistry>();
+            });
         }
     }
 }

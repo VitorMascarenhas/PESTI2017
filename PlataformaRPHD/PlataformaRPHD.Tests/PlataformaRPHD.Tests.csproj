@@ -35,8 +35,20 @@
       <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Moq, Version=4.7.8.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.7.8\lib\net45\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
@@ -49,8 +61,10 @@
     <Compile Include="RequestTest.cs" />
     <Compile Include="TaskTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestClass1.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +74,14 @@
     <ProjectReference Include="..\PlataformaRPHD.Domain.Entities\PlataformaRPHD.Domain.Entities.csproj">
       <Project>{323eca29-4583-46d7-aa5f-222e8ad7ff75}</Project>
       <Name>PlataformaRPHD.Domain.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlataformaRPHD.Domain.Interfaces\PlataformaRPHD.Domain.Interfaces.csproj">
+      <Project>{326C4335-5A0C-4079-B5AA-839924F0B56F}</Project>
+      <Name>PlataformaRPHD.Domain.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlataformaRPHD.Infrastructure.Data\PlataformaRPHD.Infrastructure.Data.csproj">
+      <Project>{b9ed4344-81f5-4a48-977d-41f5143a2c58}</Project>
+      <Name>PlataformaRPHD.Infrastructure.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

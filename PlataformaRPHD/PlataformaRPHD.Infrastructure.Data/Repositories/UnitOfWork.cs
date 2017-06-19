@@ -8,26 +8,26 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
     {
         private readonly ISession _session; // adicionado
         
-        private static readonly ISessionFactory _sessionFactory;
+        private readonly ISessionFactory _sessionFactory;
         private ITransaction _transaction;
 
         //public ISession Session { get; set; }
         
-        static UnitOfWork()
-        {
+        //static UnitOfWork()
+        //{
            
-            //_sessionFactory = Fluently.Configure()
-            //    .Database(MsSqlConfiguration.MsSql2008.ConnectionString(x => x.FromConnectionStringWithKey("UnitOfWorkExample")))
-            //    .Mappings(x => x.AutoMappings.Add(
-            //AutoMap.AssemblyOf<Product>(new AutomappingConfiguration()).UseOverridesFromAssemblyOf<ProductOverrides>()))
-            //    .ExposeConfiguration(config => new SchemaUpdate(config).Execute(false, true))
-            //    .BuildSessionFactory();
-        }
+        //    //_sessionFactory = Fluently.Configure()
+        //    //    .Database(MsSqlConfiguration.MsSql2008.ConnectionString(x => x.FromConnectionStringWithKey("UnitOfWorkExample")))
+        //    //    .Mappings(x => x.AutoMappings.Add(
+        //    //AutoMap.AssemblyOf<Product>(new AutomappingConfiguration()).UseOverridesFromAssemblyOf<ProductOverrides>()))
+        //    //    .ExposeConfiguration(config => new SchemaUpdate(config).Execute(false, true))
+        //    //    .BuildSessionFactory();
+        //}
 
-        public UnitOfWork(ISession session)
+        public UnitOfWork(ISessionFactory factory)
         {
-            this._session = session;
-            //session = _sessionFactory.OpenSession();
+            this._sessionFactory = factory;
+            this._session = _sessionFactory.OpenSession();
         }
 
         public void BeginTransaction()

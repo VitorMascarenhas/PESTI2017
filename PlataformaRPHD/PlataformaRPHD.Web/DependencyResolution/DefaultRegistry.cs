@@ -26,7 +26,8 @@ namespace PlataformaRPHD.Web.DependencyResolution {
         public DefaultRegistry() {
             Scan(
                 scan => {
-                    scan.TheCallingAssembly();
+                    //scan.TheCallingAssembly();
+                    scan.AssembliesFromApplicationBaseDirectory();
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
                 });
