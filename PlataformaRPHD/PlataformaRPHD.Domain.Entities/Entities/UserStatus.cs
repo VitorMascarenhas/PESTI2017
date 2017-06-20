@@ -1,12 +1,12 @@
 ﻿namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class UserStatus : IEntity
+    public class UserStatus
     {
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
 
-        public virtual string Status { get; set; }
+        public string Status { get; set; }
 
-        private UserStatus()
+        private UserStatus() //EF
         {
         }
 

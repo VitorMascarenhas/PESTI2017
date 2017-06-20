@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface ITransferRepository : IBaseRepository<Transfer>
+    public interface ITransferRepository : IBaseRepository<Transfer, int>
     {
     }
 }

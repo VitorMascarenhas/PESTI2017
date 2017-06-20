@@ -3,13 +3,11 @@ using System.Collections.Generic;
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class HistoryOfTransfers : IEntity
+    public class HistoryOfTransfers
     {
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
 
         public virtual Dictionary<Transfer, DateTime> Transfers { get; set; }
-
-        public virtual Task Task { get; set; }
 
         public HistoryOfTransfers() // EF
         {

@@ -2,17 +2,15 @@
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class HistoryMessage : IEntity
+    public class HistoryMessage
     {
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
 
-        public virtual ICollection<Message> Messages { get; set; }
+        public virtual ICollection<Message> Messages { get; private set; }
         
-        public virtual Interaction Interaction { get; set; }
-
-        public HistoryMessage()
+        public HistoryMessage() //EF
         {
-            this.Messages = new HashSet<Message>();
+            Messages = new HashSet<Message>();
         }
     }
 }

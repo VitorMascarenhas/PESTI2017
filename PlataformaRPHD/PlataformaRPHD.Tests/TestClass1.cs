@@ -1,7 +1,4 @@
 ﻿using NUnit.Framework;
-using PlataformaRPHD.Domain.Entities.Entities;
-using PlataformaRPHD.Domain.Interfaces.Interfaces;
-using PlataformaRPHD.Infrastructure.Data;
 using PlataformaRPHD.Infrastructure.Data.Repositories;
 
 namespace PlataformaRPHD.Tests
@@ -16,14 +13,14 @@ namespace PlataformaRPHD.Tests
         [Test]
         public void TestMethod()
         {
-            uow = new UnitOfWork(NHibernateConfiguration.Instance);
+            //uow = new UnitOfWork(new DbContext);
             
-            ICategoryRepository repo = uow.CategoryRepository;
+            //ICategoryRepository repo = uow.CategoryRepository;
+            //repo.Insert(new Category("cat 1", "desc 1"));
 
-            repo.Create(new Category("cat 1", "desc 1"));
-            uow.Commit();
+            //uow.SaveChanges();
             // TODO: Add your test code here
-            Assert.Pass("Your first passing test");
+            //Assert.Pass("Your first passing test");
         }
     }
 }

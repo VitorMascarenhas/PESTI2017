@@ -1,71 +1,20 @@
-﻿using NHibernate;
-using PlataformaRPHD.Domain.Interfaces.Interfaces;
-using System.Configuration;
+﻿using PlataformaRPHD.Domain.Interfaces.Interfaces;
+using System;
+using System.Data.Entity;
 
 namespace PlataformaRPHD.Infrastructure.Data.Repositories
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private readonly ISession _session; // adicionado
-        
-        private readonly ISessionFactory _sessionFactory;
-        private ITransaction _transaction;
+        private readonly DbContext context;
 
-        //public ISession Session { get; set; }
-        
-        //static UnitOfWork()
-        //{
-           
-        //    //_sessionFactory = Fluently.Configure()
-        //    //    .Database(MsSqlConfiguration.MsSql2008.ConnectionString(x => x.FromConnectionStringWithKey("UnitOfWorkExample")))
-        //    //    .Mappings(x => x.AutoMappings.Add(
-        //    //AutoMap.AssemblyOf<Product>(new AutomappingConfiguration()).UseOverridesFromAssemblyOf<ProductOverrides>()))
-        //    //    .ExposeConfiguration(config => new SchemaUpdate(config).Execute(false, true))
-        //    //    .BuildSessionFactory();
-        //}
-
-        public UnitOfWork(ISessionFactory factory)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UnitOfWork"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        public UnitOfWork(DbContext context)
         {
-            this._sessionFactory = factory;
-            this._session = _sessionFactory.OpenSession();
-        }
-
-        public void BeginTransaction()
-        {
-            _transaction = _session.BeginTransaction();
-        }
-
-        public void Commit()
-        {
-            try
-            {
-                if (_transaction != null && _transaction.IsActive)
-                    _transaction.Commit();
-            }
-            catch
-            {
-                if (_transaction != null && _transaction.IsActive)
-                    _transaction.Rollback();
-
-                throw;
-            }
-            finally
-            {
-                _session.Dispose();
-            }
-        }
-
-        public void Rollback()
-        {
-            try
-            {
-                if (_transaction != null && _transaction.IsActive)
-                    _transaction.Rollback();
-            }
-            finally
-            {
-                _session.Dispose();
-            }
+            this.context = context;
         }
 
         private IAttachmentRepository attachmentRepository;
@@ -75,7 +24,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (attachmentRepository == null)
                 {
-                    attachmentRepository = new AttachmentRepository(this._session);
+                    attachmentRepository = new AttachmentRepository(this.context);
                 }
                 return attachmentRepository;
             }
@@ -88,7 +37,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (categoryRepository == null)
                 {
-                    categoryRepository = new CategoryRepository(this._session);
+                    categoryRepository = new CategoryRepository(this.context);
                 }
                 return categoryRepository;
             }
@@ -101,8 +50,8 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (historyChangeTaskStatusRepository == null)
                 {
-                    historyChangeTaskStatusRepository = new HistoryChangeTaskStatusRepository(this._session);
-                    }
+                    historyChangeTaskStatusRepository = new HistoryChangeTaskStatusRepository(this.context);
+                }
                 return historyChangeTaskStatusRepository;
             }
         }
@@ -114,7 +63,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (historyMessageRepository == null)
                 {
-                    historyMessageRepository = new HistoryMessageRepository(this._session);
+                    historyMessageRepository = new HistoryMessageRepository(this.context);
                 }
                 return historyMessageRepository;
             }
@@ -127,7 +76,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (historyOfTransfersRepository == null)
                 {
-                    historyOfTransfersRepository = new HistoryOfTransfersRepository(this._session);
+                    historyOfTransfersRepository = new HistoryOfTransfersRepository(this.context);
                 }
                 return historyOfTransfersRepository;
             }
@@ -140,7 +89,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (interactionRepository == null)
                 {
-                    interactionRepository = new InteractionRepository(this._session);
+                    interactionRepository = new InteractionRepository(this.context);
                 }
                 return interactionRepository;
             }
@@ -153,7 +102,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (messageRepository == null)
                 {
-                    messageRepository = new MessageRepository(this._session);
+                    messageRepository = new MessageRepository(this.context);
                 }
                 return messageRepository;
             }
@@ -166,7 +115,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (requestRepository == null)
                 {
-                    requestRepository = new RequestRepository(this._session);
+                    requestRepository = new RequestRepository(this.context);
                 }
                 return requestRepository;
             }
@@ -179,7 +128,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (resolutionRepository == null)
                 {
-                    resolutionRepository = new ResolutionRepository(this._session);
+                    resolutionRepository = new ResolutionRepository(this.context);
                 }
                 return resolutionRepository;
             }
@@ -192,7 +141,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (satisfactionSurveyRepository == null)
                 {
-                    satisfactionSurveyRepository = new SatisfactionSurveyRepository(this._session);
+                    satisfactionSurveyRepository = new SatisfactionSurveyRepository(this.context);
                 }
                 return satisfactionSurveyRepository;
             }
@@ -205,7 +154,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (serviceRepository == null)
                 {
-                    serviceRepository = new ServiceRepository(this._session);
+                    serviceRepository = new ServiceRepository(this.context);
                 }
                 return serviceRepository;
             }
@@ -218,25 +167,12 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (taskRepository == null)
                 {
-                    taskRepository = new TaskRepository(this._session);
+                    taskRepository = new TaskRepository(this.context);
                 }
                 return taskRepository;
             }
         }
-
-        private ITaskStatusRepository taskStatusRepository;
-        public ITaskStatusRepository TaskStatusRepository
-        {
-            get
-            {
-                if (taskStatusRepository == null)
-                {
-                    taskStatusRepository = new TaskStatusRepository(this._session);
-                }
-                return taskStatusRepository;
-            }
-        }
-
+        
         private ITopicRepository topicRepository;
         public ITopicRepository TopicRepository
         {
@@ -244,7 +180,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (topicRepository == null)
                 {
-                    topicRepository = new TopicRepository(this._session);
+                    topicRepository = new TopicRepository(this.context);
                 }
                 return topicRepository;
             }
@@ -257,7 +193,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (transferRepository == null)
                 {
-                    transferRepository = new TransferRepository(this._session);
+                    transferRepository = new TransferRepository(this.context);
                 }
                 return transferRepository;
             }
@@ -270,23 +206,52 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             {
                 if (userRepository == null)
                 {
-                    userRepository = new UserRepository(this._session);
+                    userRepository = new UserRepository(this.context);
                 }
                 return userRepository;
             }
         }
 
-        private IUserStatusRepository userStatusRepository;
-        public IUserStatusRepository UserStatusRepository
+        public void SaveChanges()
         {
-            get
+            //TODO: Ver transaction
+            context.SaveChanges();
+        }
+
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
             {
-                if (userStatusRepository == null)
+                if (disposing)
                 {
-                    userStatusRepository = new UserStatusRepository(this._session);
+                    // TODO: dispose managed state (managed objects).
+                    context.Dispose();
                 }
-                return userStatusRepository;
+
+                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+                // TODO: set large fields to null.
+
+                disposedValue = true;
             }
         }
+
+        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+        // ~UnitOfWork() {
+        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+        //   Dispose(false);
+        // }
+
+        // This code added to correctly implement the disposable pattern.
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+            // TODO: uncomment the following line if the finalizer is overridden above.
+            // GC.SuppressFinalize(this);
+        }
+        #endregion
     }
 }

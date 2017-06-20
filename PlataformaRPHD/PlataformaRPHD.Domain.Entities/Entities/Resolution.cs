@@ -2,15 +2,15 @@
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class Resolution : IEntity
+    public class Resolution
     {
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
 
-        public virtual string resolutionText { get; set; }
+        public string resolutionText { get; set; }
 
         public virtual ICollection<Task> Tasks { get; set; }
 
-        private Resolution()
+        private Resolution() //EF
         {
             this.Tasks = new HashSet<Task>();
         }

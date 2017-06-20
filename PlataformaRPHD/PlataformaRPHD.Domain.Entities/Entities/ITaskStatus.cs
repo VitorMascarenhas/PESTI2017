@@ -1,11 +1,7 @@
 ﻿namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public interface ITaskStatus : IEntity
+    public interface ITaskStatus
     {
-        string GetTypeStatus();
-
         void ChangeStatus();
-
-        string ToString();
     }
 }

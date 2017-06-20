@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface IServiceRepository : IBaseRepository<Service>
+    public interface IServiceRepository : IBaseRepository<Service, int>
     {
     }
 }

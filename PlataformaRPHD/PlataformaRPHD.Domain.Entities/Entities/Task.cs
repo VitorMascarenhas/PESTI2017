@@ -2,32 +2,42 @@
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class Task : IEntity
+    public class Task
     {
-        public virtual int Id { get; set; }
-        
+        public int Id { get; set; }
+
+        public virtual int OwnerId { get; set; }
+
         public virtual User Owner { get; set; }
 
-        public virtual ITaskStatus status { get; set; }
+        public string status { get; set; }
+        
+        public virtual int InteractionId { get; set; }
 
         public virtual Interaction Interaction { get; set; }
-        
+
+        public virtual int HistoryOfTransfersId { get; set; }
+
         public virtual HistoryOfTransfers HistoryOfTransfers { get; set; }
-        
+
+        public virtual int historyChangeTaskStatusId { get; set; }
+
         public virtual HistoryChangeTaskStatus historyChangeTaskStatus { get; set; }
         
+        public virtual int resolutionId { get; set; }
+
         public virtual Resolution resolution { get; set; }
 
         public bool close { get; set; }
 
-        private Task()
+        private Task() //EF
         {
         }
 
         public Task(User user, Interaction interaction)
         {
             this.Owner = user;
-            this.status = new OpenStatus(this);
+            this.status = "Aberto";
             this.Interaction = interaction;
             this.HistoryOfTransfers = new HistoryOfTransfers();
             this.historyChangeTaskStatus = new HistoryChangeTaskStatus();
@@ -45,19 +55,19 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             {
                 throw new ArgumentNullException();
             }
-            if (!this.status.GetTypeStatus().Equals(status) && this.close == false)
+            if (!this.status.Equals(status)  && this.close == false)
             {
                 if (status.Equals("Aberto"))
                 {
                     OpenStatus os = new OpenStatus(this);
                     os.ChangeStatus();
-                    this.historyChangeTaskStatus.AddTaskStatus(os);
+                    this.historyChangeTaskStatus.AddTaskStatus(status);
                 }
                 else if (status.Equals("Fechado"))
                 {
                     CloseStatus cs = new CloseStatus(this);
                     cs.ChangeStatus();
-                    this.historyChangeTaskStatus.AddTaskStatus(cs);
+                    this.historyChangeTaskStatus.AddTaskStatus(status);
                 }
             }
         }

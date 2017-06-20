@@ -1,18 +1,24 @@
 ﻿namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class Transfer : IEntity
+    public class Transfer
     {
-        public virtual int Id { get; set; }
-        
+        public int Id { get; set; }
+
+        public virtual int OfUserId { get; set; }
+
         public virtual User OfUser { get; set; }
-        
+
+        public virtual int FromUserId { get; set; }
+
         public virtual User FromUser { get; set; }
-        
+
+        public virtual int WhoTransferredId { get; set; }
+
         public virtual User WhoTransferred { get; set; }
 
-        public virtual string description { get; set; }
+        public string description { get; set; }
 
-        private Transfer()
+        private Transfer() //EF
         {
         }
 

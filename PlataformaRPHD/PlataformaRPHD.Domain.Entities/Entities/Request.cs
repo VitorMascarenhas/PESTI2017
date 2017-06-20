@@ -3,25 +3,29 @@ using System.Collections.Generic;
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class Request : IEntity
+    public class Request
     {
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
+
+        public virtual int WhoRegisteredId { get; set; }
 
         public virtual User WhoRegistered { get; set; }
 
+        public virtual int OwnerId { get; set; }
+
         public virtual User Owner { get; set; }
 
-        public virtual DateTime TimeOfRegistration { get; set; }
+        public DateTime TimeOfRegistration { get; set; }
 
-        public virtual string Title { get; set; }
+        public string Title { get; set; }
 
-        public virtual string Description { get; set; }
+        public string Description { get; set; }
 
         public virtual ICollection<Interaction> Interactions { get; set; }
         
-        public virtual string sourceComputer { get; set; }
+        public string sourceComputer { get; set; }
 
-        private Request()
+        private Request() //EF
         {
             this.Interactions = new HashSet<Interaction>();
         }

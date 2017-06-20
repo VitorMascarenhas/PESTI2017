@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface IHistoryOfTransfersRepository : IBaseRepository<HistoryOfTransfers>
+    public interface IHistoryOfTransfersRepository : IBaseRepository<HistoryOfTransfers, int>
     {
     }
 }

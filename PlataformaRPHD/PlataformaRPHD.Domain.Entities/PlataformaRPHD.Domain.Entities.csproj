@@ -46,7 +46,6 @@
     <Compile Include="Entities\CloseStatus.cs" />
     <Compile Include="Entities\HistoryMessage.cs" />
     <Compile Include="Entities\HistoryOfTransfers.cs" />
-    <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\Interaction.cs" />
     <Compile Include="Entities\ITaskStatus.cs" />
     <Compile Include="Entities\Message.cs" />

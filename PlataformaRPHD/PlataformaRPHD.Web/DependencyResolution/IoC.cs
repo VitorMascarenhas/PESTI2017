@@ -27,7 +27,7 @@ namespace PlataformaRPHD.Web.DependencyResolution
             return new Container(c =>
             {
                 c.AddRegistry<DefaultRegistry>();
-                c.AddRegistry<NHibernateRegistry>();
+                c.AddRegistry<EntityFrameworkRegistry>();
             });
         }
     }

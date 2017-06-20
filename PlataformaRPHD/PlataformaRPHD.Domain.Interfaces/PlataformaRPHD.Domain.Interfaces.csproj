@@ -53,11 +53,9 @@
     <Compile Include="Interfaces\ISatisfactionSurvey.cs" />
     <Compile Include="Interfaces\IServiceRepository.cs" />
     <Compile Include="Interfaces\ITaskRepository.cs" />
-    <Compile Include="Interfaces\ITaskStatusRepository.cs" />
     <Compile Include="Interfaces\ITopicRepository.cs" />
     <Compile Include="Interfaces\ITransferRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
-    <Compile Include="Interfaces\IUserStatusRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
     {
         IAttachmentRepository AttachmentRepository { get; }
 
-        ICategoryRepository CategoryRepository { get; }       
+        ICategoryRepository CategoryRepository { get; }
 
         IHistoryChangeTaskStatusRepository HistoryChangeTaskStatusRepository { get; }
 
@@ -28,20 +28,12 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
 
         ITaskRepository TaskRepository { get; }
 
-        ITaskStatusRepository TaskStatusRepository { get; }
-
         ITopicRepository TopicRepository { get; }
 
         ITransferRepository TransferRepository { get; }
 
         IUserRepository UserRepository { get; }
 
-        IUserStatusRepository UserStatusRepository { get; }
-
-        void BeginTransaction();
-
-        void Commit();
-
-        void Rollback();
+        void SaveChanges();
     }
 }

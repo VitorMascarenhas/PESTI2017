@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface IRequestRepository : IBaseRepository<Request>
+    public interface IRequestRepository : IBaseRepository<Request, int>
     {
     }
 }

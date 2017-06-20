@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface IHistoryMessageRepository : IBaseRepository<HistoryMessage>
+    public interface IHistoryMessageRepository : IBaseRepository<HistoryMessage, int>
     {
     }
 }

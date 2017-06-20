@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface ITaskRepository : IBaseRepository<Task>
+    public interface ITaskRepository : IBaseRepository<Task, int>
     {
     }
 }

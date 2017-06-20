@@ -3,26 +3,24 @@ using System.Collections.Generic;
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class HistoryChangeTaskStatus : IEntity
+    public class HistoryChangeTaskStatus
     {
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
 
-        public virtual Dictionary<ITaskStatus, DateTime> History { get; set; }
+        public virtual Dictionary<string, DateTime> History { get; set; }
 
-        public virtual Task Task { get; set; }
-
-        public HistoryChangeTaskStatus()
+        public HistoryChangeTaskStatus() //EF
         {
-            this.History = new Dictionary<ITaskStatus, DateTime>();
+            this.History = new Dictionary<string, DateTime>();
         }
 
-        public void AddTaskStatus(ITaskStatus taskStatus)
+        public void AddTaskStatus(string status)
         {
-            if (taskStatus == null)
+            if (status == null)
             {
                 throw new ArgumentNullException();
             }
-            this.History.Add(taskStatus, new DateTime());
+            this.History.Add(status, new DateTime());
         }
     }
 }

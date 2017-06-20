@@ -2,17 +2,19 @@
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class Message : IEntity
+    public class Message
     {
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
 
-        public virtual string text { get; set; }
+        public string text { get; set; }
+
+        public virtual int HistoryMessageId { get; set; }
 
         public virtual HistoryMessage HistoryMessage { get; set; }
 
-        public virtual DateTime CreationTime { get; set; }
+        public DateTime CreationTime { get; set; }
 
-        private Message()
+        private Message() //EF
         {
         }
     }
