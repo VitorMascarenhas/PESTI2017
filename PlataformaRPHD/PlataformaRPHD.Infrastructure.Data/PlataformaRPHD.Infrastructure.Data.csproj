@@ -86,9 +86,7 @@
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\HistoryChangeTaskStatusRepository.cs" />
-    <Compile Include="Repositories\HistoryMessageRepository.cs" />
-    <Compile Include="Repositories\HistoryOfTransfersRepository.cs" />
+    <Compile Include="Repositories\ChangeTaskStatusRepository.cs" />
     <Compile Include="Repositories\InteractionRepository.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
     <Compile Include="Repositories\MessageRepository.cs" />

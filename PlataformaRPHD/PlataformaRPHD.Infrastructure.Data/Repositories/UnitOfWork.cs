@@ -43,45 +43,6 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             }
         }
 
-        private IHistoryChangeTaskStatusRepository historyChangeTaskStatusRepository;
-        public IHistoryChangeTaskStatusRepository HistoryChangeTaskStatusRepository
-        {
-            get
-            {
-                if (historyChangeTaskStatusRepository == null)
-                {
-                    historyChangeTaskStatusRepository = new HistoryChangeTaskStatusRepository(this.context);
-                }
-                return historyChangeTaskStatusRepository;
-            }
-        }
-
-        private IHistoryMessageRepository historyMessageRepository;
-        public IHistoryMessageRepository HistoryMessageRepository
-        {
-            get
-            {
-                if (historyMessageRepository == null)
-                {
-                    historyMessageRepository = new HistoryMessageRepository(this.context);
-                }
-                return historyMessageRepository;
-            }
-        }
-
-        private IHistoryOfTransfersRepository historyOfTransfersRepository;
-        public IHistoryOfTransfersRepository HistoryOfTransfersRepository
-        {
-            get
-            {
-                if (historyOfTransfersRepository == null)
-                {
-                    historyOfTransfersRepository = new HistoryOfTransfersRepository(this.context);
-                }
-                return historyOfTransfersRepository;
-            }
-        }
-
         private IInteractionRepository interactionRepository;
         public IInteractionRepository InteractionRepository
         {

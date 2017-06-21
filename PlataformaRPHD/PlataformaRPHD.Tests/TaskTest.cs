@@ -25,27 +25,27 @@ namespace PlataformaRPHD.Tests
             Interaction i1 = new Interaction(s1, t2, r1);
             
             Task task1 = new Task(u1, i1);
-            int c = task1.historyChangeTaskStatus.History.Count;
+            int c = task1.HistoryChangeTaskStatus.Count;
             Assert.AreEqual(c, 1);
 
             task1.ChangeStatus("Fechado");
-            c = task1.historyChangeTaskStatus.History.Count;
+            c = task1.HistoryChangeTaskStatus.Count;
             Assert.AreEqual(c, 2);
 
             task1.ChangeStatus("Fechado");
-            c = task1.historyChangeTaskStatus.History.Count;
+            c = task1.HistoryChangeTaskStatus.Count;
             Assert.AreEqual(c, 2);
 
             task1.ChangeStatus("Aberto");
-            c = task1.historyChangeTaskStatus.History.Count;
+            c = task1.HistoryChangeTaskStatus.Count;
             Assert.AreEqual(c, 2);
 
             task1.ChangeStatus("Aberto");
-            c = task1.historyChangeTaskStatus.History.Count;
+            c = task1.HistoryChangeTaskStatus.Count;
             Assert.AreEqual(c, 2);
             
             task1.ChangeStatus("Fechado");
-            c = task1.historyChangeTaskStatus.History.Count;
+            c = task1.HistoryChangeTaskStatus.Count;
             Assert.AreEqual(c, 2);
         }
 
@@ -80,7 +80,7 @@ namespace PlataformaRPHD.Tests
             Assert.AreEqual(task.Owner.Name.LastName, "Mascarenhas");
             task.Transfer(u2, u3, "Impossibilidade.");
 
-            Assert.AreEqual(task.HistoryOfTransfers.Transfers.Count, 1);
+            Assert.AreEqual(task.Transfers.Count, 1);
             Assert.AreEqual(task.Owner.Name.FirstName, "Carlos");
             Assert.AreEqual(task.Owner.Name.LastName, "Alberto");
 

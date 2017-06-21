@@ -21,14 +21,15 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         public virtual Topic Topic { get; set; }
 
         public virtual ICollection<Attachment> attachments { get; set; }
+        
+        public virtual int HistoryMessage { get; set; }
 
-        public virtual int HistoryMessageId { get; set; }
-
-        public virtual HistoryMessage HistoryMessage { get; set; }
+        public virtual ICollection<Message> HistoryMessages { get; set; }
 
         private Interaction() //EF
         {
             this.attachments = new HashSet<Attachment>();
+            this.HistoryMessages = new List<Message>();
         }
 
         public Interaction(Service service, Topic topic, Request request) : this()
@@ -36,7 +37,6 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             this.service = service;
             this.Topic = topic;
             this.Request = request;
-            this.HistoryMessage = new HistoryMessage();
         }
     }
 }

@@ -42,12 +42,10 @@
   <ItemGroup>
     <Compile Include="Entities\Attachment.cs" />
     <Compile Include="Entities\Category.cs" />
-    <Compile Include="Entities\HistoryChangeTaskStatus.cs" />
+    <Compile Include="Entities\ChangeTaskStatus.cs" />
     <Compile Include="Entities\CloseStatus.cs" />
-    <Compile Include="Entities\HistoryMessage.cs" />
-    <Compile Include="Entities\HistoryOfTransfers.cs" />
     <Compile Include="Entities\Interaction.cs" />
-    <Compile Include="Entities\ITaskStatus.cs" />
+    <Compile Include="Entities\TaskStatus.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\OpenStatus.cs" />
     <Compile Include="Entities\Request.cs" />

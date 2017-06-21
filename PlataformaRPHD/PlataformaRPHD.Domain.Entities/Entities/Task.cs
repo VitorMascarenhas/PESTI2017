@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
@@ -10,20 +11,16 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public virtual User Owner { get; set; }
 
-        public string status { get; set; }
+        public TaskStatus status { get; set; }
         
         public virtual int InteractionId { get; set; }
 
         public virtual Interaction Interaction { get; set; }
 
-        public virtual int HistoryOfTransfersId { get; set; }
+        public ICollection<Transfer> Transfers { get; set; }
 
-        public virtual HistoryOfTransfers HistoryOfTransfers { get; set; }
+        public ICollection<ChangeTaskStatus> HistoryChangeTaskStatus { get; set; }
 
-        public virtual int historyChangeTaskStatusId { get; set; }
-
-        public virtual HistoryChangeTaskStatus historyChangeTaskStatus { get; set; }
-        
         public virtual int resolutionId { get; set; }
 
         public virtual Resolution resolution { get; set; }
@@ -32,16 +29,15 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         private Task() //EF
         {
+            this.HistoryChangeTaskStatus = new List<ChangeTaskStatus>();
+            this.Transfers = new List<Transfer>();
         }
 
-        public Task(User user, Interaction interaction)
+        public Task(User user, Interaction interaction) : this()
         {
             this.Owner = user;
-            this.status = "Aberto";
+            this.status = new OpenStatus(this);
             this.Interaction = interaction;
-            this.HistoryOfTransfers = new HistoryOfTransfers();
-            this.historyChangeTaskStatus = new HistoryChangeTaskStatus();
-            this.historyChangeTaskStatus.AddTaskStatus(this.status);
             this.close = false;
         }
 
@@ -61,22 +57,23 @@ namespace PlataformaRPHD.Domain.Entities.Entities
                 {
                     OpenStatus os = new OpenStatus(this);
                     os.ChangeStatus();
-                    this.historyChangeTaskStatus.AddTaskStatus(status);
+                    ChangeTaskStatus cts = new ChangeTaskStatus(this.Id, os);
+                    this.HistoryChangeTaskStatus.Add(cts);
                 }
                 else if (status.Equals("Fechado"))
                 {
                     CloseStatus cs = new CloseStatus(this);
                     cs.ChangeStatus();
-                    this.historyChangeTaskStatus.AddTaskStatus(status);
+                    ChangeTaskStatus cts = new ChangeTaskStatus(this.Id, cs);
+                    this.HistoryChangeTaskStatus.Add(cts);
                 }
             }
         }
 
         public void Transfer(User forUser, User whoUser, string description)
         {
-            Transfer transfer = new Transfer(this.Owner, forUser, whoUser, description);
-            this.Owner = forUser;
-            this.HistoryOfTransfers.AddTransfer(transfer);
+            Transfer transfer = new Transfer(this.Id, this.Owner, forUser, whoUser, description);
+            this.Transfers.Add(transfer);
         }
     }
 }

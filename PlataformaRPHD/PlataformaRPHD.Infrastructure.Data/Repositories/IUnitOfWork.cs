@@ -8,12 +8,6 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
 
         ICategoryRepository CategoryRepository { get; }
 
-        IHistoryChangeTaskStatusRepository HistoryChangeTaskStatusRepository { get; }
-
-        IHistoryMessageRepository HistoryMessageRepository { get; }
-
-        IHistoryOfTransfersRepository HistoryOfTransfersRepository { get; }
-
         IInteractionRepository InteractionRepository { get; }
 
         IMessageRepository MessageRepository { get; }

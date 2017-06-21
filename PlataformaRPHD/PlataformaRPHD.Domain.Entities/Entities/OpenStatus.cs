@@ -1,7 +1,9 @@
 ﻿namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class OpenStatus : ITaskStatus
+    public class OpenStatus : TaskStatus
     {
+        public string status = "Aberto";
+
         private Task _task;
 
         public OpenStatus(Task task)
@@ -9,9 +11,14 @@
             this._task = task;
         }
 
-        public void ChangeStatus()
+        public string GetStatus()
         {
-            this._task.status = "Aberto";
+            return this.status;
+        }
+
+        public override void ChangeStatus()
+        {
+            this._task.status = this;
         }
     }
 }

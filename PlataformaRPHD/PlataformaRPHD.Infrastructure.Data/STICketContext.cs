@@ -17,15 +17,11 @@ namespace PlataformaRPHD.Infrastructure.Data
 
         public DbSet<Category> Categories { get; set; }
 
-        public DbSet<HistoryChangeTaskStatus> HistoryChangesTaskStatus { get; set; }
-
-        public DbSet<HistoryMessage> HistoryMessages { get; set; }
-
-        public DbSet<HistoryOfTransfers> HistoryOfTransfers { get; set; }
-
-        public DbSet<Interaction> Interactions { get; set; }
+        public DbSet<ChangeTaskStatus> ChangesTaskStatus { get; set; }
 
         public DbSet<Message> Messages { get; set; }
+
+        public DbSet<Interaction> Interactions { get; set; }
 
         public DbSet<Request> Requests { get; set; }
 

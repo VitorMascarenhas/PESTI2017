@@ -43,9 +43,7 @@
     <Compile Include="Interfaces\IAttachmentRepository.cs" />
     <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\ICategoryRepository.cs" />
-    <Compile Include="Interfaces\IHistoryChangeTaskStatusRepository.cs" />
-    <Compile Include="Interfaces\IHistoryMessageRepository.cs" />
-    <Compile Include="Interfaces\IHistoryOfTransfersRepository.cs" />
+    <Compile Include="Interfaces\IChangeTaskStatus.cs" />
     <Compile Include="Interfaces\IInteractionRepository.cs" />
     <Compile Include="Interfaces\IMessageRepository.cs" />
     <Compile Include="Interfaces\IRequestRepository.cs" />
