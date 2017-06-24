@@ -19,9 +19,9 @@ namespace PlataformaRPHD.Infrastructure.Data
 
         public DbSet<ChangeTaskStatus> ChangesTaskStatus { get; set; }
 
-        public DbSet<Message> Messages { get; set; }
-
         public DbSet<Interaction> Interactions { get; set; }
+
+        public DbSet<Message> Messages { get; set; }
 
         public DbSet<Request> Requests { get; set; }
 
@@ -32,6 +32,8 @@ namespace PlataformaRPHD.Infrastructure.Data
         public DbSet<Service> Services { get; set; }
 
         public DbSet<Task> Tasks { get; set; }
+
+        public DbSet<TaskStatus> TasksStatus { get; set; }
 
         public DbSet<Topic> Topics { get; set; }
 

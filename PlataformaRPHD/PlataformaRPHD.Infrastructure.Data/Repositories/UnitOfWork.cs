@@ -30,6 +30,19 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             }
         }
 
+        private IChangeTaskStatusRepository changeTaskStatusRepository;
+        public IChangeTaskStatusRepository ChangeTaskStatusRepository
+        {
+            get
+            {
+                if (changeTaskStatusRepository == null)
+                {
+                    changeTaskStatusRepository = new ChangeTaskStatusRepository(this.context);
+                }
+                return changeTaskStatusRepository;
+            }
+        }
+
         private ICategoryRepository categoryRepository;
         public ICategoryRepository CategoryRepository
         {
@@ -133,7 +146,20 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
                 return taskRepository;
             }
         }
-        
+
+        private ITaskStatusRepository taskStatusRepository;
+        public ITaskStatusRepository TaskStatusRepository
+        {
+            get
+            {
+                if (taskStatusRepository == null)
+                {
+                    taskStatusRepository = new TaskStatusRepository(this.context);
+                }
+                return taskStatusRepository;
+            }
+        }
+
         private ITopicRepository topicRepository;
         public ITopicRepository TopicRepository
         {

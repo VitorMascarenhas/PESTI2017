@@ -10,8 +10,6 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public virtual Request Request { get; set; }
 
-        public virtual int TaskId { get; set; }
-
         public virtual int serviceId { get; set; }
 
         public virtual Service service { get; set; }
@@ -22,8 +20,6 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public virtual ICollection<Attachment> attachments { get; set; }
         
-        public virtual int HistoryMessage { get; set; }
-
         public virtual ICollection<Message> HistoryMessages { get; set; }
 
         private Interaction() //EF

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
@@ -11,17 +12,18 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         public virtual int UserId { get; set; }
 
         public virtual User auth { get; set; }
-
-        public virtual int TaskId { get; set; }
-
+        
         public virtual Task Task { get; set; }
 
         public TaskStatus TaskStatus { get; set; }
 
-        public ChangeTaskStatus(int TaskId, TaskStatus taskStatus)
+        private ChangeTaskStatus() //EF
         {
-            this.TaskId = TaskId;
-            this.changed = new DateTime();
+        }
+
+        public ChangeTaskStatus(/*int TaskId,*/ TaskStatus taskStatus)
+        {
+            //this.TaskId = TaskId;
             this.TaskStatus = TaskStatus;
         }
     }

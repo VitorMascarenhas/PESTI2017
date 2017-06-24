@@ -20,9 +20,8 @@ namespace PlataformaRPHD.Tests
             Assert.AreNotEqual(r.Owner.Name.FirstName, "Mascarenhas");
             Assert.AreEqual(r.Owner.Name.LastName, "Mascarenhas");
             Assert.AreEqual(r.WhoRegistered.Name.FirstName, "Vitor");
-            Assert.AreNotEqual(r.WhoRegistered.Name.FirstName, "Mascarenhas");
-            Assert.AreEqual(r.WhoRegistered.Name.LastName, "Mascarenhas");
-
+            Assert.AreNotEqual(r.WhoRegistered.Name.LastName, "Mascarenhas");
+            
             Assert.AreEqual(r.Title, "Pedido de login");
             Assert.AreNotEqual(r.Description, "Pedido de login para HCis");
 

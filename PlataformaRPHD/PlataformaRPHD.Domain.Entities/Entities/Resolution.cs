@@ -14,5 +14,10 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         {
             this.Tasks = new HashSet<Task>();
         }
+
+        private Resolution(string resolution)
+        {
+            this.resolutionText = resolution;
+        }
     }
 }

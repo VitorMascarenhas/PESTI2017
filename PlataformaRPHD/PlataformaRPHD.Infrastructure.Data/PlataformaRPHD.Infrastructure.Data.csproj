@@ -82,6 +82,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\AttachmentRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Repositories\SatisfactionSurveyRepository.cs" />
     <Compile Include="Repositories\ServiceRepository.cs" />
     <Compile Include="Repositories\TaskRepository.cs" />
+    <Compile Include="Repositories\TaskStatusRepository.cs" />
     <Compile Include="Repositories\TopicRepository.cs" />
     <Compile Include="Repositories\TransferRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />

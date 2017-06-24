@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
@@ -7,11 +8,13 @@ namespace PlataformaRPHD.Domain.Entities.Entities
     {
         public int Id { get; set; }
 
-        public virtual int WhoRegisteredId { get; set; }
 
-        public virtual User WhoRegistered { get; set; }
+        //public virtual int WhoRegisteredId { get; set; }
 
-        public virtual int OwnerId { get; set; }
+        public virtual User WhoRegistered {get; set; }
+
+        //[ForeignKey("User")]
+        //public virtual int OwnerId { get; set; }
 
         public virtual User Owner { get; set; }
 
@@ -30,9 +33,10 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             this.Interactions = new HashSet<Interaction>();
         }
 
-        public Request(User whoRegistered, User owner, string title, string description)
+        public Request(User WhoRegistered, User owner, string title, string description)
         {
-            this.WhoRegistered = whoRegistered;
+            this.WhoRegistered = WhoRegistered;
+            this.Owner = owner;
             this.Owner = owner;
             this.Title = title;
             this.Description = description;

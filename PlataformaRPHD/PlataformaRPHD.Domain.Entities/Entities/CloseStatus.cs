@@ -4,8 +4,6 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 {
     public class CloseStatus : TaskStatus
     {
-        public string status = "Fechado";
-
         private Task _task;
         
         private CloseStatus() //EF
@@ -14,6 +12,7 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public CloseStatus(Task task)
         {
+            this.status = "Fechado";
             this._task = task;
         }
 

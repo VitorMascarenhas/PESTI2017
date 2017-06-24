@@ -19,7 +19,7 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public ICollection<Transfer> Transfers { get; set; }
 
-        public ICollection<ChangeTaskStatus> HistoryChangeTaskStatus { get; set; }
+        public ICollection<ChangeTaskStatus> HistoryChangeStatus { get; set; }
 
         public virtual int resolutionId { get; set; }
 
@@ -29,7 +29,7 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         private Task() //EF
         {
-            this.HistoryChangeTaskStatus = new List<ChangeTaskStatus>();
+            this.HistoryChangeStatus = new List<ChangeTaskStatus>();
             this.Transfers = new List<Transfer>();
         }
 
@@ -57,15 +57,15 @@ namespace PlataformaRPHD.Domain.Entities.Entities
                 {
                     OpenStatus os = new OpenStatus(this);
                     os.ChangeStatus();
-                    ChangeTaskStatus cts = new ChangeTaskStatus(this.Id, os);
-                    this.HistoryChangeTaskStatus.Add(cts);
+                    ChangeTaskStatus cts = new ChangeTaskStatus(/*this.Id,*/ os);
+                    this.HistoryChangeStatus.Add(cts);
                 }
                 else if (status.Equals("Fechado"))
                 {
                     CloseStatus cs = new CloseStatus(this);
                     cs.ChangeStatus();
-                    ChangeTaskStatus cts = new ChangeTaskStatus(this.Id, cs);
-                    this.HistoryChangeTaskStatus.Add(cts);
+                    ChangeTaskStatus cts = new ChangeTaskStatus(/*this.Id,*/ cs);
+                    this.HistoryChangeStatus.Add(cts);
                 }
             }
         }

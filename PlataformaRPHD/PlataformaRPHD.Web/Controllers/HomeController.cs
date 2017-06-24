@@ -18,8 +18,9 @@ namespace PlataformaRPHD.Web.Controllers
         public ActionResult Index()
         {
             var model = new CategoryViewModel { Id = 1, Description = "sdfsdf", Name = "dsdsd" };
-            var category = Mapper.Map<Category>(model);
-            unitOfWork.CategoryRepository.InsertOrUpdate(category);
+            var category = new Category("Aplicacional", "STICket");
+
+            unitOfWork.CategoryRepository.Insert(category);
             //var Category = new Category("Categoria", "Descrição da categoria");
             //unitOfWork.CategoryRepository.Create(category);
             //var cat = unitOfWork.CategoryRepository.GetById(1);

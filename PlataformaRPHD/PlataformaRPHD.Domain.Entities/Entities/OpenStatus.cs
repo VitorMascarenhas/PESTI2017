@@ -2,12 +2,15 @@
 {
     public class OpenStatus : TaskStatus
     {
-        public string status = "Aberto";
-
         private Task _task;
+
+        private OpenStatus() //EF
+        {
+        }
 
         public OpenStatus(Task task)
         {
+            this.status = "Aberto";
             this._task = task;
         }
 

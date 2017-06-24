@@ -6,6 +6,8 @@ namespace PlataformaRPHD.Tests
     [TestFixture]
     public class TaskTest
     {
+        private UserName un1;
+
         [Test]
         public void ChangeTaskStatusTest()
         {
@@ -25,27 +27,27 @@ namespace PlataformaRPHD.Tests
             Interaction i1 = new Interaction(s1, t2, r1);
             
             Task task1 = new Task(u1, i1);
-            int c = task1.HistoryChangeTaskStatus.Count;
+            int c = task1.HistoryChangeStatus.Count;
             Assert.AreEqual(c, 1);
 
             task1.ChangeStatus("Fechado");
-            c = task1.HistoryChangeTaskStatus.Count;
+            c = task1.HistoryChangeStatus.Count;
             Assert.AreEqual(c, 2);
 
             task1.ChangeStatus("Fechado");
-            c = task1.HistoryChangeTaskStatus.Count;
+            c = task1.HistoryChangeStatus.Count;
             Assert.AreEqual(c, 2);
 
             task1.ChangeStatus("Aberto");
-            c = task1.HistoryChangeTaskStatus.Count;
+            c = task1.HistoryChangeStatus.Count;
             Assert.AreEqual(c, 2);
 
             task1.ChangeStatus("Aberto");
-            c = task1.HistoryChangeTaskStatus.Count;
+            c = task1.HistoryChangeStatus.Count;
             Assert.AreEqual(c, 2);
             
             task1.ChangeStatus("Fechado");
-            c = task1.HistoryChangeTaskStatus.Count;
+            c = task1.HistoryChangeStatus.Count;
             Assert.AreEqual(c, 2);
         }
 

@@ -1,21 +1,22 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
     public class Transfer
     {
         public int Id { get; set; }
-
-        public virtual int OfUserId { get; set; }
-
+        
+        //public virtual int OfUserId { get; set; }
+        //[ForeignKey("OfUserId")]
         public virtual User OfUser { get; set; }
 
-        public virtual int FromUserId { get; set; }
-
+        //public virtual int FromUserId { get; set; }
+        //[ForeignKey("FromUserId")]
         public virtual User FromUser { get; set; }
-
-        public virtual int WhoTransferredId { get; set; }
-
+        
+        //public virtual int WhoTransferredId { get; set; }
+        //[ForeignKey("WhoTransferredId")]
         public virtual User WhoTransferred { get; set; }
 
         public string description { get; set; }

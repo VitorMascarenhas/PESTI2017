@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface IChangeTaskStatus : IBaseRepository<ChangeTaskStatus, int>
+    public interface IChangeTaskStatusRepository : IBaseRepository<ChangeTaskStatus, int>
     {
     }
 }

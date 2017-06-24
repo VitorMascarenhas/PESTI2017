@@ -8,6 +8,8 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
 
         ICategoryRepository CategoryRepository { get; }
 
+        IChangeTaskStatusRepository ChangeTaskStatusRepository { get; }
+
         IInteractionRepository InteractionRepository { get; }
 
         IMessageRepository MessageRepository { get; }
@@ -21,6 +23,8 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
         IServiceRepository ServiceRepository { get; }
 
         ITaskRepository TaskRepository { get; }
+
+        ITaskStatusRepository TaskStatusRepository { get; }
 
         ITopicRepository TopicRepository { get; }
 

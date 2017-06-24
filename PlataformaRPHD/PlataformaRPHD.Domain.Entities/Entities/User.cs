@@ -1,5 +1,4 @@
-﻿using PlataformaRPHD.Domain.Entities.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {

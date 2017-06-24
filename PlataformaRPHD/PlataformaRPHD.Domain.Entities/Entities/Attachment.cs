@@ -4,6 +4,8 @@
     {
         public int Id { get; set; }
 
+        public virtual int InterationId { get; set; }
+
         public virtual Interaction Interaction { get; set; }
 
         private Attachment() //EF
