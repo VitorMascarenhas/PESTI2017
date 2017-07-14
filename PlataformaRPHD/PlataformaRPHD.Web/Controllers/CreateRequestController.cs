@@ -1,11 +1,14 @@
-﻿using PlataformaRPHD.Infrastructure.Data.Repositories;
+﻿using AutoMapper;
+using PlataformaRPHD.Infrastructure.Data.Repositories;
+using PlataformaRPHD.Web.ViewModels;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace PlataformaRPHD.Web.Controllers
 {
     public class CreateRequestController : Controller
     {
-        IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
 
         public CreateRequestController(IUnitOfWork unitOfWork)
         {
@@ -15,7 +18,14 @@ namespace PlataformaRPHD.Web.Controllers
         // GET: CreateRequest
         public ActionResult Index()
         {
-            return View();
+            var allCategories = unitOfWork.CategoryRepository.GetAll();
+            var allServices = unitOfWork.ServiceRepository.GetAll();
+
+            CreateRequestViewModel result = new CreateRequestViewModel();
+            result.categories = Mapper.Map<IEnumerable<CategoryViewModel>>(allCategories);
+            result.services = Mapper.Map<IEnumerable<ServiceViewModel>>(allServices);
+
+            return View(result);
         }
     }
 }

@@ -15,6 +15,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
         public UnitOfWork(DbContext context)
         {
             this.context = context;
+            //this.context = new STICketContext();
         }
 
         private IAttachmentRepository attachmentRepository;

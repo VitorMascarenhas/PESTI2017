@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
@@ -8,13 +7,7 @@ namespace PlataformaRPHD.Domain.Entities.Entities
     {
         public int Id { get; set; }
 
-
-        //public virtual int WhoRegisteredId { get; set; }
-
         public virtual User WhoRegistered {get; set; }
-
-        //[ForeignKey("User")]
-        //public virtual int OwnerId { get; set; }
 
         public virtual User Owner { get; set; }
 
@@ -28,9 +21,16 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         
         public string sourceComputer { get; set; }
 
+        public virtual ICollection<Attachment> attachments { get; set; }
+
+        public string contact { get; set; }
+
+        public string origin { get; set; }
+
         private Request() //EF
         {
             this.Interactions = new HashSet<Interaction>();
+            this.attachments = new HashSet<Attachment>();
         }
 
         public Request(User WhoRegistered, User owner, string title, string description)
@@ -40,6 +40,19 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             this.Owner = owner;
             this.Title = title;
             this.Description = description;
+        }
+
+        public Request(User WhoRegistered, User Owner, string title, string description, ICollection<Interaction> interactions, ICollection<Attachment> attachments, string computer, string contact, string origin)
+        {
+            this.WhoRegistered = WhoRegistered;
+            this.Owner = Owner;
+            this.Title = title;
+            this.Description = description;
+            this.Interactions = interactions;
+            this.attachments = attachments;
+            this.sourceComputer = computer;
+            this.TimeOfRegistration = new DateTime();
+            this.origin = origin;
         }
     }
 }

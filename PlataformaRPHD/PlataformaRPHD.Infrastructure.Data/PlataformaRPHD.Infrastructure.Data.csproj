@@ -82,6 +82,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201706261708312_attachmentForRequest.cs" />
+    <Compile Include="Migrations\201706261708312_attachmentForRequest.Designer.cs">
+      <DependentUpon>201706261708312_attachmentForRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706261928416_interactionWithTitle.cs" />
+    <Compile Include="Migrations\201706261928416_interactionWithTitle.Designer.cs">
+      <DependentUpon>201706261928416_interactionWithTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707071235288_requestWithContact.cs" />
+    <Compile Include="Migrations\201707071235288_requestWithContact.Designer.cs">
+      <DependentUpon>201707071235288_requestWithContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707092032470_requestWithContactAndOrigin.cs" />
+    <Compile Include="Migrations\201707092032470_requestWithContactAndOrigin.Designer.cs">
+      <DependentUpon>201707092032470_requestWithContactAndOrigin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\AttachmentRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -117,7 +133,20 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706261708312_attachmentForRequest.resx">
+      <DependentUpon>201706261708312_attachmentForRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706261928416_interactionWithTitle.resx">
+      <DependentUpon>201706261928416_interactionWithTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707071235288_requestWithContact.resx">
+      <DependentUpon>201707071235288_requestWithContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707092032470_requestWithContactAndOrigin.resx">
+      <DependentUpon>201707092032470_requestWithContactAndOrigin.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

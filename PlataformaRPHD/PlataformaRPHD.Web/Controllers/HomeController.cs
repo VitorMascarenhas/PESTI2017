@@ -2,6 +2,7 @@
 using PlataformaRPHD.Domain.Entities.Entities;
 using PlataformaRPHD.Infrastructure.Data.Repositories;
 using PlataformaRPHD.Web.ViewModels;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace PlataformaRPHD.Web.Controllers
@@ -17,16 +18,8 @@ namespace PlataformaRPHD.Web.Controllers
         
         public ActionResult Index()
         {
-            var model = new CategoryViewModel { Id = 1, Description = "sdfsdf", Name = "dsdsd" };
-            var category = new Category("Aplicacional", "STICket");
-
-            unitOfWork.CategoryRepository.Insert(category);
-            //var Category = new Category("Categoria", "Descrição da categoria");
-            //unitOfWork.CategoryRepository.Create(category);
-            //var cat = unitOfWork.CategoryRepository.GetById(1);
             
-
-            return View(model);
+            return View();
         }
 
         public ActionResult About()

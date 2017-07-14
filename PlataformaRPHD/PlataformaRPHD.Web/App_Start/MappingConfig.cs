@@ -9,9 +9,18 @@ namespace PlataformaRPHD.Web.App_Start
         {
             AutoMapper.Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Category, CategoryViewModel>().ReverseMap();
                 cfg.CreateMap<Attachment, AttachmentViewModel>().ReverseMap();
+
+                cfg.CreateMap<Category, CategoryViewModel>().ReverseMap();
+
+                cfg.CreateMap<Request, CreateRequestUserViewModel>().ReverseMap();
+
                 cfg.CreateMap<Request, CreateRequestViewModel>().ReverseMap();
+
+                cfg.CreateMap<Topic, TopicViewModel>().ReverseMap();
+
+                cfg.CreateMap<Service, ServiceViewModel>().ReverseMap();
+
                 //cfg.CreateMap<BusinessHours, BusinessHoursViewModel>().ReverseMap();
                 //cfg.CreateMap<Hashtag, HashtagViewModel>().ReverseMap();
                 //cfg.CreateMap<Visit, VisitViewModel>().ReverseMap();

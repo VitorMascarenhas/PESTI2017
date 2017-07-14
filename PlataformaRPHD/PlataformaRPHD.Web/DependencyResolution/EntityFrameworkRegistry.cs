@@ -8,7 +8,7 @@ namespace PlataformaRPHD.Web.DependencyResolution
     {
         public EntityFrameworkRegistry()
         {
-            For<DbContext>().Use(new STICketContext());
+            For<DbContext>().Use(()=>new STICketContext());
         }
     }
 }

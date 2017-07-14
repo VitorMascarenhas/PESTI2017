@@ -4,9 +4,11 @@
     {
         public int Id { get; set; }
 
-        public virtual int InterationId { get; set; }
+        public string Name { get; set; }
 
-        public virtual Interaction Interaction { get; set; }
+        public virtual int RequestId { get; set; }
+
+        public virtual Request Requests { get; set; }
 
         private Attachment() //EF
         {

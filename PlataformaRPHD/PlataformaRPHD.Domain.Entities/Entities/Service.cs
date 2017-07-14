@@ -11,5 +11,10 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         public Service() //EF
         {
         }
+
+        public Service(string ServiceName)
+        {
+            this.Name = ServiceName;
+        }
     }
 }
