@@ -6,47 +6,53 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using PlataformaRPHD.Domain.Entities.Entities;
 using PlataformaRPHD.Infrastructure.Data;
+using System.Collections.Generic;
 
 namespace STICket.WebServices.Controllers
 {
-    public class ServicesController : ApiController
+    public class CategoriesController : ApiController
     {
         private STICketContext db = new STICketContext();
 
-        // GET: api/Services
-        public IQueryable<Service> GetServices()
+        // GET: api/Categories
+        public IQueryable<Category> GetCategories()
         {
-            return db.Services;
+            return db.Categories;
         }
 
-        // GET: api/Services/5
-        [ResponseType(typeof(Service))]
-        public IHttpActionResult GetService(int id)
+        public IHttpActionResult GetDownward(int categoryId)
         {
-            Service service = db.Services.Find(id);
-            if (service == null)
+            return Ok(db.Topics.Where(x => x.UpCategory.Id == categoryId).Select(x => x.DownCategory));
+        }
+        
+        // GET: api/Categories/5
+        [ResponseType(typeof(Category))]
+        public IHttpActionResult GetCategory(int id)
+        {
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return Ok(service);
+            return Ok(category);
         }
 
-        // PUT: api/Services/5
+        // PUT: api/Categories/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutService(int id, Service service)
+        public IHttpActionResult PutCategory(int id, Category category)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != service.Id)
+            if (id != category.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(service).State = EntityState.Modified;
+            db.Entry(category).State = EntityState.Modified;
 
             try
             {
@@ -54,7 +60,7 @@ namespace STICket.WebServices.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ServiceExists(id))
+                if (!CategoryExists(id))
                 {
                     return NotFound();
                 }
@@ -67,35 +73,35 @@ namespace STICket.WebServices.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Services
-        [ResponseType(typeof(Service))]
-        public IHttpActionResult PostService(Service service)
+        // POST: api/Categories
+        [ResponseType(typeof(Category))]
+        public IHttpActionResult PostCategory(Category category)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Services.Add(service);
+            db.Categories.Add(category);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = service.Id }, service);
+            return CreatedAtRoute("DefaultApi", new { id = category.Id }, category);
         }
 
-        // DELETE: api/Services/5
-        [ResponseType(typeof(Service))]
-        public IHttpActionResult DeleteService(int id)
+        // DELETE: api/Categories/5
+        [ResponseType(typeof(Category))]
+        public IHttpActionResult DeleteCategory(int id)
         {
-            Service service = db.Services.Find(id);
-            if (service == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return NotFound();
             }
 
-            db.Services.Remove(service);
+            db.Categories.Remove(category);
             db.SaveChanges();
 
-            return Ok(service);
+            return Ok(category);
         }
 
         protected override void Dispose(bool disposing)
@@ -107,9 +113,9 @@ namespace STICket.WebServices.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ServiceExists(int id)
+        private bool CategoryExists(int id)
         {
-            return db.Services.Count(e => e.Id == id) > 0;
+            return db.Categories.Count(e => e.Id == id) > 0;
         }
     }
 }

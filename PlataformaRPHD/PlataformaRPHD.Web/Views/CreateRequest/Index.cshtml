@@ -22,6 +22,7 @@
                                     <select>
                                         <option id="1">E-mail</option>
                                         <option id="2">Contacto telefónico</option>
+                                        <option id="3">Presencial</option>
                                     </select>
                                     @Html.ValidationMessageFor(model => model.services)
                                 </div>
@@ -89,33 +90,9 @@
 </div>
 
 
+
+
 @section scripts
 {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/plugins/markdown")
 
-    <script src="~/scripts/jsrender.js"></script>
-    <script id="serviceTemplate" type="text/x-jsrender">
-        <option value="{{:Id}}">{{:Name}}</option>
-    </script>
-
-    function LoadServices() {
-    var url = "http://localhost:50645/api/services";
-    $.ajax({
-    type: 'GET',
-    contentType: application/json,
-    url: url,
-    success: ShowServices
-    });
-    }
-
-    function ShowServices(servicesDocument) {
-
-    for(var i=0; i < servicesDocument.length;i++) {
-    $(".dropdown-services").append('<option id="' + servicesDocument.Id + '">' + servicesDocument.Name + '</option>')
-    }
-
-    $(".dropdown-services").html(
-    $("#serviceTemplate").render(servicesDocument));
-}
 }
