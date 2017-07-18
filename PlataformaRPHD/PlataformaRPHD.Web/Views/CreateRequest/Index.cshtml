@@ -20,8 +20,8 @@
                                 @Html.Label("Origem", new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
                                     <select>
-                                        <option id="1">E-mail</option>
-                                        <option id="2">Contacto telefónico</option>
+                                        <option id="1">Contacto telefónico</option>
+                                        <option id="2">E-mail</option>
                                         <option id="3">Presencial</option>
                                     </select>
                                     @Html.ValidationMessageFor(model => model.services)
@@ -75,8 +75,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
-                                    @Html.ActionLink("Seguinte", "AddAttachment", null, new { @class = "btn btn-primary" })
-                                    <!--<input type="submit" value="Seguinte" class="btn btn-primary" />-->
+                                    <input type="submit" value="Seguinte" class="btn btn-primary" />
                                     @Html.ActionLink("Cancelar", "Index", "Home", new { @class = "btn btn-white" })
                                 </div>
                             </div>
@@ -89,10 +88,3 @@
     </div>
 </div>
 
-
-
-
-@section scripts
-{
-
-}

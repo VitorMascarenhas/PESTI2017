@@ -29,23 +29,17 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(CreateRequestUserViewModel createRequestUserViewModel)
+        public ActionResult Index(CreateRequestUserViewModel createRequestUser)
         {
-            return RedirectToAction("AddAttachment", createRequestUserViewModel);
+            return RedirectToAction("AddAttachment", createRequestUser);
         }
 
         // GET
-        public ActionResult AddAttachment()
+        public ActionResult AddAttachment(CreateRequestUserViewModel createRequestUser)
         {
-            return View();
+            return RedirectToAction("Index", createRequestUser);
         }
-
-        [HttpPost]
-        public ActionResult AddAttachment(CreateRequestUserViewModel createRequestUserViewModel)
-        {
-            return View(createRequestUserViewModel);
-        }
-
+        
         public ActionResult Create(CreateRequestUserViewModel createRequestUserViewModel)
         {
             return RedirectToRoute("Home");

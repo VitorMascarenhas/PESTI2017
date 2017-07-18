@@ -1,5 +1,6 @@
 ﻿using PlataformaRPHD.Domain.Entities.Entities;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PlataformaRPHD.Web.ViewModels
 {
@@ -23,6 +24,7 @@ namespace PlataformaRPHD.Web.ViewModels
 
         public IEnumerable<ServiceViewModel> services { get; set; }
 
+        [Range(1000, 999999999)]
         public string contact { get; set; }
 
         public string origin { get; set; }

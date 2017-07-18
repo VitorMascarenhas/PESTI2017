@@ -28,7 +28,7 @@ namespace PlataformaRPHD.Web.ViewModels
 
         public string sourceComputer { get; set; }
 
-        [Display(Name = "Conctato telefónico")]
+        [Display(Name = "Contacto telefónico")]
         public string contact { get; set; }
 
         public string origin { get; set; }

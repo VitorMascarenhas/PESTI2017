@@ -63,8 +63,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                @Html.ActionLink("Seguinte", "AddAttachment", null, new { @class = "btn btn-primary" })
-                <!--<input type="submit" value="Seguinte" class="btn btn-primary" />-->
+                <input type="submit" value="Seguinte" class="btn btn-primary" />
 			    @Html.ActionLink("Cancelar", "Index", "Home", new { @class = "btn btn-white"})
             </div>
         </div>
@@ -76,28 +75,3 @@
         </div>
     </div>
  </div>
-
-@section scripts
-{
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/plugins/markdown")
-
-    <script src="~/scripts/jsrender.js"></script>
-    <script id="serviceTemplate" type="text/x-jsrender">
-        <option value="{{:Id}}">{{:Name}}</option>
-    </script>
-
-    function LoadServices() {
-        type: 'GET',
-        dataType: 'xml',
-        url: "http://localhost:50645/api/services",
-        success: function(servicesDocument) {
-            alert("Sucesso");
-            $(".dropdown-services").html(
-            $("#serviceTemplate").render(servicesDocument));
-        }),
-        error: Error(function() {
-            alert("Dados não carregados");
-        })
-    }
-}

@@ -27,5 +27,17 @@ namespace PlataformaRPHD.Web.Controllers
 
             return View(result);
         }
+
+        [HttpPatch]
+        public ActionResult Index(CreateRequestViewModel createRequest)
+        {
+            return RedirectToAction("AddAttachment", createRequest);
+        }
+        
+        //GET
+        public ActionResult AddAttachment(CreateRequestViewModel createRequest)
+        {
+            return RedirectToAction("Index", createRequest);
+        }
     }
 }
