@@ -16,75 +16,73 @@
                         <div class="form-horizontal">
                             @Html.ValidationSummary(true)
 
-                            <div class="form-group">
-                                @Html.Label("Origem", new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    <select>
-                                        <option id="1">Contacto telefónico</option>
-                                        <option id="2">E-mail</option>
-                                        <option id="3">Presencial</option>
-                                    </select>
-                                    @Html.ValidationMessageFor(model => model.services)
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                @Html.Label("Serviços", new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    <select class="dropdown-services"></select>
-                                    @Html.ValidationMessageFor(model => model.services)
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.Label("Categorias", new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    <select class="dropdown-categories"></select>
-                                    @Html.ValidationMessageFor(model => model.categories)
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.Label("Contacto telefónico", new { @class = "control-label col-md-2" })
-                                <div class="col-md-2">
-                                    @Html.EditorFor(model => model.contact)
-                                    @Html.ValidationMessageFor(model => model.contact)
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.Label("Título", new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Title)
-                                    @Html.ValidationMessageFor(model => model.Title)
-                                </div>
-                            </div>
-
-                            <div class="row">
                                 <div class="form-group">
-                                    @Html.Label("Descrição", new { @class = "control-label col-md-2" })
+                                    @Html.Label("Origem", new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        <div class="ibox float-e-margins">
-                                            <div class="ibox-content">
-                                                <textarea name="content" data-provide="markdown" rows="10"></textarea>
+                                        <select>
+                                            <option id="1">Contacto telefónico</option>
+                                            <option id="2">E-mail</option>
+                                            <option id="3">Presencial</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.services)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Serviços", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <select class="dropdown-services"></select>
+                                        @Html.ValidationMessageFor(model => model.services)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Categorias", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <select class="dropdown-categories"></select>
+                                        @Html.ValidationMessageFor(model => model.categories)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Contacto telefónico", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-2">
+                                        @Html.EditorFor(model => model.contact)
+                                        @Html.ValidationMessageFor(model => model.contact)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Título", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Title)
+                                        @Html.ValidationMessageFor(model => model.Title)
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group">
+                                        @Html.Label("Descrição", new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <div class="ibox float-e-margins">
+                                                <div class="ibox-content">
+                                                    @Html.TextAreaFor(model => model.Description, new { @class = "col-med-2"})
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="Seguinte" class="btn btn-primary" />
-                                    @Html.ActionLink("Cancelar", "Index", "Home", new { @class = "btn btn-white" })
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Seguinte" class="btn btn-primary" />
+                                        @Html.ActionLink("Cancelar", "Index", "Home", new { @class = "btn btn-white" })
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     }
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
