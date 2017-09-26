@@ -167,7 +167,7 @@ ecf/
 rcf/
 
 # Microsoft Azure ApplicationInsights config file
-ApplicationInsights.config
+#ApplicationInsights.config
 
 # Windows Store app package directory
 AppPackages/
@@ -286,4 +286,8 @@ PlataformaRPHD/PlataformaRPHD.Web/bin/*
 PlataformaRPHD/PlataformaRPHD.Domain/obj
 PlataformaRPHD/PlataformaRPHD.Domain/bin/*
 
+# Project STICket.WebServices
+
+PlataformaRPHD/STICket.WebServices/obj
+PlataformaRPHD/STICket.WebServices/bin/*
 

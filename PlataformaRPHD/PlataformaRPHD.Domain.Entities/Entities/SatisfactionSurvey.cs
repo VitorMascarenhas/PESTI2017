@@ -1,12 +1,14 @@
 ﻿namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class SatisfactionSurvey : IEntity
+    public class SatisfactionSurvey
     {
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
         
+        public virtual int RequestId { get; set; }
+
         public virtual Request Request { get; set; }
 
-        private SatisfactionSurvey()
+        private SatisfactionSurvey() //EF
         {
         }
     }

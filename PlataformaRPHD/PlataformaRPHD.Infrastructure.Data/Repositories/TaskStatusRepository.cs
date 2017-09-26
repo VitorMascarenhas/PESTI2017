@@ -1,12 +1,12 @@
-﻿using PlataformaRPHD.Domain.Interfaces.Interfaces;
+﻿using System.Data.Entity;
 using PlataformaRPHD.Domain.Entities.Entities;
-using NHibernate;
+using PlataformaRPHD.Domain.Interfaces.Interfaces;
 
 namespace PlataformaRPHD.Infrastructure.Data.Repositories
 {
-    public class TaskStatusRepository : BaseRepository<ITaskStatus>, ITaskStatusRepository
+    public class TaskStatusRepository : BaseRepository<TaskStatus, int>, ITaskStatusRepository
     {
-        public TaskStatusRepository(ISession session) : base(session)
+        public TaskStatusRepository(DbContext context) : base(context)
         {
         }
     }

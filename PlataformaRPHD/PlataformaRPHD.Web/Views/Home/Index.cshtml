@@ -1,4 +1,4 @@
-﻿@model PlataformaRPHD.Web.ViewModels.CategoryViewModel
+﻿@model IEnumerable<PlataformaRPHD.Web.ViewModels.CategoryViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -6,13 +6,13 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-4">
-        <h2>Index</h2>
+        <h2>Página principal</h2>
         <ol class="breadcrumb">
             <li>
                 @Html.ActionLink("List", "Index")
             </li>
             <li class="active">
-                <strong>Index</strong>
+                <strong>Página principal</strong>
             </li>
         </ol>
     </div>
@@ -36,46 +36,36 @@
             @Html.DisplayNameFor(model => model.Name)
         </dt>
 
-    @if (Model == null)
-    {
-        
-    }
-    else
-    {
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-    }
-        
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
+            @if (Model == null)
+            {
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <dd>
+                        @Html.DisplayForModel("Id")
+                    </dd>
+                    <dt>
+                        @Html.DisplayForModel(item.Id)
+                    </dt>
+                    <dd>
+                        @Html.DisplayForModel("Nome")
+                    </dd>
+                    <dt>
+                        @Html.DisplayForModel(item.Name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayForModel("Descrição")
+                    </dd>
+                    <dt>
+                        @Html.DisplayForModel(item.Description)
+                    </dt>
+                }
+            }
     </dl>
-
-
-	    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary"})
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-white"})
-
                 </div>
             </div>
         </div>
     </div>
  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-

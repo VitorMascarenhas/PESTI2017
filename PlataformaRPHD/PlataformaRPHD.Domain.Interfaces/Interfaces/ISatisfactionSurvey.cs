@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface ISatisfactionSurveyRepository : IBaseRepository<SatisfactionSurvey>
+    public interface ISatisfactionSurveyRepository : IBaseRepository<SatisfactionSurvey, int>
     {
     }
 }

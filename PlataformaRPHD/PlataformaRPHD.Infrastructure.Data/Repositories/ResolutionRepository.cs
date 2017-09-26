@@ -1,12 +1,12 @@
-﻿using NHibernate;
+﻿using System.Data.Entity;
 using PlataformaRPHD.Domain.Entities.Entities;
 using PlataformaRPHD.Domain.Interfaces.Interfaces;
 
 namespace PlataformaRPHD.Infrastructure.Data.Repositories
 {
-    public class ResolutionRepository : BaseRepository<Resolution>, IResolutionRepository
+    public class ResolutionRepository : BaseRepository<Resolution, int>, IResolutionRepository
     {
-        public ResolutionRepository(ISession session) : base(session)
+        public ResolutionRepository(DbContext context) : base(context)
         {
         }
     }

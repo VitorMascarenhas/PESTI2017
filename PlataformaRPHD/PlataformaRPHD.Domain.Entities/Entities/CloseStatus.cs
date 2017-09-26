@@ -1,12 +1,14 @@
-﻿namespace PlataformaRPHD.Domain.Entities.Entities
+﻿using System;
+
+namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class CloseStatus : ITaskStatus, IEntity
+    public class CloseStatus : TaskStatus
     {
-        public virtual int Id { get; set; }
-
-        public virtual string status { get; set; }
-
         private Task _task;
+        
+        private CloseStatus() //EF
+        {
+        }
 
         public CloseStatus(Task task)
         {
@@ -14,21 +16,10 @@
             this._task = task;
         }
 
-        public string   GetTypeStatus()
-        {
-            return this.status;
-        }
-
-        public void ChangeStatus()
+        public override void ChangeStatus()
         {
             this._task.status = this;
             this._task.close = true;
-        }
-
-        override
-        public string ToString()
-        {
-            return "Fechado";
         }
     }
 }

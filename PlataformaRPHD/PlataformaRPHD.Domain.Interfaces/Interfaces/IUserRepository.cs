@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface IUserRepository : IBaseRepository<User>
+    public interface IUserRepository : IBaseRepository<User, int>
     {
     }
 }

@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface IAttachmentRepository : IBaseRepository<Attachment>
+    public interface IAttachmentRepository : IBaseRepository<Attachment, int>
     {
     }
 }

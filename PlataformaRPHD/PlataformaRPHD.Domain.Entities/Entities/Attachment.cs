@@ -1,9 +1,17 @@
 ﻿namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class Attachment : IEntity
+    public class Attachment
     {
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
 
-        public virtual Interaction Interaction { get; set; }
+        public string Name { get; set; }
+
+        public virtual int RequestId { get; set; }
+
+        public virtual Request Requests { get; set; }
+
+        private Attachment() //EF
+        {
+        }
     }
 }

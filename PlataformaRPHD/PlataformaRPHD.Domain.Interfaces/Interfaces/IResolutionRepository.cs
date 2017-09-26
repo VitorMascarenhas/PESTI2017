@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface IResolutionRepository : IBaseRepository<Resolution>
+    public interface IResolutionRepository : IBaseRepository<Resolution, int>
     {
     }
 }

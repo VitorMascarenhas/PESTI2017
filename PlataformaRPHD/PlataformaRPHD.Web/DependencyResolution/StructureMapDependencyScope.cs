@@ -15,20 +15,20 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace PlataformaRPHD.Web.DependencyResolution {
+namespace PlataformaRPHD.Web.DependencyResolution
+{
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
-
     using Microsoft.Practices.ServiceLocation;
-
     using StructureMap;
 	
     /// <summary>
     /// The structure map dependency scope.
     /// </summary>
-    public class StructureMapDependencyScope : ServiceLocatorImplBase {
+    public class StructureMapDependencyScope : ServiceLocatorImplBase
+    {
         #region Constants and Fields
 
         private const string NestedContainerKey = "Nested.Container.Key";
@@ -37,8 +37,10 @@ namespace PlataformaRPHD.Web.DependencyResolution {
 
         #region Constructors and Destructors
 
-        public StructureMapDependencyScope(IContainer container) {
-            if (container == null) {
+        public StructureMapDependencyScope(IContainer container)
+        {
+            if (container == null)
+            {
                 throw new ArgumentNullException("container");
             }
             Container = container;
@@ -50,7 +52,8 @@ namespace PlataformaRPHD.Web.DependencyResolution {
 
         public IContainer Container { get; set; }
 
-        public IContainer CurrentNestedContainer {
+        public IContainer CurrentNestedContainer
+        {
             get {
                 return (IContainer)HttpContext.Items[NestedContainerKey];
             }
@@ -63,7 +66,8 @@ namespace PlataformaRPHD.Web.DependencyResolution {
 
         #region Properties
 
-        private HttpContextBase HttpContext {
+        private HttpContextBase HttpContext
+        {
             get {
                 var ctx = Container.TryGetInstance<HttpContextBase>();
                 return ctx ?? new HttpContextWrapper(System.Web.HttpContext.Current);
@@ -74,26 +78,32 @@ namespace PlataformaRPHD.Web.DependencyResolution {
 
         #region Public Methods and Operators
 
-        public void CreateNestedContainer() {
-            if (CurrentNestedContainer != null) {
+        public void CreateNestedContainer()
+        {
+            if (CurrentNestedContainer != null)
+            {
                 return;
             }
             CurrentNestedContainer = Container.GetNestedContainer();
         }
 
-        public void Dispose() {
+        public void Dispose()
+        {
             DisposeNestedContainer();
             Container.Dispose();
         }
 
-        public void DisposeNestedContainer() {
-            if (CurrentNestedContainer != null) {
+        public void DisposeNestedContainer()
+        {
+            if (CurrentNestedContainer != null)
+            {
                 CurrentNestedContainer.Dispose();
 				CurrentNestedContainer = null;
             }
         }
 
-        public IEnumerable<object> GetServices(Type serviceType) {
+        public IEnumerable<object> GetServices(Type serviceType)
+        {
             return DoGetAllInstances(serviceType);
         }
 
@@ -101,14 +111,17 @@ namespace PlataformaRPHD.Web.DependencyResolution {
 
         #region Methods
 
-        protected override IEnumerable<object> DoGetAllInstances(Type serviceType) {
+        protected override IEnumerable<object> DoGetAllInstances(Type serviceType)
+        {
             return (CurrentNestedContainer ?? Container).GetAllInstances(serviceType).Cast<object>();
         }
 
-        protected override object DoGetInstance(Type serviceType, string key) {
+        protected override object DoGetInstance(Type serviceType, string key)
+        {
             IContainer container = (CurrentNestedContainer ?? Container);
 
-            if (string.IsNullOrEmpty(key)) {
+            if (string.IsNullOrEmpty(key))
+            {
                 return serviceType.IsAbstract || serviceType.IsInterface
                     ? container.TryGetInstance(serviceType)
                     : container.GetInstance(serviceType);

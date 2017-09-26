@@ -1,12 +1,12 @@
-﻿using NHibernate;
+﻿using System.Data.Entity;
 using PlataformaRPHD.Domain.Entities.Entities;
 using PlataformaRPHD.Domain.Interfaces.Interfaces;
 
 namespace PlataformaRPHD.Infrastructure.Data.Repositories
 {
-    public class SatisfactionSurveyRepository : BaseRepository<SatisfactionSurvey>, ISatisfactionSurveyRepository
+    public class SatisfactionSurveyRepository : BaseRepository<SatisfactionSurvey, int>, ISatisfactionSurveyRepository
     {
-        public SatisfactionSurveyRepository(ISession session) : base(session)
+        public SatisfactionSurveyRepository(DbContext context) : base(context)
         {
         }
     }

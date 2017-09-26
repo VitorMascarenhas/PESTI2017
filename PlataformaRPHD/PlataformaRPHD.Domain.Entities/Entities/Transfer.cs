@@ -1,23 +1,33 @@
-﻿namespace PlataformaRPHD.Domain.Entities.Entities
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class Transfer : IEntity
+    public class Transfer
     {
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
         
         public virtual User OfUser { get; set; }
-        
+
         public virtual User FromUser { get; set; }
         
         public virtual User WhoTransferred { get; set; }
 
-        public virtual string description { get; set; }
+        public string description { get; set; }
 
-        private Transfer()
+        public DateTime tranfered { get; set; }
+
+        public virtual int TaskId { get; set; }
+
+        public virtual Task Task { get; set; }
+
+        private Transfer() //EF
         {
         }
 
-        public Transfer(User ofUser, User fromUser, User whoUser, string description)
+        public Transfer(int TaskId, User ofUser, User fromUser, User whoUser, string description)
         {
+            this.TaskId = TaskId;
             this.OfUser = ofUser;
             this.FromUser = fromUser;
             this.WhoTransferred = whoUser;

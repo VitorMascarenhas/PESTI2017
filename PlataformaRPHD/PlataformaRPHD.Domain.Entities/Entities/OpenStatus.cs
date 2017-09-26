@@ -1,33 +1,27 @@
 ﻿namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class OpenStatus : ITaskStatus, IEntity
+    public class OpenStatus : TaskStatus
     {
-        public virtual int Id { get; set; }
-
-        public virtual string status { get; }
-
         private Task _task;
+
+        private OpenStatus() //EF
+        {
+        }
 
         public OpenStatus(Task task)
         {
-            this._task = task;
             this.status = "Aberto";
+            this._task = task;
         }
 
-        public string GetTypeStatus()
+        public string GetStatus()
         {
             return this.status;
         }
 
-        public void ChangeStatus()
+        public override void ChangeStatus()
         {
             this._task.status = this;
-        }
-
-        override
-        public string ToString()
-        {
-            return "Aberto";
         }
     }
 }

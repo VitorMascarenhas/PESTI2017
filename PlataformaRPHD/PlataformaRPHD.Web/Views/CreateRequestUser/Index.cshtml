@@ -1,0 +1,77 @@
+﻿@model PlataformaRPHD.Web.ViewModels.CreateRequestUserViewModel
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h2>Registar pedido</h2>
+                </div>
+                <div class="ibox-content">
+
+				@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.Label("Serviços", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="dropdown-services"></select>
+                @Html.ValidationMessageFor(model => model.services)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Categorias", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="dropdown-categories"></select>
+                @Html.ValidationMessageFor(model => model.categories)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Contacto telefónico", new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.contact)
+                @Html.ValidationMessageFor(model => model.contact)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Título", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                @Html.Label("Descrição", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <textarea name="content" data-provide="markdown" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Seguinte" class="btn btn-primary" />
+			    @Html.ActionLink("Cancelar", "Index", "Home", new { @class = "btn btn-white"})
+            </div>
+        </div>
+    </div>
+}
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using PlataformaRPHD.Domain.Entities.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -8,22 +8,25 @@ namespace PlataformaRPHD.Web.ViewModels
     {
         public int Id { get; set; }
 
-        public int WhoRegisteredUserId { get; set; }
+        public ICollection<AttachmentViewModel> attachments { get; set; }
 
-        public virtual UserViewModel WhoRegistered { get; set; }
+        public User whoRegistered { get; set; }
 
-        public int OwneruserId { get; set; }
-
-        public virtual UserViewModel Owner { get; set; }
-
-        public DateTime TimeOfRegistration { get; set; }
+        public User Owner { get; set; }
 
         public string Title { get; set; }
 
         public string Description { get; set; }
 
-        public virtual ICollection<InteractionViewModel> Interactions { get; set; }
+        public IEnumerable<CategoryViewModel> categories { get; set; }
 
-        public virtual IEnumerable<CategoryViewModel> categories { get; set; }
+        public IEnumerable<TopicViewModel> Topics { get; set; }
+
+        public IEnumerable<ServiceViewModel> services { get; set; }
+
+        [Range(1000, 999999999)]
+        public string contact { get; set; }
+
+        public string origin { get; set; }
     }
 }

@@ -1,37 +1,43 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class Task : IEntity
+    public class Task
     {
-        public virtual int Id { get; set; }
-        
+        public int Id { get; set; }
+
+        public virtual int OwnerId { get; set; }
+
         public virtual User Owner { get; set; }
 
-        public virtual ITaskStatus status { get; set; }
+        public TaskStatus status { get; set; }
+        
+        public virtual int InteractionId { get; set; }
 
         public virtual Interaction Interaction { get; set; }
-        
-        public virtual HistoryOfTransfers HistoryOfTransfers { get; set; }
-        
-        public virtual HistoryChangeTaskStatus historyChangeTaskStatus { get; set; }
-        
+
+        public ICollection<Transfer> Transfers { get; set; }
+
+        public ICollection<ChangeTaskStatus> HistoryChangeStatus { get; set; }
+
+        public virtual int resolutionId { get; set; }
+
         public virtual Resolution resolution { get; set; }
 
         public bool close { get; set; }
 
-        private Task()
+        private Task() //EF
         {
+            this.HistoryChangeStatus = new List<ChangeTaskStatus>();
+            this.Transfers = new List<Transfer>();
         }
 
-        public Task(User user, Interaction interaction)
+        public Task(User user, Interaction interaction) : this()
         {
             this.Owner = user;
             this.status = new OpenStatus(this);
             this.Interaction = interaction;
-            this.HistoryOfTransfers = new HistoryOfTransfers();
-            this.historyChangeTaskStatus = new HistoryChangeTaskStatus();
-            this.historyChangeTaskStatus.AddTaskStatus(this.status);
             this.close = false;
         }
 
@@ -45,28 +51,29 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             {
                 throw new ArgumentNullException();
             }
-            if (!this.status.GetTypeStatus().Equals(status) && this.close == false)
+            if (!this.status.Equals(status)  && this.close == false)
             {
                 if (status.Equals("Aberto"))
                 {
                     OpenStatus os = new OpenStatus(this);
                     os.ChangeStatus();
-                    this.historyChangeTaskStatus.AddTaskStatus(os);
+                    ChangeTaskStatus cts = new ChangeTaskStatus(/*this.Id,*/ os);
+                    this.HistoryChangeStatus.Add(cts);
                 }
                 else if (status.Equals("Fechado"))
                 {
                     CloseStatus cs = new CloseStatus(this);
                     cs.ChangeStatus();
-                    this.historyChangeTaskStatus.AddTaskStatus(cs);
+                    ChangeTaskStatus cts = new ChangeTaskStatus(/*this.Id,*/ cs);
+                    this.HistoryChangeStatus.Add(cts);
                 }
             }
         }
 
         public void Transfer(User forUser, User whoUser, string description)
         {
-            Transfer transfer = new Transfer(this.Owner, forUser, whoUser, description);
-            this.Owner = forUser;
-            this.HistoryOfTransfers.AddTransfer(transfer);
+            Transfer transfer = new Transfer(this.Id, this.Owner, forUser, whoUser, description);
+            this.Transfers.Add(transfer);
         }
     }
 }

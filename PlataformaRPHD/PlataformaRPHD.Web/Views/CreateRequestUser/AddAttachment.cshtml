@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PlataformaRPHD.Web.ViewModels.AttachmentViewModel>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h2>Registar pedido</h2>
+                    <h4>Adicionar anexo</h4>
+					<div class="ibox-tools">
+						@Html.ActionLink("Adicionar", "AddAttachment", null, new { @class = "btn btn-primary btn-xs"})
+					</div>
+                </div>
+                <div class="ibox-content">
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayName("Nome do ficheiro")
+        </th>
+        <th>
+            @Html.DisplayName("Tamanho")
+        </th>
+        <th></th>
+    </tr>
+
+@if (Model == null)
+{
+
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-white btn-sm" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-white btn-sm" })
+            </td>
+        </tr>
+    }
+}
+
+</table>
+                    <div class="ibox-content">
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Anterior" class="btn btn-white" />
+                                <input type="submit" value="Registar" class="btn btn-primary" />
+                                @Html.ActionLink("Cancelar", "Index", "Home", new { @class = "btn btn-white" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
