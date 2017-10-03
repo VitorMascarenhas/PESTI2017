@@ -21,5 +21,10 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             this._task.status = this;
             this._task.close = true;
         }
+
+        public override string GetStatus()
+        {
+            return this.status;
+        }
     }
 }

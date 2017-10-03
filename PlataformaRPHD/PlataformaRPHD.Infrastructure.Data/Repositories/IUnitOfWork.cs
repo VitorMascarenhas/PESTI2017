@@ -5,14 +5,20 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
     public interface IUnitOfWork
     {
         IAttachmentRepository AttachmentRepository { get; }
-
+        
         ICategoryRepository CategoryRepository { get; }
 
         IChangeTaskStatusRepository ChangeTaskStatusRepository { get; }
 
+        IImpactRepository ImpactRepository { get; }
+
         IInteractionRepository InteractionRepository { get; }
 
         IMessageRepository MessageRepository { get; }
+
+        INotificationRepository NotificationRepository { get; }
+
+        IOriginRepository OriginRepository { get; }
 
         IRequestRepository RequestRepository { get; }
 
@@ -25,9 +31,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
         ITaskRepository TaskRepository { get; }
 
         ITaskStatusRepository TaskStatusRepository { get; }
-
-        ITopicRepository TopicRepository { get; }
-
+        
         ITransferRepository TransferRepository { get; }
 
         IUserRepository UserRepository { get; }

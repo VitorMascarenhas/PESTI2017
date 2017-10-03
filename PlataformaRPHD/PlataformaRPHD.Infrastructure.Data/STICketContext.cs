@@ -1,5 +1,7 @@
 ﻿using PlataformaRPHD.Domain.Entities.Entities;
+using PlataformaRPHD.Infrastructure.Data.Configuration;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace PlataformaRPHD.Infrastructure.Data
 {
@@ -19,9 +21,15 @@ namespace PlataformaRPHD.Infrastructure.Data
 
         public DbSet<ChangeTaskStatus> ChangesTaskStatus { get; set; }
 
+        public DbSet<Impact> Impacts { get; set; }
+
         public DbSet<Interaction> Interactions { get; set; }
 
         public DbSet<Message> Messages { get; set; }
+
+        public DbSet<Notification> Notifications { get; set; }
+
+        public DbSet<Origin> Origins { get; set; }
 
         public DbSet<Request> Requests { get; set; }
 
@@ -34,9 +42,7 @@ namespace PlataformaRPHD.Infrastructure.Data
         public DbSet<Task> Tasks { get; set; }
 
         public DbSet<TaskStatus> TasksStatus { get; set; }
-
-        public DbSet<Topic> Topics { get; set; }
-
+        
         public DbSet<Transfer> Transfers { get; set; }
 
         public DbSet<User> Users { get; set; }
@@ -45,7 +51,7 @@ namespace PlataformaRPHD.Infrastructure.Data
         {
             return new STICketContext();
         }
-
+        
         /// <summary>
         /// This method is called when the model for a derived context has been initialized, but
         /// before the model has been locked down and used to initialize the context.  The default
@@ -61,17 +67,17 @@ namespace PlataformaRPHD.Infrastructure.Data
         /// More control over caching is provided through use of the DbModelBuilder and DbContextFactory
         /// classes directly.
         /// </remarks>
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-            //base.OnModelCreating(modelBuilder); // inicialização do Identity
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder); // inicialização do Identity
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            //modelBuilder.Configurations.Add(new LocationEntityConfiguration());
-            //modelBuilder.Configurations.Add(new HashtagEntityConfiguration());
+            modelBuilder.Configurations.Add(new RequestEntityConfiguration());
+            modelBuilder.Configurations.Add(new TaskEntityConfiguration());
             //modelBuilder.Configurations.Add(new PointOfInterestEntityConfiguration());
             //modelBuilder.Configurations.Add(new RoadEntityConfiguration());
             //modelBuilder.Configurations.Add(new UserAuditTrailEntityConfiguration());
             //modelBuilder.Configurations.Add(new GpsCoordinateEntityConfiguration());
             //modelBuilder.Configurations.Add(new RouteEntityTypeConfiguration());
-        //}
+        }
     }
 }

@@ -31,6 +31,19 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             }
         }
 
+        private ICategoryRepository categoryRepository;
+        public ICategoryRepository CategoryRepository
+        {
+            get
+            {
+                if (categoryRepository == null)
+                {
+                    categoryRepository = new CategoryRepository(this.context);
+                }
+                return categoryRepository;
+            }
+        }
+
         private IChangeTaskStatusRepository changeTaskStatusRepository;
         public IChangeTaskStatusRepository ChangeTaskStatusRepository
         {
@@ -44,16 +57,16 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             }
         }
 
-        private ICategoryRepository categoryRepository;
-        public ICategoryRepository CategoryRepository
+        private IImpactRepository impactRepository;
+        public IImpactRepository ImpactRepository
         {
             get
             {
-                if (categoryRepository == null)
+                if (impactRepository == null)
                 {
-                    categoryRepository = new CategoryRepository(this.context);
+                    impactRepository = new ImpactRepository(this.context);
                 }
-                return categoryRepository;
+                return impactRepository;
             }
         }
 
@@ -80,6 +93,32 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
                     messageRepository = new MessageRepository(this.context);
                 }
                 return messageRepository;
+            }
+        }
+
+        private INotificationRepository notificationRepository;
+        public INotificationRepository NotificationRepository
+        {
+            get
+            {
+                if (notificationRepository == null)
+                {
+                    notificationRepository = new NotificationRepository(this.context);
+                }
+                return notificationRepository;
+            }
+        }
+
+        private IOriginRepository originRepository;
+        public IOriginRepository OriginRepository
+        {
+            get
+            {
+                if (originRepository == null)
+                {
+                    originRepository = new OriginRepository(this.context);
+                }
+                return originRepository;
             }
         }
 
@@ -160,20 +199,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
                 return taskStatusRepository;
             }
         }
-
-        private ITopicRepository topicRepository;
-        public ITopicRepository TopicRepository
-        {
-            get
-            {
-                if (topicRepository == null)
-                {
-                    topicRepository = new TopicRepository(this.context);
-                }
-                return topicRepository;
-            }
-        }
-
+        
         private ITransferRepository transferRepository;
         public ITransferRepository TransferRepository
         {

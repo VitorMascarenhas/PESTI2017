@@ -26,9 +26,17 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             this.Requests = new HashSet<Request>();
         }
 
-        public User(UserName userName)
+        public User(UserName userName, string mechanographicNumber, string mail, string phoneNumber) : this()
         {
             this.Name = userName;
+            this.mechanographicNumber = mechanographicNumber;
+            this.mail = mail;
+            this.phoneNumber = phoneNumber;
+        }
+
+        public string GetCompleteName()
+        {
+            return this.Name.FirstName + " " + this.Name.LastName;
         }
     }
 }

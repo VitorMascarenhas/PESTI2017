@@ -1,0 +1,85 @@
+﻿@model IEnumerable<PlataformaRPHD.Domain.Entities.Entities.Notification>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Notificações</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <strong>Notificações</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Lista de Notificações</h5>
+					<div class="ibox-tools">
+						@Html.ActionLink("Criar Notificação", "Create", null, new { @class = "btn btn-primary btn-xs"})
+					</div>
+                </div>
+                <div class="ibox-content">
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayName("Serviço")
+        </th>
+        <th>
+            @Html.DisplayName("Assunto de abertura")
+        </th>
+        <th>
+            @Html.DisplayName("Assunto de fecho")
+        </th>
+        <th>
+            @Html.DisplayName("Mensagem de abertura")
+        </th>
+        <th>
+            @Html.DisplayName("Mensagem de fecho")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Service.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpenSubject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CloseSubject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpenBody)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CloseBody)
+        </td>
+        <td>
+			@Html.ActionLink("Detalhes", "Details", new { id=item.Id }, new { @class = "btn btn-primary btn-sm"})
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
+        </td>
+    </tr>
+}
+
+</table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+

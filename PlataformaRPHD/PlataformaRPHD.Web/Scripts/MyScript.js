@@ -1,19 +1,12 @@
-﻿function loadCategories() {
-    alert("Olá");
+﻿function showImpacts() {
     $.ajax({
-        var ur = "http://localhost:50645/api/categories";
-        
-        dataType: 'json',
+        dataType: "json",
         type: "GET",
-        url: url,
-        success: showCategories
-    });
-}
-
-function showCategories(result) {
-
-    $.each(result, function(i, cat) {
-        //use obj.id and obj.name here, for example:
-        alert(cat.Name);
+        url: "/DataSource/GetImpacts",
+        success: function (data) {
+            $(data).each(function (i) {
+                $(".impacts").append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+            });
+        }
     });
 }

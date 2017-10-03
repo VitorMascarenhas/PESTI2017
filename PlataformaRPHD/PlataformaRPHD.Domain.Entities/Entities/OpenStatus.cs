@@ -1,4 +1,6 @@
-﻿namespace PlataformaRPHD.Domain.Entities.Entities
+﻿using System;
+
+namespace PlataformaRPHD.Domain.Entities.Entities
 {
     public class OpenStatus : TaskStatus
     {
@@ -14,7 +16,7 @@
             this._task = task;
         }
 
-        public string GetStatus()
+        public override string GetStatus()
         {
             return this.status;
         }

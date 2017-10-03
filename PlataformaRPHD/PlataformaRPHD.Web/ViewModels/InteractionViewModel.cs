@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using PlataformaRPHD.Domain.Entities.Entities;
+using System.Collections.Generic;
 
 namespace PlataformaRPHD.Web.ViewModels
 {
@@ -6,10 +7,14 @@ namespace PlataformaRPHD.Web.ViewModels
     {
         public int Id { get; set; }
 
-        public virtual ICollection<ServiceViewModel> service { get; set; }
-        
-        public virtual ICollection<CategoryViewModel> Category { get; set; }
+        public string Title { get; set; }
 
-        public int historyMessageId { get; set; }
+        public Request Request { get; set; }
+
+        public Service service { get; set; }
+
+        public ICollection<Message> HistoryMessages { get; set; }
+
+        public TaskViewModel Task { get; set; }
     }
 }

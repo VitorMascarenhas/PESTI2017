@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace PlataformaRPHD.Domain.Entities.Entities
+﻿namespace PlataformaRPHD.Domain.Entities.Entities
 {
     public class RequestBuilder : IFactory<Request>
     {
@@ -9,11 +6,11 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         private User Owner;
         private string Title;
         private string Description { get; set; }
-        private ICollection<Interaction> Interactions;
         private string sourceComputer;
-        private ICollection<Attachment> attachments { get; set; }
         private string contact { get; set; }
-        private string origin { get; set; }
+        private Origin origin { get; set; }
+        private Category Category { get; set; }
+        private Impact Impact { get; set; }
 
         public RequestBuilder()
         {
@@ -43,12 +40,6 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             return this;
         }
         
-        public RequestBuilder WithInteractions(Interaction interaction)
-        {
-            this.Interactions.Add(interaction);
-            return this;
-        }
-
         public RequestBuilder WithComputer(string computer)
         {
             this.sourceComputer = computer;
@@ -61,21 +52,27 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             return this;
         }
 
-        public RequestBuilder WithOrigin(string origin)
+        public RequestBuilder WithOrigin(Origin origin)
         {
             this.origin = origin;
             return this;
         }
-
-        public RequestBuilder WithAttachment(Attachment attachment)
+        
+        public RequestBuilder WithImpact(Impact impact)
         {
-            this.attachments.Add(attachment);
+            this.Impact = impact;
+            return this;
+        }
+
+        public RequestBuilder WithCategory(Category category)
+        {
+            this.Category = category;
             return this;
         }
         
         public Request Build()
         {
-            return new Request(WhoRegistered, Owner, Title, Description, Interactions, attachments, sourceComputer, contact, origin);
+            return new Request(WhoRegistered, Owner, Title, Description, Category, sourceComputer, contact, origin, Impact);
         }
     }
 }

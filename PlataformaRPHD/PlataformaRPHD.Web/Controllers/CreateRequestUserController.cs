@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using PlataformaRPHD.Domain.Entities.Entities;
 using PlataformaRPHD.Infrastructure.Data.Repositories;
 using PlataformaRPHD.Web.ViewModels;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace PlataformaRPHD.Web.Controllers
     public class CreateRequestUserController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
-        
+
         public CreateRequestUserController(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
@@ -18,31 +18,103 @@ namespace PlataformaRPHD.Web.Controllers
         // GET: CreateRequest
         public ActionResult Index()
         {
-            var allCategories = unitOfWork.CategoryRepository.GetAll();
-            var allServices = unitOfWork.ServiceRepository.GetAll();
-
-            CreateRequestUserViewModel result = new CreateRequestUserViewModel();
-            result.categories = Mapper.Map<IEnumerable<CategoryViewModel>>(allCategories);
-            result.services = Mapper.Map<IEnumerable<ServiceViewModel>>(allServices);
-
-            return View(result);
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Index(CreateRequestUserViewModel createRequestUser)
+        public ActionResult Index([Bind(Include = "ServiceId,Category1Id,Category2Id,Category3Id,Category4Id,ImpactId,Contact,Title,Description")] CreateRequestUserViewModel createRequestUserViewModel)
         {
-            return RedirectToAction("AddAttachment", createRequestUser);
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Create", createRequestUserViewModel);
+            }
+            return View("Index", createRequestUserViewModel);
         }
 
-        // GET
-        public ActionResult AddAttachment(CreateRequestUserViewModel createRequestUser)
+        public ActionResult AddAttachment([Bind(Include = "ServiceId,Category1Id,Category2Id,Category3Id,Category4Id,ImpactId,Contact,Title,Description")] CreateRequestViewModel createRequestUserViewModel)
         {
-            return RedirectToAction("Index", createRequestUser);
+            return RedirectToAction("Create", createRequestUserViewModel);
         }
-        
-        public ActionResult Create(CreateRequestUserViewModel createRequestUserViewModel)
+
+        [ValidateInput(false)]
+        public ActionResult Create([Bind(Include = "ServiceId,Category1Id,Category2Id,Category3Id,Category4Id,ImpactId,Contact,Title,Description")] CreateRequestViewModel createRequestUserViewModel)
         {
-            return RedirectToRoute("Home");
+            RequestBuilder builder = new RequestBuilder();
+            
+            var user1 = unitOfWork.UserRepository.Get(1);
+
+            builder.WithWhoRegistered(user1);
+            builder.WithOwner(user1);
+
+            Origin origin = unitOfWork.OriginRepository.GetOriginByName("Aplicação");
+
+            builder.WithOrigin(origin);
+            builder.WithContact(createRequestUserViewModel.Contact);
+
+            Category category;
+            if (createRequestUserViewModel.Category4Id < 1)
+            {
+            }
+            else
+            {
+                category = unitOfWork.CategoryRepository.Get(createRequestUserViewModel.Category4Id);
+                builder.WithCategory(category);
+            }
+            if (createRequestUserViewModel.Category3Id < 1)
+            {
+            }
+            else
+            {
+                category = unitOfWork.CategoryRepository.Get(createRequestUserViewModel.Category3Id);
+                builder.WithCategory(category);
+            }
+            if (createRequestUserViewModel.Category2Id < 1)
+            {
+            }
+            else
+            {
+                category = unitOfWork.CategoryRepository.Get(createRequestUserViewModel.Category2Id);
+                builder.WithCategory(category);
+            }
+            if (createRequestUserViewModel.Category1Id < 1)
+            {
+            }
+            else
+            {
+                category = unitOfWork.CategoryRepository.Get(createRequestUserViewModel.Category1Id);
+                builder.WithCategory(category);
+            }
+
+            Impact impact = unitOfWork.ImpactRepository.Get(createRequestUserViewModel.ImpactId);
+
+            builder.WithContact(createRequestUserViewModel.Contact);
+
+            builder.WithImpact(impact);
+
+            builder.WithTitle(createRequestUserViewModel.Title);
+            builder.WithDescription(createRequestUserViewModel.Description);
+
+            Service service = unitOfWork.ServiceRepository.Get(createRequestUserViewModel.ServiceId);
+
+            InteractionBuilder interactionBuilder = new InteractionBuilder();
+
+            interactionBuilder.WithTitle(createRequestUserViewModel.Title);
+            interactionBuilder.WithService(service);
+            Interaction interaction = interactionBuilder.Build();
+
+            Request request = builder.Build();
+            request.AddInteraction(interaction);
+
+            unitOfWork.RequestRepository.Insert(request);
+            unitOfWork.SaveChanges();
+
+            //List<string> mails = new List<string>();
+            //mails.Add("vamd82@gmail.com");
+            //MailService ms = new MailService();
+            //ms.CreateMail(mails, "Assunto", "Corpo");
+            //ms.Send();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

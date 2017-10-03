@@ -4,11 +4,11 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
-                <div class="ibox-title">
+                <div class="ibox-title row wrapper border-bottom white-bg page-heading">
                     <h2>Registar pedido</h2>
                 </div>
                 <div class="ibox-content">
-
+                    
                     @using (Html.BeginForm())
                     {
                         @Html.AntiForgeryToken()
@@ -16,73 +16,311 @@
                         <div class="form-horizontal">
                             @Html.ValidationSummary(true)
 
+                            <div class="form-group">
+                                @Html.Label("Origem", new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <select class="origins" name="OriginId"></select>
+                                    @Html.ValidationMessageFor(model => model.OriginId)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Serviço", new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <select class="service" name="ServiceId"></select>
+                                    @Html.ValidationMessageFor(model => model.ServiceId)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row categoryClass">
+                                    @Html.Label("Categoria", new { @class = "control-label col-md-2" })
+                                    <div class="inline">
+                                        <select class="category-principal"><option name="Category1Id" value="-1">Selecione uma opção</option></select>
+                                        @Html.ValidationMessageFor(model => model.Category1Id)
+                                    </div>
+                                    <div class="inline first-category">
+                                        <select class="category-1" disabled><option name="Category2Id" value="-1">Selecione uma opção</option></select>
+                                        @Html.ValidationMessageFor(model => model.Category2Id)
+                                    </div>
+                                    <div class="inline second-category">
+                                        <select class="category-2" disabled><option name="Category3Id" value="-1">Selecione uma opção</option></select>
+                                        @Html.ValidationMessageFor(model => model.Category3Id)
+                                    </div>
+                                    <div class="inline third-category">
+                                        <select class="category-3" disabled><option name="Category4Id" value="-1">Selecione uma opção</option></select>
+                                        @Html.ValidationMessageFor(model => model.Category4Id)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group login">
+
+                            </div>
+
+                            <div class="form-group impact">
+
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Contacto telefónico", new { @class = "control-label col-md-2" })
+                                <div class="col-md-2">
+                                    @Html.EditorFor(model => model.Contact)
+                                    @Html.ValidationMessageFor(model => model.Contact)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Título", new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Title)
+                                    @Html.ValidationMessageFor(model => model.Title)
+                                </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="form-group">
-                                    @Html.Label("Origem", new { @class = "control-label col-md-2" })
+                                    @Html.Label("Descrição", new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        <select>
-                                            <option id="1">Contacto telefónico</option>
-                                            <option id="2">E-mail</option>
-                                            <option id="3">Presencial</option>
-                                        </select>
-                                        @Html.ValidationMessageFor(model => model.services)
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    @Html.Label("Serviços", new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        <select class="dropdown-services"></select>
-                                        @Html.ValidationMessageFor(model => model.services)
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    @Html.Label("Categorias", new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        <select class="dropdown-categories"></select>
-                                        @Html.ValidationMessageFor(model => model.categories)
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    @Html.Label("Contacto telefónico", new { @class = "control-label col-md-2" })
-                                    <div class="col-md-2">
-                                        @Html.EditorFor(model => model.contact)
-                                        @Html.ValidationMessageFor(model => model.contact)
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    @Html.Label("Título", new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Title)
-                                        @Html.ValidationMessageFor(model => model.Title)
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="form-group">
-                                        @Html.Label("Descrição", new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            <div class="ibox float-e-margins">
-                                                <div class="ibox-content">
-                                                    @Html.TextAreaFor(model => model.Description, new { @class = "col-med-2"})
-                                                </div>
+                                        <div class="ibox float-e-margins">
+                                            <div class="ibox-content">
+                                                @Html.TextAreaFor(model => model.Description, new { @class = "col-med-2" })
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-offset-2 col-md-10">
-                                        <input type="submit" value="Seguinte" class="btn btn-primary" />
-                                        @Html.ActionLink("Cancelar", "Index", "Home", new { @class = "btn btn-white" })
-                                    </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Registar" class="btn btn-primary" disabled/>
+                                    @Html.ActionLink("Cancelar", "Index", "Home", new { @class = "btn btn-white" })
+                                    @Html.ActionLink("Adicionar anexo", "AddAttachment", "Home", new { @class = "btn btn-primary" })
                                 </div>
                             </div>
+                        </div>
                     }
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/Scripts/tinymce/tinymce.js"></script>
+    <script src="~/Scripts/main.js"></script>
+<script>
+
+    function showImpacts() {
+        $.ajax({
+            dataType: "json",
+            type: "GET",
+            url: "/DataSource/GetImpacts",
+            success: function (data) {
+                $(data).each(function (i) {
+                    $(".impacts").append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+                });
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        $('.category-principal').change(function () {
+            var id = $(this).val();
+            var text = $('.category-principal option:selected').text();
+            $('.impact').empty();
+            if (text == "Incidente") {
+                $('.impact').append('<label class="control-label col-md-2">Impacto</label><div class="col-md-2"><select class="impacts" name="ImpactId"></select></div>');
+                showImpacts();
+            }
+            if (id < 0) {
+                $('[type="submit"]').prop("disabled", true);
+            }
+            else {
+                $('[type="submit"]').prop("disabled", false);
+            }
+        });
+    });
+
+    $(document).ready(function() {
+        $.ajax({
+            dataType: "json",
+            type: "GET",
+            url: "/DataSource/RootCategories/",
+            success: function (data) {
+                $(data).each(function (i) {
+                    $('.category-principal').append($("<option></option>")
+                        .attr("value", data[i].Id)
+                        .text(data[i].Name))
+                        .attr("name", "Category1Id");
+                });
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $.ajax({
+            dataType: "json",
+            type: "GET",
+            url: "/DataSource/GetServices",
+            success: function (data) {
+                $(data).each(function (i) {
+                    $(".service").append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+                });
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $.ajax({
+            dataType: "json",
+            type: "GET",
+            url: "/DataSource/GetOrigins",
+            success: function (data) {
+                $(data).each(function (i) {
+                    $(".origins").append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+                });
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $.ajax({
+            dataType: "json",
+            type: "GET",
+            url: "/DataSource/GetImpacts",
+            success: function (data) {
+                $(data).each(function (i) {
+                    $(".impacts").append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+                });
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $('.category-principal').change(function () {
+            var id = $(this).val();
+            if (id < 0) {
+                $('.login').empty();
+                $('.category-1').empty();
+                $('.category-2').empty();
+                $('.category-3').empty();
+                $('.category-1').append('<option name="Category2Id" value="-1">Selecione uma opção</option>');
+                $('.category-2').append('<option name="Category3Id" value="-1">Selecione uma opção</option>');
+                $('.category-3').append('<option name="Category4Id" value="-1">Selecione uma opção</option>');
+                $('.category-1').prop("disabled", true);
+                $('.category-2').prop("disabled", true);
+                $('.category-3').prop("disabled", true);
+            }
+            else {
+                $.ajax({
+                    dataType: "json",
+                    type: "GET",
+                    url: "/DataSource/GetCategories/" + id,
+                    success: function (data) {
+                        $('.login').empty();
+                        $('.category-1').empty();
+                        $('.category-2').empty();
+                        $('.category-3').empty();
+                        $('.category-1').append('<option value="-1">Selecione uma opção</option>')
+                        $('.category-2').append('<option value="-1">Selecione uma opção</option>')
+                        $('.category-3').append('<option value="-1">Selecione uma opção</option>')
+                        $('.category-1').prop("disabled", false);
+                        $('.category-2').prop("disabled", true);
+                        $('.category-3').prop("disabled", true);
+                        $(data).each(function (i) {
+                            $('.category-1').append($("<option></option>")
+                                .attr("value", data[i].Id)
+                                .text(data[i].Name))
+                                .attr("name", "Category2Id");
+                        });
+                    }
+                });
+            }
+        });
+    });
+
+    //loading categories
+    $(document).ready(function () {
+        $('.category-principal').change(function() {
+            var id = $(this).val();
+            if(id < 0)
+            {
+                $('.login,.category-1,.category-2,.category-3').empty();
+                $('.category-1,.category-2,.category-3').append('<option name="Category2Id" value="-1">Selecione uma opção</option>');
+                $('.category-1,.category-2,.category-3').prop("disabled", true);
+            }
+            else
+            {
+                $.ajax({
+                    dataType: "json",
+                    type: "GET",
+                    url: "/DataSource/GetCategories/" + id,
+                    success: function (data) {
+                        $('.login').empty();
+                        $('.category-1,.category-2,.category-3').empty();
+                        $('.category-1,.category-2,.category-3').append('<option value="-1">Selecione uma opção</option>')
+                        $('.category-1').prop("disabled", false);
+                        $('.category-2,.category-3').prop("disabled", true);
+                        $(data).each(function (i) {
+                            $('.category-1').append($("<option></option>")
+                                .attr("value", data[i].Id)
+                                .text(data[i].Name))
+                                .attr("name", "Category2Id");
+                        });
+                    }
+                });
+            }
+        });
+    });
+
+    //loading categories
+    $(document).ready(function () {
+        $('.category-1').change(function() {
+            var id = $(this).find(':selected').val();
+            var text = $('.category-1 option:selected').text();
+            $('.login').empty();
+            if (id < 0)
+            {
+                $('.category-2,.category-3').prop("disabled", true);
+                $('.category-2,.category-3').empty();
+                $('.category-2,.category-3').append('<option name="Category3Id" value="-1">Selecione uma opção</option>')
+            }
+            else
+            {
+                $.ajax({
+                    dataType: "json",
+                    type: "GET",
+                    url: "/DataSource/GetCategories/" + id,
+                    success: function (data) {
+                        if (data.length > 0) {
+                            $('.category-2,.category-3').empty();
+                            @*$('.category-3').empty();*@
+                            $('.category-2,.category-3').append('<option value="-1">Selecione uma opção</option>')
+                            @*$('.category-3').append('<option value="-1">Selecione uma opção</option>')*@
+                            $('.category-2').prop("disabled", false);
+                            $('.category-3').prop("disabled", true);
+                            $('.logins').empty();
+                            if (text == "Pedido de logins") {
+                                $('.login').append($('<label></label>')
+                                    .addClass('control-label col-md-2')
+                                    .text('Logins')).append('<div></div>')
+                                    .addClass('logins');
+                                $(data).each(function (i) {
+                                    $('.logins').append('<input type="checkbox" name="category3Id" value="' + data[i].Name + '">' + data[i].Name + '  </input>');
+                                });
+                            }
+                            $(data).each(function (i) {
+                                $('.category-2').append($("<option></option>")
+                                    .attr("value", data[i].Id)
+                                    .text(data[i].Name))
+                                .attr("name", "Category3Id");
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+}

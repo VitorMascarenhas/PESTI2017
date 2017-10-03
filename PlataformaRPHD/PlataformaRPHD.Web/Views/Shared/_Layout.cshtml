@@ -8,8 +8,8 @@
     <title>STICket</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/font-awesome/css")
-    @Styles.Render("~/Content/ej/web/bootstrap-theme/ej.web.all.min.css")
-    @Scripts.Render("~/Scripts/ej/ej.web.all.min.js")
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/scripts/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 
@@ -36,19 +36,11 @@
 
     </div>
     <!-- End wrapper-->
-
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/plugins/metsiMenu")
     @Scripts.Render("~/plugins/pace")
     @Scripts.Render("~/plugins/slimScroll")
     @Scripts.Render("~/bundles/inspinia")
     @RenderSection("scripts", required: false)
-@*@Html.EJ().ScriptManager()*@
-@*@section Script
-{
-    <script src="@Url.Content("~/Scripts/cultures/ej.culture.en-US.min.js")"></script>
-    <script src="@Url.Content("~/Scripts//cultures/globalize.culture.nl-NL.js")"></script>
-}*@
 </body>
 </html>

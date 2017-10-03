@@ -46,8 +46,12 @@
     <Compile Include="Entities\ChangeTaskStatus.cs" />
     <Compile Include="Entities\CloseStatus.cs" />
     <Compile Include="Entities\IFactory.cs" />
+    <Compile Include="Entities\Impact.cs" />
     <Compile Include="Entities\Interaction.cs" />
     <Compile Include="Entities\InteractionBuilder.cs" />
+    <Compile Include="Entities\Notification.cs" />
+    <Compile Include="Entities\Origin.cs" />
+    <Compile Include="Entities\PendingStatus.cs" />
     <Compile Include="Entities\RequestBuilder.cs" />
     <Compile Include="Entities\TaskStatus.cs" />
     <Compile Include="Entities\Message.cs" />
@@ -57,7 +61,6 @@
     <Compile Include="Entities\SatisfactionSurvey.cs" />
     <Compile Include="Entities\Service.cs" />
     <Compile Include="Entities\Task.cs" />
-    <Compile Include="Entities\Topic.cs" />
     <Compile Include="Entities\Transfer.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserName.cs" />

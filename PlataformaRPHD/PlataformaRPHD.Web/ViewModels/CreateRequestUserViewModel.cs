@@ -1,36 +1,41 @@
 ﻿using PlataformaRPHD.Domain.Entities.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace PlataformaRPHD.Web.ViewModels
 {
     public class CreateRequestUserViewModel
     {
         public int Id { get; set; }
-        
+
         public ICollection<AttachmentViewModel> attachments { get; set; }
 
-        public User whoRegistered { get; set; }
-        
         public User Owner { get; set; }
 
-        [Display(Name = "Título do pedido")]
+        [Required(ErrorMessage = "Escreva um título."), Column(Order = 1)]
         public string Title { get; set; }
 
-        [Display(Name = "Descrição do pedido")]
+        [AllowHtml]
+        [Display(Name = "Descrição")]
         public string Description { get; set; }
-        
-        public IEnumerable<CategoryViewModel> categories { get; set; }
 
-        public IEnumerable<TopicViewModel> Topics { get; set; }
+        public int Category1Id { get; set; }
 
-        public IEnumerable<ServiceViewModel> services { get; set; }
+        public int Category2Id { get; set; }
 
-        public string sourceComputer { get; set; }
+        public int Category3Id { get; set; }
 
-        [Display(Name = "Contacto telefónico")]
-        public string contact { get; set; }
+        public int Category4Id { get; set; }
 
-        public string origin { get; set; }
+        public int ServiceId { get; set; }
+
+        [Required(ErrorMessage = "Digite um contacto."), Column(Order = 1)]
+        public string Contact { get; set; }
+
+        public int OriginId { get; set; }
+
+        public int ImpactId { get; set; }
     }
 }

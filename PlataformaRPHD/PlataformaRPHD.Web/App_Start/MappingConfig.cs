@@ -17,20 +17,13 @@ namespace PlataformaRPHD.Web.App_Start
 
                 cfg.CreateMap<Request, CreateRequestViewModel>().ReverseMap();
 
-                cfg.CreateMap<Topic, TopicViewModel>().ReverseMap();
+                cfg.CreateMap<ServiceViewModel, Service>().ReverseMap();
 
-                cfg.CreateMap<Service, ServiceViewModel>().ReverseMap();
+                cfg.CreateMap<InteractionViewModel, Interaction>().ReverseMap();
 
-                //cfg.CreateMap<BusinessHours, BusinessHoursViewModel>().ReverseMap();
-                //cfg.CreateMap<Hashtag, HashtagViewModel>().ReverseMap();
-                //cfg.CreateMap<Visit, VisitViewModel>().ReverseMap();
-                //cfg.CreateMap<GpsCoordinate, GpsCoordinatesViewModel>().ReverseMap();
+                cfg.CreateMap<TaskViewModel, Task>().ReverseMap();
 
-                //cfg.CreateMap<CreatePoiViewModel, PointOfInterest>();
-
-                //cfg.CreateMap<PointOfInterest, AddPoiToVisitViewModel>();
-
-                //cfg.CreateMap<Route, RouteViewModel>().ReverseMap();
+                cfg.CreateMap<RequestWithSatisfactionSurveyViewModel, Request>().ReverseMap();
             });
         }
     }

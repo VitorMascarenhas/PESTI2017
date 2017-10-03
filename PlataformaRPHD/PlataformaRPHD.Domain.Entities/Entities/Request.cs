@@ -6,9 +6,9 @@ namespace PlataformaRPHD.Domain.Entities.Entities
     public class Request
     {
         public int Id { get; set; }
-
+        
         public virtual User WhoRegistered {get; set; }
-
+        
         public virtual User Owner { get; set; }
 
         public DateTime TimeOfRegistration { get; set; }
@@ -19,13 +19,17 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public virtual ICollection<Interaction> Interactions { get; set; }
         
-        public string sourceComputer { get; set; }
+        public virtual Category Category { get; set; }
+
+        public string SourceComputer { get; set; }
 
         public virtual ICollection<Attachment> attachments { get; set; }
 
-        public string contact { get; set; }
+        public string Contact { get; set; }
 
-        public string origin { get; set; }
+        public virtual Origin Origin { get; set; }
+
+        public virtual Impact Impact { get; set; }
 
         private Request() //EF
         {
@@ -42,17 +46,29 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             this.Description = description;
         }
 
-        public Request(User WhoRegistered, User Owner, string title, string description, ICollection<Interaction> interactions, ICollection<Attachment> attachments, string computer, string contact, string origin)
+        public Request(User WhoRegistered, User Owner, string title, string description, Category category, string computer, string contact, Origin origin, Impact impact) : this()
         {
             this.WhoRegistered = WhoRegistered;
             this.Owner = Owner;
+            this.Contact = contact;
             this.Title = title;
             this.Description = description;
-            this.Interactions = interactions;
-            this.attachments = attachments;
-            this.sourceComputer = computer;
+            this.Category = category;
+            this.SourceComputer = computer;
             this.TimeOfRegistration = new DateTime();
-            this.origin = origin;
+            this.Origin = origin;
+            this.TimeOfRegistration = DateTime.Now;
+            this.Impact = impact;
+        }
+
+        public void AddAttachment(Attachment attachment)
+        {
+            this.attachments.Add(attachment);
+        }
+
+        public void AddInteraction(Interaction interaction)
+        {
+            this.Interactions.Add(interaction);
         }
     }
 }

@@ -1,0 +1,87 @@
+﻿@model PlataformaRPHD.Web.ViewModels.CategoryViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Apagar Categoria</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Lista de Categorias", "Index")
+            </li>
+            <li class="active">
+                <strong>Apagar Categoria</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+			@Html.ActionLink("Regressar à Lista", "Index", null, new { @class = "btn btn-primary"})
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Categoria</h5>
+                </div>
+                <div class="ibox-content">
+				<h4 class="text-danger">Tem a certeza que pretende eliminar?</h4>
+				 <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Categoria ascendente")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Nome")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Descrição")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tem Wizard")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasWizard)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-primary" />
+            @Html.ActionLink("Regressar à Lista", "Index", null, new { @class = "btn btn-white"})
+        </div>
+    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+

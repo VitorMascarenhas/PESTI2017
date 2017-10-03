@@ -9,10 +9,8 @@ namespace STICket.Services.App_Start
         {
             AutoMapper.Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Category, Category>().ReverseMap();
-
-                cfg.CreateMap<Topic, TopicViewModel>().ReverseMap();
-
+                cfg.CreateMap<Category, CategoryViewModel>().ReverseMap();
+                
                 cfg.CreateMap<Service, ServiceViewModel>().ReverseMap();
 
                 //cfg.CreateMap<BusinessHours, BusinessHoursViewModel>().ReverseMap();

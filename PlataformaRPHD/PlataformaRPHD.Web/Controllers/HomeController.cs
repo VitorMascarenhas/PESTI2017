@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using PlataformaRPHD.Domain.Entities.Entities;
-using PlataformaRPHD.Infrastructure.Data.Repositories;
-using PlataformaRPHD.Web.ViewModels;
-using System.Collections.Generic;
+﻿using PlataformaRPHD.Infrastructure.Data.Repositories;
 using System.Web.Mvc;
 
 namespace PlataformaRPHD.Web.Controllers
@@ -18,7 +14,6 @@ namespace PlataformaRPHD.Web.Controllers
         
         public ActionResult Index()
         {
-            
             return View();
         }
 

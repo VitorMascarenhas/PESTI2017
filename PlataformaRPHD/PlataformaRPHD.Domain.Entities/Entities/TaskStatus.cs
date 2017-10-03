@@ -7,5 +7,7 @@
         protected string status { get; set; }
 
         public abstract void ChangeStatus();
+
+        public abstract string GetStatus();
     }
 }

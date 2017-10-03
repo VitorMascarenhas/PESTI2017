@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -97,8 +97,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -142,130 +142,6 @@
       <HintPath>..\packages\structuremap.web.4.0.0.315\lib\net40\StructureMap.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Syncfusion.Chart.WPF, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.Chart.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Compression.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.Compression.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.DocIO.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.DocIO.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.DocToPdfConverter.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.DocToPdfConverter.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.EJ, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.EJ.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.EJ.Export, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.EJ.Export.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.EJ.MVC, Version=15.2500.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.EJ.MVC.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.EJ.PdfViewer, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.EJ.PdfViewer.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.EJ.Pivot, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.EJ.Pivot.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.EJ.ReportViewer, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.EJ.ReportViewer.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.ExcelChartToImageConverter.WPF, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.ExcelChartToImageConverter.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.ExcelToPDFConverter.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.ExcelToPDFConverter.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Gauge.WPF, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.Gauge.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.HTMLConverter.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.HTMLConverter.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Linq.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.Linq.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.OCRProcessor.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.OCRProcessor.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.OfficeChart.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.OfficeChart.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.OfficeChartToImageConverter.WPF, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.OfficeChartToImageConverter.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Olap.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.Olap.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Pdf.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.Pdf.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PivotAnalysis.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.PivotAnalysis.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PMML.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.PMML.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Presentation.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.Presentation.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PresentationToPdfConverter.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.PresentationToPdfConverter.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.RichtextBoxAdv.WPF, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.RichtextBoxAdv.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfChart.WPF, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.SfChart.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfMaps.WPF, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.SfMaps.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.Base, Version=15.2450.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.Shared.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.WPF, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.Shared.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SpellChecker.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.SpellChecker.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.XlsIO.Base, Version=15.2451.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\info5292\AppData\Local\Syncfusion\EssentialStudio\15.2.0.40\MVC\Samples\web\bin_MVC5\Syncfusion.XlsIO.Base.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -285,6 +161,10 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
@@ -350,10 +230,18 @@
     <Compile Include="App_Start\MappingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CreateRequestController.cs" />
     <Compile Include="Controllers\CreateRequestUserController.cs" />
+    <Compile Include="Controllers\DataSourceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\InteractionController.cs" />
+    <Compile Include="Controllers\NotificationsController.cs" />
+    <Compile Include="Controllers\RequestsController.cs" />
+    <Compile Include="Controllers\SatisfactionSurveyController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\EntityFrameworkRegistry.cs" />
@@ -370,8 +258,10 @@
     <Compile Include="ViewModels\CreateRequestViewModel.cs" />
     <Compile Include="ViewModels\InteractionViewModel.cs" />
     <Compile Include="ViewModels\CreateRequestUserViewModel.cs" />
+    <Compile Include="ViewModels\MailService.cs" />
+    <Compile Include="ViewModels\RequestWithSatisfactionSurveyViewModel.cs" />
     <Compile Include="ViewModels\ServiceViewModel.cs" />
-    <Compile Include="ViewModels\TopicViewModel.cs" />
+    <Compile Include="ViewModels\TaskViewModel.cs" />
     <Compile Include="x\AddProfile.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -381,10 +271,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\ej\web\ej.widgets.core.bootstrap.min.css" />
-    <Content Include="Content\ej\web\ej.widgets.core.material.min.css" />
-    <Content Include="Content\ej\web\ej.widgets.core.min.css" />
-    <Content Include="Content\ej\web\ej.widgets.core.office-365.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\style.css" />
@@ -418,54 +304,178 @@
     <Content Include="CodeTemplates\MvcView\Imports.include.t4" />
     <Content Include="CodeTemplates\MvcView\List.cs.t4" />
     <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
-    <Content Include="Content\ej\web\ej.widgets.core.bootstrap.less" />
-    <Content Include="Content\ej\web\ej.widgets.core.less" />
-    <Content Include="Content\ej\web\ej.widgets.core.material.less" />
-    <Content Include="Content\ej\web\ej.widgets.core.office-365.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\app\inspinia.js" />
+    <Content Include="Scripts\app\skin.config.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\cultures\ej.culture.en-US.min.js" />
-    <Content Include="Scripts\cultures\globalize.culture.de-DE.min.js" />
-    <Content Include="Scripts\cultures\globalize.culture.en-US.min.js" />
-    <Content Include="Scripts\cultures\globalize.culture.fr-FR.min.js" />
-    <Content Include="Scripts\cultures\globalize.culture.vi-VN.min.js" />
-    <Content Include="Scripts\cultures\globalize.culture.zh-CN.min.js" />
-    <Content Include="Scripts\ej\ej.globalize.min.js" />
-    <Content Include="Scripts\ej\ej.unobtrusive.min.js" />
-    <None Include="Scripts\ej\ej.web.all.min.intellisense.js" />
-    <Content Include="Scripts\ej\ej.web.all.min.js" />
-    <Content Include="Scripts\ej\ej.widget.angular.min.js" />
-    <Content Include="Scripts\ej\ej.widget.ko.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
-    <Content Include="Scripts\jquery.easing-1.3.min.js" />
-    <Content Include="Scripts\jquery.globalize.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jsrender.js" />
     <Content Include="Scripts\jsrender.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\MyScript.js" />
+    <Content Include="Scripts\plugins\metisMenu\metisMenu.min.js" />
+    <Content Include="Scripts\plugins\pace\pace.min.js" />
+    <Content Include="Scripts\plugins\slimscroll\jquery.slimscroll.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\script-custom-editor.js" />
+    <Content Include="Scripts\summernote.js" />
+    <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
+    <Content Include="Scripts\tinymce\license.txt" />
+    <Content Include="Scripts\tinymce\plugins\advlist\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\anchor\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autolink\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autoresize\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\bbcode\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\charmap\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="Scripts\tinymce\plugins\codesample\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\code\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\colorpicker\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\css\dialog.css" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\buttons.png" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\icons.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\items.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\menu_arrow.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\menu_check.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\progress.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\tabs.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\tiny_mce_popup.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\editable_selects.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\form_utils.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\mctabs.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\validate.js" />
+    <Content Include="Scripts\tinymce\plugins\contextmenu\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\directionality\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\help\img\logo.png" />
+    <Content Include="Scripts\tinymce\plugins\help\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\hr\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\imagetools\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\image\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\importcss\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\insertdatetime\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\legacyoutput\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\link\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\lists\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\media\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\nonbreaking\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\noneditable\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\print\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\save\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\tabfocus\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\table\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\template\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\textcolor\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\textpattern\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\toc\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualchars\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\wordcount\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Scripts\tinymce\themes\inlite\theme.js" />
+    <Content Include="Scripts\tinymce\themes\inlite\theme.min.js" />
+    <Content Include="Scripts\tinymce\themes\modern\theme.js" />
+    <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Scripts\tinymce\tinymce.js" />
+    <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -482,33 +492,106 @@
     <Content Include="Views\CreateRequestUser\AddAttachment.cshtml" />
     <Content Include="Views\CreateRequest\Index.cshtml" />
     <Content Include="Views\CreateRequest\AddAttachment.cshtml" />
-    <Content Include="Views\Shared\_RichTextEditor.cshtml" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Scripts\tinymce\langs\readme.md" />
+    <Content Include="Views\Services\Create.cshtml" />
+    <Content Include="Views\Services\Delete.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Requests\Details.cshtml" />
+    <Content Include="Views\Requests\Index.cshtml" />
+    <Content Include="Views\Interaction\InteractionDetails.cshtml" />
+    <Content Include="Views\Tasks\Details.cshtml" />
+    <Content Include="Views\Tasks\Edit.cshtml" />
+    <Content Include="Views\Tasks\Index.cshtml" />
+    <Content Include="Views\Notifications\Create.cshtml" />
+    <Content Include="Views\Notifications\Delete.cshtml" />
+    <Content Include="Views\Notifications\Details.cshtml" />
+    <Content Include="Views\Notifications\Edit.cshtml" />
+    <Content Include="Views\Notifications\Index.cshtml" />
+    <Content Include="Views\SatisfactionSurvey\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\ej\web\bootstrap-theme\" />
-    <Folder Include="Content\ej\web\common-images\" />
-    <Folder Include="Content\ej\web\default-theme\" />
-    <Folder Include="Content\ej\web\flat-azure-dark\" />
-    <Folder Include="Content\ej\web\flat-lime-dark\" />
-    <Folder Include="Content\ej\web\flat-lime\" />
-    <Folder Include="Content\ej\web\flat-saffron-dark\" />
-    <Folder Include="Content\ej\web\flat-saffron\" />
-    <Folder Include="Content\ej\web\gradient-azure-dark\" />
-    <Folder Include="Content\ej\web\gradient-azure\" />
-    <Folder Include="Content\ej\web\gradient-lime-dark\" />
-    <Folder Include="Content\ej\web\gradient-lime\" />
-    <Folder Include="Content\ej\web\gradient-saffron-dark\" />
-    <Folder Include="Content\ej\web\gradient-saffron\" />
-    <Folder Include="Content\ej\web\high-contrast-01\" />
-    <Folder Include="Content\ej\web\high-contrast-02\" />
-    <Folder Include="Content\ej\web\material\" />
-    <Folder Include="Content\ej\web\office-365\" />
-    <Folder Include="Content\ej\web\responsive-css\" />
-    <Folder Include="Content\ej\web\ribbon-css\" />
     <Folder Include="Content\patterns\" />
-    <Folder Include="Scripts\app\" />
-    <Folder Include="Scripts\plugins\" />
+    <Folder Include="Scripts\api\" />
+    <Folder Include="Scripts\plugins\blueimp\" />
+    <Folder Include="Scripts\plugins\bootstrap-markdown\" />
+    <Folder Include="Scripts\plugins\bootstrap-tagsinput\" />
+    <Folder Include="Scripts\plugins\bootstrapTour\" />
+    <Folder Include="Scripts\plugins\c3\" />
+    <Folder Include="Scripts\plugins\chartist\" />
+    <Folder Include="Scripts\plugins\chartJs\" />
+    <Folder Include="Scripts\plugins\chosen\" />
+    <Folder Include="Scripts\plugins\clipboard\" />
+    <Folder Include="Scripts\plugins\clockpicker\" />
+    <Folder Include="Scripts\plugins\codemirror\" />
+    <Folder Include="Scripts\plugins\colorpicker\" />
+    <Folder Include="Scripts\plugins\cropper\" />
+    <Folder Include="Scripts\plugins\d3\" />
+    <Folder Include="Scripts\plugins\datamaps\" />
+    <Folder Include="Scripts\plugins\datapicker\" />
+    <Folder Include="Scripts\plugins\dataTables\" />
+    <Folder Include="Scripts\plugins\daterangepicker\" />
+    <Folder Include="Scripts\plugins\diff_match_patch\" />
+    <Folder Include="Scripts\plugins\dotdotdot\" />
+    <Folder Include="Scripts\plugins\dropzone\" />
+    <Folder Include="Scripts\plugins\dualListbox\" />
+    <Folder Include="Scripts\plugins\easypiechart\" />
+    <Folder Include="Scripts\plugins\flot\" />
+    <Folder Include="Scripts\plugins\footable\" />
+    <Folder Include="Scripts\plugins\fullcalendar\" />
+    <Folder Include="Scripts\plugins\gritter\" />
+    <Folder Include="Scripts\plugins\i18next\" />
+    <Folder Include="Scripts\plugins\iCheck\" />
+    <Folder Include="Scripts\plugins\idle-timer\" />
+    <Folder Include="Scripts\plugins\ionRangeSlider\" />
+    <Folder Include="Scripts\plugins\jasny\" />
+    <Folder Include="Scripts\plugins\jeditable\" />
+    <Folder Include="Scripts\plugins\jqGrid\" />
+    <Folder Include="Scripts\plugins\jquery-ui\" />
+    <Folder Include="Scripts\plugins\jsKnob\" />
+    <Folder Include="Scripts\plugins\jsTree\" />
+    <Folder Include="Scripts\plugins\justified-gallery\" />
+    <Folder Include="Scripts\plugins\jvectormap\" />
+    <Folder Include="Scripts\plugins\ladda\" />
+    <Folder Include="Scripts\plugins\masonary\" />
+    <Folder Include="Scripts\plugins\morris\" />
+    <Folder Include="Scripts\plugins\nestable\" />
+    <Folder Include="Scripts\plugins\nouslider\" />
+    <Folder Include="Scripts\plugins\pdfjs\" />
+    <Folder Include="Scripts\plugins\peity\" />
+    <Folder Include="Scripts\plugins\preetyTextDiff\" />
+    <Folder Include="Scripts\plugins\pwstrength\" />
+    <Folder Include="Scripts\plugins\rickshaw\" />
+    <Folder Include="Scripts\plugins\select2\" />
+    <Folder Include="Scripts\plugins\slick\" />
+    <Folder Include="Scripts\plugins\sparkline\" />
+    <Folder Include="Scripts\plugins\steps\" />
+    <Folder Include="Scripts\plugins\summernote\" />
+    <Folder Include="Scripts\plugins\sweetalert\" />
+    <Folder Include="Scripts\plugins\switchery\" />
+    <Folder Include="Scripts\plugins\tinycon\" />
+    <Folder Include="Scripts\plugins\toastr\" />
+    <Folder Include="Scripts\plugins\topojson\" />
+    <Folder Include="Scripts\plugins\touchpunch\" />
+    <Folder Include="Scripts\plugins\touchspin\" />
+    <Folder Include="Scripts\plugins\typehead\" />
+    <Folder Include="Scripts\plugins\validate\" />
+    <Folder Include="Scripts\plugins\velocity\" />
+    <Folder Include="Scripts\plugins\video\" />
+    <Folder Include="Scripts\plugins\wow\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -528,6 +611,9 @@
       <Project>{b9ed4344-81f5-4a48-977d-41f5143a2c58}</Project>
       <Name>PlataformaRPHD.Infrastructure.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -561,8 +647,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

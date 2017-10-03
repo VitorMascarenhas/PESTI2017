@@ -1,5 +1,6 @@
-Ôªønamespace PlataformaRPHD.Infrastructure.Data.Migrations
+namespace PlataformaRPHD.Infrastructure.Data.Migrations
 {
+    using Domain.Entities.Entities;
     using System.Data.Entity.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<PlataformaRPHD.Infrastructure.Data.STICketContext>
@@ -12,220 +13,237 @@
         protected override void Seed(STICketContext context)
         {
             //SeedCategories(context);
-            //SeedTopics(context);
             //SeedServices(context);
+            //SeedOrigins(context);
+            //SeedImpacts(context);
         }
 
         /*private void SeedCategories(STICketContext context)
         {
-            context.Categories.AddOrUpdate(
-                //primeiro nivel
-                new Category("Incidente", "Registo de um incidente"),
-                new Category("Pedido", "Registo de um pedido"),
-                //segundo n√≠vel
-                new Category("Aplicacional", "Problema com aplica√ß√£o"),
-                new Category("Equipamento", "Problema com equipamento"),
-                new Category("Rede/Mail/Internet", "Problema com Rede, mail ou internet"),
-                new Category("Logins aplicacionais", "Logins aplicacionais"),
-                new Category("informa√ß√£o/d√∫vidas", "informa√ß√£o/d√∫vidas"),
-                //terceiro n√≠vel
-                new Category("Hcis", "Hcis"),
-                new Category("Siima", "Siima"),
-                new Category("Sinus", "Sinus"),
-                new Category("Sclinico", "Sclinico"),
-                new Category("Sclinico CSP", "Sclinico CSP"),
-                new Category("Sonho", "Sonho"),
-                //quarto n√≠vel
-                new Category("Rato", "Rato"),
-                new Category("Teclado", "Teclado"),
-                new Category("Monitor", "Monitor"),
-                new Category("Leitor de cart√µes", "Leitor de cart√µes"),
-                new Category("Avaria de equipamento", "Avaria de equipamento"),
-                new Category("Mau funcionamento de equipamento", "funcionamento de equipamento"),
-                new Category("Substitui√ß√£o de equipamento", "Substitui√ß√£o de equipamento"),
-                new Category("Desaparecimento de equipamento", "Desaparecimento de equipamento"),
-                new Category("Movimenta√ß√£o de equipamento", "Movimenta√ß√£o de equipamento"),
-                new Category("Adicionar/Modificar/Eliminar registos", "Adicionar, modificar ou eliminar registos aplicacionais"),
-                new Category("Erro na aplica√ß√£o", "Erro na aplica√ß√£o")
-            );
-        }*/
+            var incidente = new Category(null, "Incidente", "Registo de um incidente");
+            var pedido = new Category(null, "Pedido", "Registo de um pedido");
 
-        /*public void SeedTopics(STICketContext context)
-        {
-            context.Topics.AddOrUpdate(
-                new Topic(new Category("Incidente", "Registo de um incidente"), new Category("Aplicacional", "Problema com aplica√ß√£o")),
-                new Topic(new Category("Incidente", "Registo de um incidente"), new Category("Equipamento", "Problema com equipamento")),
-                new Topic(new Category("Incidente", "Registo de um incidente"), new Category("Rede/Mail/Internet", "Problema com Rede, mail ou internet")),
+            var aplicacional = new Category(incidente, "Aplicacional", "Incidente com aplicaÁ„o");
+            var equipamento = new Category(incidente, "Equipamento", "Incidente com equipamento");
+            var rede = new Category(incidente, "Rede", "Incidente com rede");
+            var sistemas = new Category(incidente, "Sistemas", "Incidente relacionado com sistemas");
 
-                new Topic(new Category("Pedido", "Registo de um pedido"), new Category("Logins aplicacionais", "Logins aplicacionais")),
-                new Topic(new Category("Pedido", "Registo de um pedido"), new Category("informa√ß√£o/d√∫vidas", "informa√ß√£o/d√∫vidas")),
+            var logins = new Category(pedido, "Pedido", "Pedido de logins aplicacionais");
+            var dadosestatisticos = new Category(pedido, "Dados estatÌsticos", "Pedido de dados estatÌsticos");
+            var informacao = new Category(pedido, "InformaÁ„o geral", "Pedido de informaÁ„o");
+            var instrucoes = new Category(pedido, "InstruÁıes", "Pedido de instruÁıes");
 
-                new Topic(new Category("Aplicacional", "Problema com aplica√ß√£o"), new Category("Hcis", "Hcis")),
-                new Topic(new Category("Aplicacional", "Problema com aplica√ß√£o"), new Category("Siima", "Siima")),
-                new Topic(new Category("Aplicacional", "Problema com aplica√ß√£o"), new Category("Sinus", "Sinus")),
-                new Topic(new Category("Aplicacional", "Problema com aplica√ß√£o"), new Category("Sclinico", "Sclinico")),
-                new Topic(new Category("Aplicacional", "Problema com aplica√ß√£o"), new Category("Sclinico CSP", "Sclinico CSP")),
-                new Topic(new Category("Aplicacional", "Problema com aplica√ß√£o"), new Category("Sonho", "Sonho")),
+            var hcis = new Category(aplicacional, "HCis", "AplicaÁ„o HCis");
+            var sinus = new Category(aplicacional, "SINUS", "AplicaÁ„o SINUS");
+            var sclinico = new Category(aplicacional, "Sclinico", "AplicaÁ„o sclinico hospitalar");
+            var sclinicocsp = new Category(aplicacional, "Sclinico CSP", "AplicaÁ„o sclinico cuidados de sa˙de prim·rios");
+            var sonho = new Category(aplicacional, "SONHO", "AplicaÁ„o sonho");
 
-                new Topic(new Category("Logins aplicacionais", "Logins aplicacionais"), new Category("Hcis", "Hcis")),
-                new Topic(new Category("Logins aplicacionais", "Logins aplicacionais"), new Category("Siima", "Siima")),
-                new Topic(new Category("Logins aplicacionais", "Logins aplicacionais"), new Category("Sinus", "Sinus")),
-                new Topic(new Category("Logins aplicacionais", "Logins aplicacionais"), new Category("Sclinico", "Sclinico")),
-                new Topic(new Category("Logins aplicacionais", "Logins aplicacionais"), new Category("Sclinico CSP", "Sclinico CSP")),
-                new Topic(new Category("Logins aplicacionais", "Logins aplicacionais"), new Category("Sonho", "Sonho")),
-                new Topic(new Category("informa√ß√£o/d√∫vidas", "informa√ß√£o/d√∫vidas"), new Category("Aplicacional", "Problema com aplica√ß√£o")),
-                new Topic(new Category("informa√ß√£o/d√∫vidas", "informa√ß√£o/d√∫vidas"), new Category("Equipamento", "Problema com equipamento")),
-                new Topic(new Category("informa√ß√£o/d√∫vidas", "informa√ß√£o/d√∫vidas"), new Category("Rede/Mail/Internet", "Problema com Rede, mail ou internet")),
-                new Topic(new Category("Equipamento", "Problema com equipamento"), new Category("Avaria de equipamento", "Avaria de equipamento")),
-                new Topic(new Category("Equipamento", "Problema com equipamento"), new Category("Mau funcionamento de equipamento", "Mau funcionamento de equipamento")),
-                new Topic(new Category("Equipamento", "Problema com equipamento"), new Category("Substitui√ß√£o de equipamento", "Substitui√ß√£o de equipamento")),
-                new Topic(new Category("Equipamento", "Problema com equipamento"), new Category("Desaparecimento de equipamento", "Desaparecimento de equipamento")),
-                new Topic(new Category("Equipamento", "Problema com equipamento"), new Category("Movimenta√ß√£o de equipamento", "Movimenta√ß√£o de equipamento")),
-                new Topic(new Category("Avaria de equipamento", "Avaria de equipamento"), new Category("Rato", "Rato")),
-                new Topic(new Category("Avaria de equipamento", "Avaria de equipamento"), new Category("Teclado", "Teclado")),
-                new Topic(new Category("Avaria de equipamento", "Avaria de equipamento"), new Category("Monitor", "Monitor")),
-                new Topic(new Category("Avaria de equipamento", "Avaria de equipamento"), new Category("Leitor de cart√µes", "Leitor de cart√µes")),
-                new Topic(new Category("Mau funcionamento de equipamento", "funcionamento de equipamento"), new Category("Rato", "Rato")), 
-                new Topic(new Category("Mau funcionamento de equipamento", "funcionamento de equipamento"), new Category("Teclado", "Teclado")),
-                new Topic(new Category("Mau funcionamento de equipamento", "funcionamento de equipamento"), new Category("Monitor", "Monitor")),
-                new Topic(new Category("Mau funcionamento de equipamento", "funcionamento de equipamento"), new Category("Leitor de cart√µes", "Leitor de cart√µes")),
-                new Topic(new Category("Substitui√ß√£o de equipamento", "Substitui√ß√£o de equipamento"), new Category("Rato", "Rato")),
-                new Topic(new Category("Substitui√ß√£o de equipamento", "Substitui√ß√£o de equipamento"), new Category("Teclado", "Teclado")),
-                new Topic(new Category("Substitui√ß√£o de equipamento", "Substitui√ß√£o de equipamento"), new Category("Monitor", "Monitor")),
-                new Topic(new Category("Substitui√ß√£o de equipamento", "Substitui√ß√£o de equipamento"), new Category("Leitor de cart√µes", "Leitor de cart√µes")),
-                new Topic(new Category("Desaparecimento de equipamento", "Desaparecimento de equipamento"), new Category("Rato", "Rato")),
-                new Topic(new Category("Desaparecimento de equipamento", "Desaparecimento de equipamento"), new Category("Teclado", "Teclado")),
-                new Topic(new Category("Desaparecimento de equipamento", "Desaparecimento de equipamento"), new Category("Monitor", "Monitor")),
-                new Topic(new Category("Desaparecimento de equipamento", "Desaparecimento de equipamento"), new Category("Leitor de cart√µes", "Leitor de cart√µes")),
-                new Topic(new Category("Movimenta√ß√£o de equipamento", "Movimenta√ß√£o de equipamento"), new Category("Rato", "Rato")),
-                new Topic(new Category("Movimenta√ß√£o de equipamento", "Movimenta√ß√£o de equipamento"), new Category("Teclado", "Teclado")),
-                new Topic(new Category("Movimenta√ß√£o de equipamento", "Movimenta√ß√£o de equipamento"), new Category("Monitor", "Monitor")),
-                new Topic(new Category("Movimenta√ß√£o de equipamento", "Movimenta√ß√£o de equipamento"), new Category("Leitor de cart√µes", "Leitor de cart√µes"))
-            );
+            var maufuncionamento = new Category(equipamento, "Mau funcionamento de equipamento", "Mau funcionamento de equipamento");
+            var avaria = new Category(equipamento, "Avaria de equipamento", "Avaria de equipamento");
+            var desaparecimento = new Category(equipamento, "Desaparecimento de equipamento", "Desaparecimento de equipamento");
+
+            var acessorede = new Category(rede, "Acesso ‡ rede", "Problemas no acesso ‡ rede");
+            var internet = new Category(rede, "Internet", "Problemas no acesso ‡ internet");
+            var mail = new Category(rede, "Mail", "Problemas relacionados com e-mail");
+
+            var software = new Category(sistemas, "Sistema operativo", "Problemas relacionados com o sistema operativo");
+
+            var maufuncionamentorato = new Category(maufuncionamento, "Rato", "Mau funcionamento de raro");
+            var avariarato = new Category(avaria, "Rato", "Avaria de rato");
+            var desaparecimentorato = new Category(desaparecimento, "Rato", "Desaparecimento de rato");
+
+            var maufuncionamentoteclado = new Category(maufuncionamento, "Teclado", "Mau funcionamento de Teclado");
+            var avariateclado = new Category(avaria, "Teclado", "Avaria de teclado");
+            var desaparecimentoteclado = new Category(desaparecimento, "Teclado", "Desaparecimento de teclado");
+
+            var maufuncionamentomonitor = new Category(maufuncionamento, "Monitor", "Mau funcionamento de monitor");
+            var avariamonitor = new Category(avaria, "Monitor", "Avaria de monitor");
+            var desaparecimentomonitor = new Category(desaparecimento, "Monitor", "Desaparecimento de monitor");
+
+            var maufuncionamentoimpressora = new Category(maufuncionamento, "Impressora", "Mau funcionamento de impressora");
+            var avariaimpressora = new Category(avaria, "Impressora", "Avaria de impressora");
+            var desaparecimentoimpressora = new Category(desaparecimento, "Impressora", "Desaparecimento de impressora");
+
+            var maufuncionamentoleitorcartoes = new Category(maufuncionamento, "Leitor de cartıes", "Mau funcionamento de leitor de cartıes");
+            var avarialeitorcartoes = new Category(avaria, "Leitor de cartıes", "Avaria de leitor de cartıes");
+            var desaparecimentoleitorcartoes = new Category(desaparecimento, "Leitor de cartıes", "Desaparecimento de leitor de cartıes");
+
+            //------------
+            context.Categories.AddOrUpdate(incidente);
+            context.Categories.AddOrUpdate(pedido);
+
+
+            context.Categories.AddOrUpdate(aplicacional);
+            context.Categories.AddOrUpdate(equipamento);
+            context.Categories.AddOrUpdate(rede);
+            context.Categories.AddOrUpdate(sistemas);
+
+            context.Categories.AddOrUpdate(logins);
+            context.Categories.AddOrUpdate(dadosestatisticos);
+            context.Categories.AddOrUpdate(informacao);
+            context.Categories.AddOrUpdate(instrucoes);
+
+            context.Categories.AddOrUpdate(hcis);
+            context.Categories.AddOrUpdate(sinus);
+            context.Categories.AddOrUpdate(sclinico);
+            context.Categories.AddOrUpdate(sclinicocsp);
+            context.Categories.AddOrUpdate(sonho);
+
+            context.Categories.AddOrUpdate(maufuncionamento);
+            context.Categories.AddOrUpdate(avaria);
+            context.Categories.AddOrUpdate(desaparecimento);
+
+            context.Categories.AddOrUpdate(acessorede);
+            context.Categories.AddOrUpdate(internet);
+            context.Categories.AddOrUpdate(mail);
+
+            context.Categories.AddOrUpdate(software);
+
+            context.Categories.AddOrUpdate(maufuncionamentorato);
+            context.Categories.AddOrUpdate(avariarato);
+            context.Categories.AddOrUpdate(desaparecimentorato);
+
+            context.Categories.AddOrUpdate(maufuncionamentoteclado);
+            context.Categories.AddOrUpdate(avariateclado);
+            context.Categories.AddOrUpdate(desaparecimentoteclado);
+
+            context.Categories.AddOrUpdate(maufuncionamentomonitor);
+            context.Categories.AddOrUpdate(avariamonitor);
+            context.Categories.AddOrUpdate(desaparecimentomonitor);
+
+            context.Categories.AddOrUpdate(maufuncionamentoimpressora);
+            context.Categories.AddOrUpdate(avariaimpressora);
+            context.Categories.AddOrUpdate(desaparecimentoimpressora);
+
+            context.Categories.AddOrUpdate(maufuncionamentoleitorcartoes);
+            context.Categories.AddOrUpdate(avarialeitorcartoes);
+            context.Categories.AddOrUpdate(desaparecimentoleitorcartoes);
         }*/
 
         /*private void SeedServices(STICketContext context)
         {
             context.Services.AddOrUpdate(
-                new Service("Arquivo Cl√≠nico"),
+                new Service("Arquivo ClÌnico"),
                 new Service("Auditoria Interna"),
                 new Service("Bloco de Partos"),
-                new Service("Bloco Operat√≥rio"),
-                new Service("Centro de Diagn√≥stico Pneumol√≥gico"),
-                new Service("Centro de Ensaios Cl√≠nicos"),
-                new Service("Centro de Forma√ß√£o"),
-                new Service("Cirurgia de Ambulat√≥rio"),
-                new Service("Cl√≠nica dos Trabalhadores Portu√°rios do Douro e Leix√µes"),
-                new Service("Conselho de Administra√ß√£o"),
+                new Service("Bloco OperatÛrio"),
+                new Service("Call-Center"),
+                new Service("Centro de DiagnÛstico PneumolÛgico"),
+                new Service("Centro de Ensaios ClÌnicos"),
+                new Service("Centro de FormaÁ„o"),
+                new Service("Cirurgia de AmbulatÛrio"),
+                new Service("ClÌnica dos Trabalhadores Portu·rios do Douro e Leixıes"),
+                new Service("Conselho de AdministraÁ„o"),
                 new Service("Consulta Externa"),
                 new Service("Consulta Externa de Pediatria"),
                 new Service("Cozinha"),
-                new Service("Departamento de Gest√£o de Recursos Humanos e Gest√£o Documental"),
-                new Service("Dire√ß√£o Cl√≠nica"),
-                new Service("Dire√ß√£o de Enfermagem"),
-                new Service("Equipa de Gest√£o de Altas"),
-                new Service("Equipa de Gest√£o de Camas e Altas"),
-                new Service("Equipa Doente Cr√≥nico Complexo"),
+                new Service("Departamento de Gest„o de Recursos Humanos e Gest„o Documental"),
+                new Service("DireÁ„o ClÌnica"),
+                new Service("DireÁ„o de Enfermagem"),
+                new Service("Equipa de Gest„o de Altas"),
+                new Service("Equipa de Gest„o de Camas e Altas"),
+                new Service("Equipa Doente CrÛnico Complexo"),
                 new Service("Exames Especiais"),
                 new Service("Gabinete Apoio ao ACES"),
-                new Service("Gabinete de Codifica√ß√£o"),
-                new Service("Gabinete de Comunica√ß√£o e Rela√ß√µes P√∫blicas"),
-                new Service("Gabinete de Contratualiza√ß√£o"),
-                new Service("Gabinete de Higiene e Seguran√ßa"),
-                new Service("Gabinete de Investiga√ß√£o"),
+                new Service("Gabinete de CodificaÁ„o"),
+                new Service("Gabinete de ComunicaÁ„o e RelaÁıes P˙blicas"),
+                new Service("Gabinete de ContratualizaÁ„o"),
+                new Service("Gabinete de Higiene e SeguranÁa"),
+                new Service("Gabinete de InvestigaÁ„o"),
                 new Service("Gabinete de Qualidade"),
-                new Service("Gabinete de Sa√∫de Ocupacional"),
+                new Service("Gabinete de Sa˙de Ocupacional"),
                 new Service("Gabinete de Transportes"),
-                new Service("Gabinete do Cidad√£o"),
-                new Service("Gabinete Jur√≠dico"),
+                new Service("Gabinete do Cidad„o"),
+                new Service("Gabinete JurÌdico"),
                 new Service("Hospital de Dia"),
-                new Service("Internato M√©dico"),
-                new Service("Medicina F√≠sica e de Reabilita√ß√£o"),
-                new Service("Privada I ‚Äì Cl√≠nica da Senhora da Hora"),
-                new Service("Servi√ßo de Anatomia Patol√≥gica"),
-                new Service("Servi√ßo de Anestesiologia"),
-                new Service("Servi√ßo de Biblioteca"),
-                new Service("Servi√ßo de Cardiologia"),
-                new Service("Servi√ßo de Cirurgia Geral"),
-                new Service("Servi√ßo de Compras e Log√≠stica"),
-                new Service("Servi√ßo de Cuidados Interm√©dios Cir√∫rgicos"),
-                new Service("Servi√ßo de Dermatologia"),
-                new Service("Servi√ßo de Endocrinologia"),
-                new Service("Servi√ßo de Esteriliza√ß√£o Central"),
-                new Service("Servi√ßo de Gastroenterologia"),
-                new Service("Servi√ßo de Ginecologia"),
-                new Service("Servi√ßo de Obstetr√≠cia"),
-                new Service("Servi√ßo de Hemoterapia e Hematologia Cl√≠nica"),
-                new Service("Servi√ßo de Imagiologia"),
-                new Service("Servi√ßo de Infeciologia"),
-                new Service("Servi√ßo de Inform√°tica"),
-                new Service("Servi√ßo de Instala√ß√µes e Equipamentos"),
-                new Service("Servi√ßo de Medicina Intensiva"),
-                new Service("Servi√ßo de Medicina Interna"),
-                new Service("Servi√ßo de Neonatologia"),
-                new Service("Servi√ßo de Neurocirurgia"),
-                new Service("Servi√ßo de Neurologia"),
-                new Service("Servi√ßo de Nutri√ß√£o"),
-                new Service("Servi√ßo de Oftalmologia"),
-                new Service("Servi√ßo de Oncologia"),
-                new Service("Servi√ßo de Ortopedia"),
-                new Service("Servi√ßo de Otorrinolaringologia"),
-                new Service("Servi√ßo de Patologia Cl√≠nica"),
-                new Service("Servi√ßo de Pediatria"),
-                new Service("Servi√ßo de Planeamento e Controlo de Gest√£o"),
-                new Service("Servi√ßo de Pneumologia"),
-                new Service("Servi√ßo de Psicologia"),
-                new Service("Servi√ßo de Psiquiatria"),
-                new Service("Servi√ßo de Urg√™ncia"),
-                new Service("Servi√ßo de Urologia"),
-                new Service("Servi√ßo Social"),
-                new Service("Servi√ßos Farmac√™uticos"),
-                new Service("Servi√ßos Financeiros"),
-                new Service("Servi√ßos Hoteleiros"),
-                new Service("Supervis√£o Enfermagem"),
-                new Service("UCC de Le√ßa da Palmeira"),
+                new Service("Internato MÈdico"),
+                new Service("Medicina FÌsica e de ReabilitaÁ„o"),
+                new Service("Privada I ñ ClÌnica da Senhora da Hora"),
+                new Service("ServiÁo de Anatomia PatolÛgica"),
+                new Service("ServiÁo de Anestesiologia"),
+                new Service("ServiÁo de Biblioteca"),
+                new Service("ServiÁo de Cardiologia"),
+                new Service("ServiÁo de Cirurgia Geral"),
+                new Service("ServiÁo de Compras e LogÌstica"),
+                new Service("ServiÁo de Cuidados IntermÈdios Cir˙rgicos"),
+                new Service("ServiÁo de Dermatologia"),
+                new Service("ServiÁo de Endocrinologia"),
+                new Service("ServiÁo de EsterilizaÁ„o Central"),
+                new Service("ServiÁo de Gastroenterologia"),
+                new Service("ServiÁo de Ginecologia"),
+                new Service("ServiÁo de ObstetrÌcia"),
+                new Service("ServiÁo de Hemoterapia e Hematologia ClÌnica"),
+                new Service("ServiÁo de Imagiologia"),
+                new Service("ServiÁo de Infeciologia"),
+                new Service("ServiÁo de Inform·tica"),
+                new Service("ServiÁo de InstalaÁıes e Equipamentos"),
+                new Service("ServiÁo de Medicina Intensiva"),
+                new Service("ServiÁo de Medicina Interna"),
+                new Service("ServiÁo de Neonatologia"),
+                new Service("ServiÁo de Neurocirurgia"),
+                new Service("ServiÁo de Neurologia"),
+                new Service("ServiÁo de NutriÁ„o"),
+                new Service("ServiÁo de Oftalmologia"),
+                new Service("ServiÁo de Oncologia"),
+                new Service("ServiÁo de Ortopedia"),
+                new Service("ServiÁo de Otorrinolaringologia"),
+                new Service("ServiÁo de Patologia ClÌnica"),
+                new Service("ServiÁo de Pediatria"),
+                new Service("ServiÁo de Planeamento e Controlo de Gest„o"),
+                new Service("ServiÁo de Pneumologia"),
+                new Service("ServiÁo de Psicologia"),
+                new Service("ServiÁo de Psiquiatria"),
+                new Service("ServiÁo de UrgÍncia"),
+                new Service("ServiÁo de Urologia"),
+                new Service("ServiÁo Social"),
+                new Service("ServiÁos FarmacÍuticos"),
+                new Service("ServiÁos Financeiros"),
+                new Service("ServiÁos Hoteleiros"),
+                new Service("Supervis„o Enfermagem"),
+                new Service("UCC de LeÁa da Palmeira"),
                 new Service("UCC de Matosinhos"),
-                new Service("UCC de S√£o Mamede"),
+                new Service("UCC de S„o Mamede"),
                 new Service("UCC de Senhora da Hora"),
                 new Service("UCE de Senhora da Hora"),
-                new Service("UCSP de Le√ßa da Palmeira"),
+                new Service("UCSP de LeÁa da Palmeira"),
                 new Service("UCSP de Matosinhos"),
                 new Service("UCSP de Santa Cruz do Bispo"),
-                new Service("UCSP de S√£o Mamede de Infesta"),
+                new Service("UCSP de S„o Mamede de Infesta"),
                 new Service("UCSP de Senhora da Hora"),
                 new Service("UHGIC"),
                 new Service("Unidade de Cirurgia B"),
                 new Service("Unidade de Cirurgia C"),
                 new Service("Unidade de Cirurgia I"),
-                new Service("Unidade de Cirurgia Pl√°stica"),
-                new Service("Unidade de Convalescen√ßa"),
-                new Service("Unidade de Cuidados Interm√©dios M√©dicos"),
-                new Service("Unidade de Cuidados Interm√©dios Polivalente"),
+                new Service("Unidade de Cirurgia Pl·stica"),
+                new Service("Unidade de ConvalescenÁa"),
+                new Service("Unidade de Cuidados IntermÈdios MÈdicos"),
+                new Service("Unidade de Cuidados IntermÈdios Polivalente"),
                 new Service("Unidade de Cuidados Paliativos"),
-                new Service("Unidade de Dor Cr√≥nica"),
-                new Service("Unidade de Endocrinologia Pedi√°trica"),
-                new Service("Unidade de Gr√°vidas de Risco"),
-                new Service("Unidade de Hipertens√£o Arterial e Risco Cardiovascular"),
+                new Service("Unidade de Dor CrÛnica"),
+                new Service("Unidade de Endocrinologia Pedi·trica"),
+                new Service("Unidade de Gr·vidas de Risco"),
+                new Service("Unidade de Hipertens„o Arterial e Risco Cardiovascular"),
                 new Service("Unidade de Imunoalergologia"),
-                new Service("Unidade de Imunoalergologia Pedi√°trica"),
+                new Service("Unidade de Imunoalergologia Pedi·trica"),
                 new Service("Unidade de Medicina E"),
                 new Service("Unidade de Medicina D"),
                 new Service("Unidade de Medicina F"),
                 new Service("Unidade de Medicina G"),
-                new Service("Unidade de Medicina Hiperb√°rica"),
+                new Service("Unidade de Medicina Hiperb·rica"),
                 new Service("Unidade de Medicina M"),
                 new Service("Unidade de Nefrologia"),
                 new Service("Unidade de Neuropediatria e Desenvolvimento"),
                 new Service("Unidade de Neuroradiologia"),
                 new Service("Unidade de Radiologia"),
-                new Service("Unidade de Sa√∫de p√∫blica"),
+                new Service("Unidade de Sa˙de p˙blica"),
                 new Service("USF Caravela"),
-                new Service("USF Cust√≥ias"),
+                new Service("USF CustÛias"),
                 new Service("USF Dunas"),
                 new Service("USF Horizonte"),
                 new Service("USF Infesta"),
                 new Service("USF Lagoa"),
-                new Service("USF Le√ßa"),
+                new Service("USF LeÁa"),
                 new Service("USF Maresia"),
                 new Service("USF Oceanos"),
                 new Service("USF Porta do Sol"),
@@ -233,6 +251,25 @@
                 new Service("VMER")
             );
         }*/
+
+        /*private void SeedOrigins(STICketContext context)
+        {
+            context.Origins.AddOrUpdate(
+                new Origin("Presencial"),
+                new Origin("Contacto telefÛnico"),
+                new Origin("E-mail"),
+                new Origin("AplicaÁ„o")
+            );
+        }*/
+
+        /*private void SeedImpacts(STICketContext context)
+        {
+            context.Impacts.AddOrUpdate(
+                new Impact("Utilizador", 2),
+                new Impact("V·rios utilizadores", 3),
+                new Impact("ServiÁo", 4),
+                new Impact("Empresa", 5)
+            );
+        }*/
     }
 }
-

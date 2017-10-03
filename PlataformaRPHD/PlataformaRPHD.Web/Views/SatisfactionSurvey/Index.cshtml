@@ -1,0 +1,161 @@
+﻿@model PlataformaRPHD.Web.ViewModels.RequestWithSatisfactionSurveyViewModel
+
+@{
+    ViewBag.Title = "STICket - Inquérito de satisfação";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Detalhes do Pedido</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Lista de Pedidos", "Index")
+            </li>
+            <li class="active">
+                <strong>Detalhes do Pedido<strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h3>Detalhes do Pedido</h3>
+                </div>
+                <div class="ibox-content">
+
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayName("Data do registo")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.TimeOfRegistration)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayName("Título")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayName("Descrição")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayName("Equipamento")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SourceComputer)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayName("Contacto")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Contact)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayName("Origem")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Origin.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayName("Impacto")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Impact.Name)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+
+                    <div class="ibox-title">
+                        <h3>Inquérito de satisfação</h3>
+                    </div>
+
+                    <div class="ibox-title">
+                        <h4>O problema reportado ficou resolvido?</h4>
+                    </div>
+
+                    <div class="ibox-title">
+                        <div>
+                            <input type="radio" id="answer1-opt1" name="answer1" value="Não ficou resolvido">
+                            <label for="answer1-opt1">Não ficou resolvido</label>
+                            <input type="radio" id="answer1-opt2" name="answer1" value="Resolvido parcialmente">
+                            <label for="answer1-opt2">Resolvido parcialmente</label>
+                            <input type="radio" id="answer1-opt3" name="answer1" value="Resolvido totalmente">
+                            <label for="answer1-opt3">Resolvido totalmente</label>
+                        </div>
+                    </div>
+
+                    <div class="ibox-title">
+                        <h4>A rapidez da resolução foi satisfatória?</h4>
+                    </div>
+
+                    <div class="ibox-title">
+                        <div class="form-group">
+                            <input type="radio" id="answer2-opt1" name="answer1" value="Nada satisfatório">
+                            <label for="answer2-opt1">Nada satisfatório</label>
+                            <input type="radio" id="answer2-opt2" name="answer1" value="Satisfatório">
+                            <label for="answer2-opt2">Satisfatório</label>
+                            <input type="radio" id="answer2-opt3" name="answer1" value="Totalmente satisfatório">
+                            <label for="answer2-opt3">Totalmente satisfatório</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Comentários ou sugestões", new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.suggestion)
+                            @Html.ValidationMessageFor(model => model.suggestion)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submeter" class="btn btn-primary"/>
+                            @Html.ActionLink("Cancelar", "Index", "Requests", new { @class = "btn btn-white" })
+                        </div>
+                    </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

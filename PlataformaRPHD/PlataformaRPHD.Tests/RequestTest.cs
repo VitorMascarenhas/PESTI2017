@@ -10,10 +10,10 @@ namespace PlataformaRPHD.Tests
         public void ConstructorTest()
         {
             UserName un1 = new UserName("Vitor", "Mascarenhas");
-            User u1 = new User(un1);
+            User u1 = new User(un1, "info5292", "vitor.mascarenhas@ulsm.min-saude.pt", "1881");
 
             UserName un2 = new UserName("Jorge", "Martins");
-            User u2 = new User(un2);
+            User u2 = new User(un2, "med1109", "jorge.martins@ulsm.min-saude.pt", "5300");
 
             Request r = new Request(u1, u1, "Pedido de login", "Pedido de login para a aplicação HCis");
             Assert.AreEqual(r.Owner.Name.FirstName, "Vitor");
