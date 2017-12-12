@@ -15,9 +15,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
         IInteractionRepository InteractionRepository { get; }
 
         IMessageRepository MessageRepository { get; }
-
-        INotificationRepository NotificationRepository { get; }
-
+        
         IOriginRepository OriginRepository { get; }
 
         IRequestRepository RequestRepository { get; }
@@ -28,6 +26,8 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
 
         IServiceRepository ServiceRepository { get; }
 
+        IStepRepository StepRepository { get; }
+
         ITaskRepository TaskRepository { get; }
 
         ITaskStatusRepository TaskStatusRepository { get; }
@@ -35,6 +35,8 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
         ITransferRepository TransferRepository { get; }
 
         IUserRepository UserRepository { get; }
+
+        IWizardRepository WizardRepository { get; }
 
         void SaveChanges();
     }

@@ -26,9 +26,7 @@ namespace PlataformaRPHD.Infrastructure.Data
         public DbSet<Interaction> Interactions { get; set; }
 
         public DbSet<Message> Messages { get; set; }
-
-        public DbSet<Notification> Notifications { get; set; }
-
+        
         public DbSet<Origin> Origins { get; set; }
 
         public DbSet<Request> Requests { get; set; }
@@ -39,6 +37,8 @@ namespace PlataformaRPHD.Infrastructure.Data
 
         public DbSet<Service> Services { get; set; }
 
+        public DbSet<Step> Steps { get; set; }
+
         public DbSet<Task> Tasks { get; set; }
 
         public DbSet<TaskStatus> TasksStatus { get; set; }
@@ -46,6 +46,8 @@ namespace PlataformaRPHD.Infrastructure.Data
         public DbSet<Transfer> Transfers { get; set; }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Wizard> Wizards { get; set; }
 
         public static STICketContext Create()
         {

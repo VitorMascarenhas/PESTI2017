@@ -49,10 +49,10 @@
     <Compile Include="Entities\Impact.cs" />
     <Compile Include="Entities\Interaction.cs" />
     <Compile Include="Entities\InteractionBuilder.cs" />
-    <Compile Include="Entities\Notification.cs" />
     <Compile Include="Entities\Origin.cs" />
     <Compile Include="Entities\PendingStatus.cs" />
     <Compile Include="Entities\RequestBuilder.cs" />
+    <Compile Include="Entities\Step.cs" />
     <Compile Include="Entities\TaskStatus.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\OpenStatus.cs" />
@@ -65,6 +65,7 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserName.cs" />
     <Compile Include="Entities\UserStatus.cs" />
+    <Compile Include="Entities\Wizard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

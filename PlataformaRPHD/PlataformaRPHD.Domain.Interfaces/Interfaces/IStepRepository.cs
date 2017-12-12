@@ -2,7 +2,7 @@
 
 namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
-    public interface INotificationRepository : IBaseRepository<Notification, int>
+    public interface IStepRepository : IBaseRepository<Step, int>
     {
     }
 }

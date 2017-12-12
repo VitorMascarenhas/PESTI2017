@@ -24,6 +24,10 @@ namespace PlataformaRPHD.Web.App_Start
                 cfg.CreateMap<TaskViewModel, Task>().ReverseMap();
 
                 cfg.CreateMap<RequestWithSatisfactionSurveyViewModel, Request>().ReverseMap();
+
+                cfg.CreateMap<WizardViewModel, Wizard>().ReverseMap();
+
+                cfg.CreateMap<StepViewModel, Step>().ReverseMap();
             });
         }
     }

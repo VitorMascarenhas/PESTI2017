@@ -96,6 +96,10 @@
     <Compile Include="Migrations\201709111306093_ChangePropertyName.Designer.cs">
       <DependentUpon>201709111306093_ChangePropertyName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712121436065_insertWizard.cs" />
+    <Compile Include="Migrations\201712121436065_insertWizard.Designer.cs">
+      <DependentUpon>201712121436065_insertWizard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\AttachmentRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -106,17 +110,18 @@
     <Compile Include="Repositories\InteractionRepository.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
     <Compile Include="Repositories\MessageRepository.cs" />
-    <Compile Include="Repositories\NotificationRepository.cs" />
     <Compile Include="Repositories\OriginRepository.cs" />
     <Compile Include="Repositories\RequestRepository.cs" />
     <Compile Include="Repositories\ResolutionRepository.cs" />
     <Compile Include="Repositories\SatisfactionSurveyRepository.cs" />
     <Compile Include="Repositories\ServiceRepository.cs" />
+    <Compile Include="Repositories\StepRepository.cs" />
     <Compile Include="Repositories\TaskRepository.cs" />
     <Compile Include="Repositories\TaskStatusRepository.cs" />
     <Compile Include="Repositories\TransferRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\WizardRepository.cs" />
     <Compile Include="STICketContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709111306093_ChangePropertyName.resx">
       <DependentUpon>201709111306093_ChangePropertyName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712121436065_insertWizard.resx">
+      <DependentUpon>201712121436065_insertWizard.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

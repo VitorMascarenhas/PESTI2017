@@ -95,20 +95,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
                 return messageRepository;
             }
         }
-
-        private INotificationRepository notificationRepository;
-        public INotificationRepository NotificationRepository
-        {
-            get
-            {
-                if (notificationRepository == null)
-                {
-                    notificationRepository = new NotificationRepository(this.context);
-                }
-                return notificationRepository;
-            }
-        }
-
+        
         private IOriginRepository originRepository;
         public IOriginRepository OriginRepository
         {
@@ -174,6 +161,19 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             }
         }
 
+        private IStepRepository stepRepository;
+        public IStepRepository StepRepository
+        {
+            get
+            {
+                if (stepRepository == null)
+                {
+                    stepRepository = new StepRepository(this.context);
+                }
+                return stepRepository;
+            }
+        }
+
         private ITaskRepository taskRepository;
         public ITaskRepository TaskRepository
         {
@@ -223,6 +223,19 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
                     userRepository = new UserRepository(this.context);
                 }
                 return userRepository;
+            }
+        }
+
+        private IWizardRepository wizardRepository;
+        public IWizardRepository WizardRepository
+        {
+            get
+            {
+                if (wizardRepository == null)
+                {
+                    wizardRepository = new WizardRepository(this.context);
+                }
+                return wizardRepository;
             }
         }
 

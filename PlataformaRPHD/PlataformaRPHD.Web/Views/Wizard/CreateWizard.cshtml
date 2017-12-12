@@ -1,0 +1,114 @@
+﻿@model PlataformaRPHD.Web.ViewModels.WizardViewModel
+
+@{
+    ViewBag.Title = "Criar Wizard";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Criar Wizard</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Os meus Wizards", "MyWizards")
+            </li>
+            <li class="active">
+                <strong>Criar Wizard</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+            @Html.ActionLink("Regressar à Lista", "MyWizards", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Criar Wizard</h5>
+                </div>
+                <div class="ibox-content">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true)
+
+                            <div class="form-group">
+                                @Html.Label("Título", new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <textarea name="title"></textarea>
+                                    @Html.ValidationMessageFor(model => model.Title)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Descrição passo 1", new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <textarea name="step1"></textarea>
+                                    @Html.ValidationMessageFor(model => model.Step1)
+                                </div>
+                            </div>
+
+                            <div class="ibox-title">
+                                <div class="ibox-tools">
+                                    <input type="file" id="files" name="file1" multiple class="btn btn-primary btn-xs" />
+                                    @*@Html.ActionLink("Adicionar", "AddAttachment", null, new { @class = "btn btn-primary btn-xs" })*@
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Descrição passo 2", new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <textarea name="step2"></textarea>
+                                    @Html.ValidationMessageFor(model => model.Step2)
+                                </div>
+                            </div>
+
+                            <div class="ibox-title">
+                                <div class="ibox-tools">
+                                    <input type="file" id="files" name="file2" multiple class="btn btn-primary btn-xs" />
+                                    @*@Html.ActionLink("Adicionar", "AddAttachment", null, new { @class = "btn btn-primary btn-xs" })*@
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Descrição passo 3", new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <textarea name="step3"></textarea>
+                                    @Html.ValidationMessageFor(model => model.Step3)
+                                </div>
+                            </div>
+                            
+                            <div class="ibox-title">
+                                <div class="ibox-tools">
+                                    <input type="file" id="files" name="file2" multiple class="btn btn-primary btn-xs" />
+                                    @*@Html.ActionLink("Adicionar", "AddAttachment", null, new { @class = "btn btn-primary btn-xs" })*@
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Criar" class="btn btn-primary" />
+                                    @Html.ActionLink("Cancelar", "MyWizards", null, new { @class = "btn btn-white" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

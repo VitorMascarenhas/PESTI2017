@@ -37,7 +37,7 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             this.attachments = new HashSet<Attachment>();
         }
 
-        public Request(User WhoRegistered, User owner, string title, string description)
+        public Request(User WhoRegistered, User owner, string title, string description) : this()
         {
             this.WhoRegistered = WhoRegistered;
             this.Owner = owner;

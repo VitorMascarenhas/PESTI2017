@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using PlataformaRPHD.Domain.Entities.Entities;
 using PlataformaRPHD.Domain.Interfaces.Interfaces;

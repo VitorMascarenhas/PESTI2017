@@ -36,5 +36,7 @@ namespace PlataformaRPHD.Web.ViewModels
         public int OriginId { get; set; }
 
         public int ImpactId { get; set; }
+
+        public ICollection<string> logins { get; set; }
     }
 }
