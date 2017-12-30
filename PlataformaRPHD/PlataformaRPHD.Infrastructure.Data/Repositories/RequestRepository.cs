@@ -13,22 +13,32 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
         {
         }
 
-        public IEnumerable<Request> GetClosedRequests(string includeProperties)
+        // get all requests by status
+        public IEnumerable<Request> GetRequestsByStatus(string includeProperties, string status)
         {
-            return this.Find(x => x.Interactions.All(t => t.Task.close == true));
+            return this.Find(x => x.Interactions.Any(t => t.Task.status.GetStatus() == status), null, includeProperties);
         }
 
-        public IEnumerable<Request> GetPendingRequests(string includeProperties)
+        // get requests by user with status
+        public IEnumerable<Request> GetRequestsByUserWithStatus(string includeProperties, string mechanographicNumber, string status)
         {
-            return this.Find(x => x.Interactions.Any(t => t.Task.status.GetStatus() == "Pendente"), null, includeProperties);
+            return this.Find(x => x.Interactions.Any(t => t.Task.status.GetStatus() == status && x.Owner.mechanographicNumber == mechanographicNumber) , null, includeProperties);
         }
 
+        // get all open requests
         public IEnumerable<Request> GetOpenRequests(string includeProperties)
         {
             return this.Find(x => x.Interactions.Any(t => t.Task.status.GetStatus() == "Aberto"), null, includeProperties);
         }
 
-        public Request GetRequestWithProperties(int requestId, string includeProperties = "")
+        // get all open requests by user
+        public IEnumerable<Request> GetOpenRequestsByUser(string includeProperties, string mechanographicNumber)
+        {
+            return this.Find(x => x.Interactions.Any(t => t.Task.status.GetStatus() == "Aberto" && x.Owner.mechanographicNumber == mechanographicNumber), null, includeProperties);
+        }
+
+        // get request by Id
+        public Request GetRequestByUserWithProperties(int requestId, string includeProperties = "")
         {
             return this.Find(x => x.Id == requestId, null, includeProperties).SingleOrDefault();
         }

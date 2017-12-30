@@ -8,6 +8,7 @@ using System.Collections.Generic;
 
 namespace PlataformaRPHD.Web.Controllers
 {
+
     public class CategoriesController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
@@ -18,6 +19,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // GET: /CategoriesViewModels/
+        //[Authorize(Roles = "STICKET_ADMAPLIC")]
         public ActionResult Index()
         {
             var categories = unitOfWork.CategoryRepository.GetAll();
@@ -26,6 +28,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // GET: /CategoriesViewModels/Details/5
+        //[Authorize(Roles = "STICKET_ADMAPLIC")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -42,6 +45,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // GET: /CategoriesViewModels/Create
+        //[Authorize(Roles = "STICKET_ADMAPLIC")]
         public ActionResult Create()
         {
             return View();
@@ -50,6 +54,7 @@ namespace PlataformaRPHD.Web.Controllers
         // POST: /CategoriesViewModels/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[Authorize(Roles = "STICKET_ADMAPLIC")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="Id,ParentId,Name,Description,HasWizard")] CategoryViewModel categoryViewModel)
@@ -66,6 +71,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // GET: /CategoriesViewModels/Edit/5
+        //[Authorize(Roles = "STICKET_ADMAPLIC")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -84,6 +90,7 @@ namespace PlataformaRPHD.Web.Controllers
         // POST: /CategoriesViewModels/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[Authorize(Roles = "STICKET_ADMAPLIC")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="Id,ParentId,Name,Description,HasWizard")] CategoryViewModel categoryViewModel)
@@ -102,6 +109,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // GET: /CategoriesViewModels/Delete/5
+        //[Authorize(Roles = "STICKET_ADMAPLIC")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -118,6 +126,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // POST: /CategoriesViewModels/Delete/5
+        //[Authorize(Roles = "STICKET_ADMAPLIC")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

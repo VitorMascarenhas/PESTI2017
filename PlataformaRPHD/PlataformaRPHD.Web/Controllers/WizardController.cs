@@ -30,6 +30,11 @@ namespace PlataformaRPHD.Web.Controllers
             return View(result);
         }
 
+        public ActionResult MyWizards()
+        {
+            return View();
+        }
+
         //Acesso a administradores
         // GET: Wizard
         public ActionResult NotApproved()
@@ -87,19 +92,20 @@ namespace PlataformaRPHD.Web.Controllers
             byte[] image2 = null;
             byte[] image3 = null;
 
-            using (MemoryStream memoryStream = new MemoryStream())
+            using (MemoryStream memoryStream1 = new MemoryStream())
             {
-                file1.InputStream.CopyTo(memoryStream);
-                image1 = memoryStream.ToArray();
-                memoryStream.Dispose();
-
-                file2.InputStream.CopyTo(memoryStream);
-                image2 = memoryStream.ToArray();
-                memoryStream.Dispose();
-
-                file3.InputStream.CopyTo(memoryStream);
-                image3 = memoryStream.ToArray();
-                memoryStream.Dispose();
+                file1.InputStream.CopyTo(memoryStream1);
+                image1 = memoryStream1.ToArray();
+            }
+            using (MemoryStream memoryStream2 = new MemoryStream())
+            {
+                file2.InputStream.CopyTo(memoryStream2);
+                image2 = memoryStream2.ToArray();
+            }
+            using (MemoryStream memoryStream3 = new MemoryStream())
+            {
+                file3.InputStream.CopyTo(memoryStream3);
+                image3 = memoryStream3.ToArray();
             }
 
             Step s1 = new Step(null, step1, image1);

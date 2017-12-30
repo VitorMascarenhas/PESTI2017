@@ -2,6 +2,9 @@
 using System.Web.Mvc;
 using PlataformaRPHD.Domain.Entities.Entities;
 using PlataformaRPHD.Infrastructure.Data.Repositories;
+using System.Collections.Generic;
+using PlataformaRPHD.Web.ViewModels;
+using AutoMapper;
 
 namespace PlataformaRPHD.Web.Controllers
 {
@@ -17,7 +20,20 @@ namespace PlataformaRPHD.Web.Controllers
         // GET: /Requests/
         public ActionResult Index()
         {
-            var result = unitOfWork.RequestRepository.GetAll("Origin,Impact");
+            var requests = unitOfWork.RequestRepository.GetOpenRequestsByUser("Origin,Impact", "info5292");
+
+            IEnumerable<RequestViewModel> result = Mapper.Map<IEnumerable<RequestViewModel>>(requests);
+
+            return View(result);
+        }
+
+        // GET: /Requests/
+        public ActionResult MyRequestsByState(string state)
+        {
+            var requests = unitOfWork.RequestRepository.GetRequestsByUserWithStatus("", "info5292", state);
+
+            IEnumerable<RequestViewModel> result = Mapper.Map<IEnumerable<RequestViewModel>>(requests);
+            
             return View(result);
         }
 
@@ -28,7 +44,7 @@ namespace PlataformaRPHD.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Request request = unitOfWork.RequestRepository.GetRequestWithProperties(id.Value, "Interactions.Service,Origin,Impact");
+            Request request = unitOfWork.RequestRepository.GetRequestByUserWithProperties(id.Value, "Interactions.Service,Origin,Impact");
             if (request == null)
             {
                 return HttpNotFound();

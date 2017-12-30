@@ -23,7 +23,7 @@ namespace PlataformaRPHD.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Request request = unitOfWork.RequestRepository.GetRequestWithProperties(id.Value, "Interactions.Service,Origin,Impact");
+            Request request = unitOfWork.RequestRepository.GetRequestByUserWithProperties(id.Value, "Interactions.Service,Origin,Impact");
             RequestWithSatisfactionSurveyViewModel requestViewModel = Mapper.Map<RequestWithSatisfactionSurveyViewModel>(request);
             if (requestViewModel == null)
             {

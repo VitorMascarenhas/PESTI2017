@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using PlataformaRPHD.Domain.Entities.Entities;
 using PlataformaRPHD.Infrastructure.Data.Repositories;
 using PlataformaRPHD.Web.ViewModels;
 using System.Collections.Generic;
 using System.Net;
+using System.Security.Principal;
 using System.Web.Mvc;
 
 namespace PlataformaRPHD.Web.Controllers
@@ -22,6 +24,26 @@ namespace PlataformaRPHD.Web.Controllers
             var interaction = unitOfWork.InteractionRepository.GetAll("Task.Owner");
             
             var result = Mapper.Map<IEnumerable<InteractionViewModel>>(interaction);
+
+            return View(result);
+        }
+        
+        // CRIAR VISTA PARA TAREFAS ABERTAS
+        public ActionResult MyOpenTasks()
+        {
+            var tasks = unitOfWork.TaskRepository.GetTaskByUserWithState("info5292", "Aberto");
+
+            IEnumerable<TaskViewModel> result = Mapper.Map<IEnumerable<TaskViewModel>>(tasks);
+
+            return View(result);
+        }
+
+        // CRIAR VISTA PARA TAREFAS POR ESTADO
+        public ActionResult MyOpenTasks(string state)
+        {
+            var tasks = unitOfWork.TaskRepository.GetTaskByUserWithState("info5292", state);
+
+            IEnumerable<TaskViewModel> result = Mapper.Map<IEnumerable<TaskViewModel>>(tasks);
 
             return View(result);
         }

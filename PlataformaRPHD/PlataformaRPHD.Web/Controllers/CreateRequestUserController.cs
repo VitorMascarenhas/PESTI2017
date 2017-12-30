@@ -15,12 +15,15 @@ namespace PlataformaRPHD.Web.Controllers
             this.unitOfWork = unitOfWork;
         }
 
+        // para utilizadores, tecnicos e administradores
         // GET: CreateRequest
+        //[Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
         public ActionResult Index()
         {
             return View();
         }
 
+        //[Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
         [HttpPost]
         public ActionResult Index([Bind(Include = "ServiceId,Category1Id,Category2Id,Category3Id,Category4Id,ImpactId,Contact,Title,Description")] CreateRequestUserViewModel createRequestUserViewModel)
         {
@@ -31,11 +34,13 @@ namespace PlataformaRPHD.Web.Controllers
             return View("Index", createRequestUserViewModel);
         }
 
+        //[Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
         public ActionResult AddAttachment([Bind(Include = "ServiceId,Category1Id,Category2Id,Category3Id,Category4Id,ImpactId,Contact,Title,Description")] CreateRequestViewModel createRequestUserViewModel)
         {
             return RedirectToAction("Create", createRequestUserViewModel);
         }
 
+        //[Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
         [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "ServiceId,Category1Id,Category2Id,Category3Id,Category4Id,ImpactId,Contact,Title,Description")] CreateRequestViewModel createRequestUserViewModel)
         {
@@ -108,11 +113,11 @@ namespace PlataformaRPHD.Web.Controllers
             unitOfWork.RequestRepository.Insert(request);
             unitOfWork.SaveChanges();
 
-            //List<string> mails = new List<string>();
-            //mails.Add("vamd82@gmail.com");
-            //MailService ms = new MailService();
-            //ms.CreateMail(mails, "Assunto", "Corpo");
-            //ms.Send();
+            List<string> mails = new List<string>();
+            mails.Add("vamd82@gmail.com");
+            MailService ms = new MailService();
+            ms.CreateMail(mails, "Assunto", "Corpo");
+            ms.Send();
 
             return RedirectToAction("Index", "Home");
         }

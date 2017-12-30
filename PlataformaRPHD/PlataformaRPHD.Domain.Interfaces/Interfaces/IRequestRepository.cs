@@ -5,12 +5,19 @@ namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
     public interface IRequestRepository : IBaseRepository<Request, int>
     {
-        Request GetRequestWithProperties(int requestId, string includeProperties);
+        // get request by Id
+        Request GetRequestByUserWithProperties(int requestId, string includeProperties);
 
-        IEnumerable<Request> GetClosedRequests(string includeProperties);
+        // get all requests by status
+        IEnumerable<Request> GetRequestsByStatus(string includeProperties, string status);
 
-        IEnumerable<Request> GetPendingRequests(string includeProperties);
+        // get requests by user with status
+        IEnumerable<Request> GetRequestsByUserWithStatus(string includeProperties, string mechanographicNumber, string status);
 
+        // get all open requests
         IEnumerable<Request> GetOpenRequests(string includeProperties);
+
+        // get all open requests by user
+        IEnumerable<Request> GetOpenRequestsByUser(string includeProperties, string mechanographicNumber);
     }
 }

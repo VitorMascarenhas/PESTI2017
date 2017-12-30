@@ -17,6 +17,8 @@ namespace PlataformaRPHD.Web.App_Start
 
                 cfg.CreateMap<Request, CreateRequestViewModel>().ReverseMap();
 
+                cfg.CreateMap<Request, RequestViewModel>().ReverseMap();
+
                 cfg.CreateMap<ServiceViewModel, Service>().ReverseMap();
 
                 cfg.CreateMap<InteractionViewModel, Interaction>().ReverseMap();
