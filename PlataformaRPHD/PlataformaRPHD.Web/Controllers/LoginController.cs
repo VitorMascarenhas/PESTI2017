@@ -17,8 +17,9 @@ namespace PlataformaRPHD.Web.Controllers
         {
             return View(returnUrl);
         }
-        /*
+        
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Index(UserViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
@@ -59,6 +60,6 @@ namespace PlataformaRPHD.Web.Controllers
             {
                 return HttpContext.GetOwinContext().Authentication;
             }
-        }*/
+        }
     }
 }

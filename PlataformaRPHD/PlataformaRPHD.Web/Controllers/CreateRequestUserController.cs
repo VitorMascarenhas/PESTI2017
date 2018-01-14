@@ -17,7 +17,7 @@ namespace PlataformaRPHD.Web.Controllers
 
         // para utilizadores, tecnicos e administradores
         // GET: CreateRequest
-        //[Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
+        [Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
         public ActionResult Index()
         {
             return View();

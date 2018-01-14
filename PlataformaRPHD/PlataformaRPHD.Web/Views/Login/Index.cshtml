@@ -1,7 +1,58 @@
-﻿
+﻿@model PlataformaRPHD.Web.ViewModels.UserViewModel
+
 @{
-    ViewBag.Title = "Index";
+    Layout = null;
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>STICket</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/Content/animate.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name">STICket</h1>
+
+            </div>
+            <h3>Bem-Vindo ao STICket</h3>
+            <p>
+                Efetue o login com as credenciais do Windows
+            </p>
+            @*<p>Login in. To see it in action.</p>*@
+            <form method="POST" class="m-t" role="form" action="#">
+                <div class="form-group">
+                    @*@Html.EditorFor(model => model.Username)*@
+                    @*@Html.ValidationMessageFor(model => model.Username)*@
+                    <input name="Username" type="text" class="form-control" placeholder="Nome do utilizador" required="">
+                </div>
+                <div class="form-group">
+                    @*@Html.PasswordFor(model => model.Password)*@
+                    @*@Html.ValidationMessageFor(model => model.Password)*@
+                    <input name="Password" type="password" class="form-control" placeholder="Palavra-Passe" required="">
+                </div>
+                <input type="submit" value="Entrar" class="btn btn-primary block full-width m-b" />
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
 

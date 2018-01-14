@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-//[assembly: OwinStartupAttribute(typeof(PlataformaRPHD.Web.Startup))]
+[assembly: OwinStartupAttribute(typeof(PlataformaRPHD.Web.Startup))]
 namespace PlataformaRPHD.Web
 {
     public partial class Startup
@@ -15,5 +15,4 @@ namespace PlataformaRPHD.Web
             ConfigureAuth(app);
         }
     }
-
 }

@@ -357,17 +357,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlataformaRPHD.Domain.Entities\PlataformaRPHD.Domain.Entities.csproj">
+    <ProjectReference Include="..\PlataformaRPHD.Domain.Entities\STICket.Domain.Entities.csproj">
       <Project>{323eca29-4583-46d7-aa5f-222e8ad7ff75}</Project>
-      <Name>PlataformaRPHD.Domain.Entities</Name>
+      <Name>STICket.Domain.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PlataformaRPHD.Domain.Interfaces\PlataformaRPHD.Domain.Interfaces.csproj">
+    <ProjectReference Include="..\PlataformaRPHD.Domain.Interfaces\STICket.Domain.Interfaces.csproj">
       <Project>{326c4335-5a0c-4079-b5aa-839924f0b56f}</Project>
-      <Name>PlataformaRPHD.Domain.Interfaces</Name>
+      <Name>STICket.Domain.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PlataformaRPHD.Infrastructure.Data\PlataformaRPHD.Infrastructure.Data.csproj">
+    <ProjectReference Include="..\PlataformaRPHD.Infrastructure.Data\STICket.Infrastructure.Data.csproj">
       <Project>{b9ed4344-81f5-4a48-977d-41f5143a2c58}</Project>
-      <Name>PlataformaRPHD.Infrastructure.Data</Name>
+      <Name>STICket.Infrastructure.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
