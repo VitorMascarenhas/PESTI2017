@@ -15,7 +15,7 @@ namespace PlataformaRPHD.Web.Controllers
         [AllowAnonymous]
         public ActionResult Index(string returnUrl)
         {
-            return View(returnUrl);
+            return View();
         }
         
         [HttpPost]

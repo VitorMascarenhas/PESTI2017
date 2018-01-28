@@ -8,6 +8,8 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public string resolutionText { get; set; }
 
+        public string ResolutionType { get; set; }
+
         public virtual ICollection<Task> Tasks { get; set; }
 
         private Resolution() //EF
@@ -15,9 +17,18 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             this.Tasks = new HashSet<Task>();
         }
 
-        private Resolution(string resolution)
+        public Resolution(string resolution, string resolutionType) : this()
         {
             this.resolutionText = resolution;
+            this.ResolutionType = ResolutionType;
+        }
+
+        public void AddTask(Task task)
+        {
+            if(task != null)
+            {
+                Tasks.Add(task);
+            }
         }
     }
 }

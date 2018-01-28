@@ -10,7 +10,7 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         
         public virtual User Owner { get; set; }
 
-        public TaskStatus status { get; set; }
+        public string Status { get; set; }
         
         public ICollection<Transfer> Transfers { get; set; }
 
@@ -29,8 +29,11 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         public Task(User user, Interaction interaction) : this()
         {
             this.Owner = user;
-            this.status = new OpenStatus(this);
             this.close = false;
+            OpenStatus os = new OpenStatus(this);
+            os.ChangeStatus();
+            ChangeTaskStatus cts = new ChangeTaskStatus(this.Status);
+            HistoryChangeStatus.Add(cts);
         }
 
         /// <summary>
@@ -43,20 +46,27 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             {
                 throw new ArgumentNullException();
             }
-            if (!this.status.Equals(status)  && this.close == false)
+            if (!this.Status.Equals(status)  && this.close == false)
             {
                 if (status.Equals("Aberto"))
                 {
                     OpenStatus os = new OpenStatus(this);
                     os.ChangeStatus();
-                    ChangeTaskStatus cts = new ChangeTaskStatus(/*this.Id,*/ os);
+                    ChangeTaskStatus cts = new ChangeTaskStatus(status);
                     this.HistoryChangeStatus.Add(cts);
                 }
                 else if (status.Equals("Fechado"))
                 {
-                    PendingStatus cs = new PendingStatus(this);
+                    CloseStatus cs = new CloseStatus(this);
                     cs.ChangeStatus();
-                    ChangeTaskStatus cts = new ChangeTaskStatus(/*this.Id,*/ cs);
+                    ChangeTaskStatus cts = new ChangeTaskStatus(status);
+                    this.HistoryChangeStatus.Add(cts);
+                }
+                else if (status.Equals("Pendente"))
+                {
+                    PendingStatus ps = new PendingStatus(this);
+                    ps.ChangeStatus();
+                    ChangeTaskStatus cts = new ChangeTaskStatus(status);
                     this.HistoryChangeStatus.Add(cts);
                 }
             }

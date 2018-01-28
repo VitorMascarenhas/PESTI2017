@@ -2,28 +2,24 @@
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class OpenStatus : TaskStatus
+    public class OpenStatus
     {
         private Task _task;
+        private string status;
 
         private OpenStatus() //EF
         {
+            this.status = "Aberto";
         }
 
-        public OpenStatus(Task task)
+        public OpenStatus(Task task) : this()
         {
-            this.status = "Aberto";
             this._task = task;
         }
-
-        public override string GetStatus()
+        
+        public void ChangeStatus()
         {
-            return this.status;
-        }
-
-        public override void ChangeStatus()
-        {
-            this._task.status = this;
+            this._task.Status = status;
         }
     }
 }

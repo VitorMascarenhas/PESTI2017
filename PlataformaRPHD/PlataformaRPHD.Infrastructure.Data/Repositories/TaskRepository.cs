@@ -25,12 +25,12 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
 
         public IEnumerable<Task> GetTaskByUserWithState(string mechanographicNumber, string taskStatus)
         {
-            return this.Find(x => x.Owner.mechanographicNumber == mechanographicNumber && x.status.GetStatus() == taskStatus);
+            return this.Find(x => x.Owner.mechanographicNumber == mechanographicNumber && x.Status == taskStatus);
         }
 
         public IEnumerable<Task> GetTasksByState(string status)
         {
-            return this.Find(x => x.status.GetStatus() == status);
+            return this.Find(x => x.Status == status);
         }
     }
 }

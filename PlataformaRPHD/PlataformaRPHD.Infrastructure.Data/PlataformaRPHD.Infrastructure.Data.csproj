@@ -121,6 +121,14 @@
     <Compile Include="Migrations\201712130942065_stepWithImage.Designer.cs">
       <DependentUpon>201712130942065_stepWithImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801212019418_asd.cs" />
+    <Compile Include="Migrations\201801212019418_asd.Designer.cs">
+      <DependentUpon>201801212019418_asd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801281702340_updateTaskStatus.cs" />
+    <Compile Include="Migrations\201801281702340_updateTaskStatus.Designer.cs">
+      <DependentUpon>201801281702340_updateTaskStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\AttachmentRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -138,7 +146,6 @@
     <Compile Include="Repositories\ServiceRepository.cs" />
     <Compile Include="Repositories\StepRepository.cs" />
     <Compile Include="Repositories\TaskRepository.cs" />
-    <Compile Include="Repositories\TaskStatusRepository.cs" />
     <Compile Include="Repositories\TransferRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
@@ -174,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712130942065_stepWithImage.resx">
       <DependentUpon>201712130942065_stepWithImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801212019418_asd.resx">
+      <DependentUpon>201801212019418_asd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801281702340_updateTaskStatus.resx">
+      <DependentUpon>201801281702340_updateTaskStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

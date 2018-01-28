@@ -9,22 +9,25 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public DateTime changed { get; set; }
 
+        public string Description { get; set; }
+
         public virtual int UserId { get; set; }
 
         public virtual User auth { get; set; }
         
         public virtual Task Task { get; set; }
 
-        public TaskStatus TaskStatus { get; set; }
+        public string Status { get; set; }
 
         private ChangeTaskStatus() //EF
         {
         }
 
-        public ChangeTaskStatus(/*int TaskId,*/ TaskStatus taskStatus)
+        public ChangeTaskStatus(string status)
         {
-            //this.TaskId = TaskId;
-            this.TaskStatus = TaskStatus;
+            this.Status = status;
+            this.changed = new DateTime();
+            this.changed = DateTime.Now;
         }
     }
 }

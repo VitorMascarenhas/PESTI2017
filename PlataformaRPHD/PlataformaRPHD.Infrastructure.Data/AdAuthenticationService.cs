@@ -241,9 +241,7 @@ namespace PlataformaRPHD.Infrastructure.Data
             {
                 identity.AddClaim(new Claim(ClaimTypes.Email, userPrincipal.EmailAddress));
             }
-
             
-
             //TODO: Ir buscar os roles ao AD
             IList<string> roles = this.GetRoles(userPrincipal);
             foreach (var role in roles)

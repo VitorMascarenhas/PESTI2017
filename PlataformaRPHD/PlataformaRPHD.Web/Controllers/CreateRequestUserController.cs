@@ -23,7 +23,7 @@ namespace PlataformaRPHD.Web.Controllers
             return View();
         }
 
-        //[Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
+        [Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
         [HttpPost]
         public ActionResult Index([Bind(Include = "ServiceId,Category1Id,Category2Id,Category3Id,Category4Id,ImpactId,Contact,Title,Description")] CreateRequestUserViewModel createRequestUserViewModel)
         {
@@ -34,13 +34,13 @@ namespace PlataformaRPHD.Web.Controllers
             return View("Index", createRequestUserViewModel);
         }
 
-        //[Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
+        [Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
         public ActionResult AddAttachment([Bind(Include = "ServiceId,Category1Id,Category2Id,Category3Id,Category4Id,ImpactId,Contact,Title,Description")] CreateRequestViewModel createRequestUserViewModel)
         {
             return RedirectToAction("Create", createRequestUserViewModel);
         }
 
-        //[Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
+        [Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM")]
         [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "ServiceId,Category1Id,Category2Id,Category3Id,Category4Id,ImpactId,Contact,Title,Description")] CreateRequestViewModel createRequestUserViewModel)
         {

@@ -29,19 +29,9 @@ namespace PlataformaRPHD.Web.Controllers
         }
         
         // CRIAR VISTA PARA TAREFAS ABERTAS
-        public ActionResult MyOpenTasks()
+        public ActionResult MyTasksStatus(string status)
         {
-            var tasks = unitOfWork.TaskRepository.GetTaskByUserWithState("info5292", "Aberto");
-
-            IEnumerable<TaskViewModel> result = Mapper.Map<IEnumerable<TaskViewModel>>(tasks);
-
-            return View(result);
-        }
-
-        // CRIAR VISTA PARA TAREFAS POR ESTADO
-        public ActionResult MyOpenTasks(string state)
-        {
-            var tasks = unitOfWork.TaskRepository.GetTaskByUserWithState("info5292", state);
+            var tasks = unitOfWork.TaskRepository.GetTaskByUserWithState("info5292", status);
 
             IEnumerable<TaskViewModel> result = Mapper.Map<IEnumerable<TaskViewModel>>(tasks);
 

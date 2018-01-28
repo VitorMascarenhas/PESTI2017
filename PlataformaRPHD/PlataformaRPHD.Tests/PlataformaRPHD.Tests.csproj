@@ -62,7 +62,6 @@
     <Compile Include="RequestTest.cs" />
     <Compile Include="TaskTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestClass1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

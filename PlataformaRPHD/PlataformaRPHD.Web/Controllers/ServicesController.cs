@@ -18,7 +18,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // GET: /Services/
-        //[Authorize(Roles = "STICKET_ADMAPLIC")]
+        [Authorize(Roles = "STICKET_ADMAPLIC")]
         public ActionResult Index()
         {
             var services = unitOfWork.ServiceRepository.GetAll();
@@ -28,7 +28,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // GET: /Services/Details/5
-        //[Authorize(Roles = "STICKET_ADMAPLIC")]
+        [Authorize(Roles = "STICKET_ADMAPLIC")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -47,7 +47,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // GET: /Services/Create
-        //[Authorize(Roles = "STICKET_ADMAPLIC")]
+        [Authorize(Roles = "STICKET_ADMAPLIC")]
         public ActionResult Create()
         {
             return View();
@@ -56,7 +56,7 @@ namespace PlataformaRPHD.Web.Controllers
         // POST: /Services/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[Authorize(Roles = "STICKET_ADMAPLIC")]
+        [Authorize(Roles = "STICKET_ADMAPLIC")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="Id,Name")] ServiceViewModel serviceViewModel)
@@ -73,7 +73,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // GET: /Services/Edit/5
-        //[Authorize(Roles = "STICKET_ADMAPLIC")]
+        [Authorize(Roles = "STICKET_ADMAPLIC")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -92,7 +92,7 @@ namespace PlataformaRPHD.Web.Controllers
         // POST: /Services/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[Authorize(Roles = "STICKET_ADMAPLIC")]
+        [Authorize(Roles = "STICKET_ADMAPLIC")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="Id,Name")] ServiceViewModel serviceViewModel)
@@ -108,7 +108,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // GET: /Services/Delete/5
-        //[Authorize(Roles = "STICKET_ADMAPLIC")]
+        [Authorize(Roles = "STICKET_ADMAPLIC")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -125,7 +125,7 @@ namespace PlataformaRPHD.Web.Controllers
         }
 
         // POST: /Services/Delete/5
-        //[Authorize(Roles = "STICKET_ADMAPLIC")]
+        [Authorize(Roles = "STICKET_ADMAPLIC")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

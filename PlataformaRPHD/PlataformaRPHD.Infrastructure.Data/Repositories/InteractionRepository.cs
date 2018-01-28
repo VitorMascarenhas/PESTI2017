@@ -20,7 +20,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
 
         public IEnumerable<Interaction> GetInteractionsByTaskStatus(string status, string includeProperties = "")
         {
-            return this.Find(x => x.Task.status.GetStatus() == status, null, includeProperties);
+            return this.Find(x => x.Task.Status == status, null, includeProperties);
         }
 
         public Interaction GetInteractionWithProperties(int interactionId, string includeProperties = "")

@@ -41,8 +41,6 @@ namespace PlataformaRPHD.Infrastructure.Data
 
         public DbSet<Task> Tasks { get; set; }
 
-        public DbSet<TaskStatus> TasksStatus { get; set; }
-        
         public DbSet<Transfer> Transfers { get; set; }
 
         public DbSet<User> Users { get; set; }

@@ -9,7 +9,7 @@ namespace PlataformaRPHD.Web.ViewModels
 
         public virtual User Owner { get; set; }
 
-        public TaskStatus status { get; set; }
+        public string status { get; set; }
         
         public virtual InteractionViewModel InteractionViewModel { get; set; }
 

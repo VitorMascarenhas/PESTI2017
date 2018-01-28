@@ -3,22 +3,16 @@ using System.Web.Mvc;
 
 namespace PlataformaRPHD.Web.Controllers
 {
-    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
         
-        public HomeController()
-        {
-        }
-
-        /*
         public HomeController(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
-        }*/
+        }
 
-        //[Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM,STICKET_ADMAPLIC")]
+        [Authorize(Roles = "STICKET_UTL,STICKET_TEC,STICKET_ADM,STICKET_ADMAPLIC")]
         public ActionResult Index()
         {
             return View();

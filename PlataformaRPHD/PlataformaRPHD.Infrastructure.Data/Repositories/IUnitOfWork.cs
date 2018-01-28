@@ -29,8 +29,6 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
         IStepRepository StepRepository { get; }
 
         ITaskRepository TaskRepository { get; }
-
-        ITaskStatusRepository TaskStatusRepository { get; }
         
         ITransferRepository TransferRepository { get; }
 

@@ -6,8 +6,6 @@ namespace PlataformaRPHD.Tests
     [TestFixture]
     public class TaskTest
     {
-        private UserName un1;
-
         [Test]
         public void ChangeTaskStatusTest()
         {

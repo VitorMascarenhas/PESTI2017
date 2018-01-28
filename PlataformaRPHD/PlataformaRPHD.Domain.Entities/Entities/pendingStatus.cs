@@ -1,27 +1,23 @@
 ﻿namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class PendingStatus : TaskStatus
+    public class PendingStatus
     {
         private Task _task;
+        private string status;
 
         private PendingStatus() //EF
         {
+            this.status = "Pendente";
         }
 
         public PendingStatus(Task task)
         {
-            this.status = "Pendente";
             this._task = task;
         }
 
-        public override void ChangeStatus()
+        public void ChangeStatus()
         {
-            this._task.status = this;
-        }
-
-        public override string GetStatus()
-        {
-            return this.status;
+            _task.Status = this.status;
         }
     }
 }

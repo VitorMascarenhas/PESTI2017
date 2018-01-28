@@ -187,19 +187,6 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             }
         }
 
-        private ITaskStatusRepository taskStatusRepository;
-        public ITaskStatusRepository TaskStatusRepository
-        {
-            get
-            {
-                if (taskStatusRepository == null)
-                {
-                    taskStatusRepository = new TaskStatusRepository(this.context);
-                }
-                return taskStatusRepository;
-            }
-        }
-        
         private ITransferRepository transferRepository;
         public ITransferRepository TransferRepository
         {

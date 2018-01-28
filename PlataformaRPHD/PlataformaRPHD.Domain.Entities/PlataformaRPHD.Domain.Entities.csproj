@@ -53,7 +53,6 @@
     <Compile Include="Entities\PendingStatus.cs" />
     <Compile Include="Entities\RequestBuilder.cs" />
     <Compile Include="Entities\Step.cs" />
-    <Compile Include="Entities\TaskStatus.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\OpenStatus.cs" />
     <Compile Include="Entities\Request.cs" />
