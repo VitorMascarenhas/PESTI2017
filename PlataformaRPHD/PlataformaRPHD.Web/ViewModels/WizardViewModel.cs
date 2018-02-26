@@ -1,4 +1,5 @@
 ﻿using PlataformaRPHD.Domain.Entities.Entities;
+using System.Web;
 
 namespace PlataformaRPHD.Web.ViewModels
 {
@@ -8,11 +9,13 @@ namespace PlataformaRPHD.Web.ViewModels
 
         public string Title { get; set; }
 
-        public StepViewModel Step1 { get; set; }
+        public User CreateBy { get; set; }
 
-        public StepViewModel Step2 { get; set; }
+        public string Step1 { get; set; }
 
-        public StepViewModel Step3 { get; set; }
+        public string Step2 { get; set; }
+
+        public string Step3 { get; set; }
 
         public bool Approved { get; set; }
     }

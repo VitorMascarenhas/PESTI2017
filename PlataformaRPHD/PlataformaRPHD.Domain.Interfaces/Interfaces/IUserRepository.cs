@@ -4,5 +4,6 @@ namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 {
     public interface IUserRepository : IBaseRepository<User, int>
     {
+        User GetUserBySamAccountName(string samAccountName);
     }
 }

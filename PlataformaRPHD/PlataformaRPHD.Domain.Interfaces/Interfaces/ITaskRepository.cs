@@ -16,5 +16,13 @@ namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 
         // find task by id
         Task GetTaskById(int taskId);
+
+        IEnumerable<Task> GetOpenStatus(string user);
+
+        IEnumerable<Task> GetCloseStatus(string user);
+
+        IEnumerable<Task> GetPendingStatus(string user);
+
+        IEnumerable<Task> GetTasksWithoutUser();
     }
 }

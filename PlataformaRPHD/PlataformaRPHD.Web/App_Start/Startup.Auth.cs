@@ -16,6 +16,10 @@ namespace PlataformaRPHD.Web
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Login"),
                 CookieName = "STICket"
+                //CookiePath = "/",
+
+                //CookieSecure = CookieSecureOption.Always,
+                //ExpireTimeSpan = TimeSpan.FromHours(1)
             });
             // Configure the db context, user manager and signin manager to use a single instance per request
             //app.CreatePerOwinContext(ApplicationDbContext.Create);

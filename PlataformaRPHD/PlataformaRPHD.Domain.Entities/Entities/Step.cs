@@ -9,14 +9,16 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public int Id { get; set; }
 
-        public byte[] Imagem { get; set; }
+        public byte[] ImageContent { get; set; }
+
+        public string ImageType { get; set; }
 
         public int? ParentId { get; set; }
 
         public string Description { get; set; }
         
         [ForeignKey("ParentId")]
-        public virtual Step ParentUpStepItem { get; set; }
+        public virtual Step ParentUpStepItem { get; private set; }
 
         public virtual ICollection<Step> DownStepItems { get; private set; }
 
@@ -27,7 +29,7 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             this.DownStepItems = new HashSet<Step>();
         }
 
-        public Step(Step parentItem, string description, byte[] image) : this()
+        public Step(Step parentItem, string description, byte[] image, string imageType) : this()
         {
             if (parentItem != null)
             {
@@ -37,7 +39,8 @@ namespace PlataformaRPHD.Domain.Entities.Entities
             }
 
             this.Description = description;
-            this.Imagem = image;
+            this.ImageContent = image;
+            this.ImageType = imageType;
         }
         
         public void Add(Step step)

@@ -1,18 +1,18 @@
 ﻿@model PlataformaRPHD.Web.ViewModels.InteractionViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "STICket - Detalhes da Tarefa";
 }
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-4">
-        <h2>Detalhes da Tarefa</h2>
+        <h2>Details</h2>
         <ol class="breadcrumb">
             <li>
-                @Html.ActionLink("Lista de Tarefas", "Index")
+                @Html.ActionLink("Regressar à lista", "WithoutUser")
             </li>
             <li class="active">
-                <strong>Detalhes da Tarefa</strong>
+                <strong>Detalhes</strong>
             </li>
         </ol>
     </div>
@@ -31,93 +31,87 @@
                 <div class="ibox-content">
 
 
-    <dl class="dl-horizontal">
-    
-        <dt>
-            @Html.DisplayName("Registado por")
-        </dt>
+                    <dl class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.Request.Owner.Name.FirstName) @Html.DisplayFor(model => model.Request.Owner.Name.LastName)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Registado por")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Hora do registo")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Request.Owner.Name.FirstName)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Request.TimeOfRegistration)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Serviço")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Origem")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.service.Name)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Request.Origin.Name)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Origem")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Serviço")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Request.Origin.Name)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.service.Name)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Impacto")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Título")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Request.Impact.Name)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Contacto")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Descrição")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Request.Contact)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Request.Description)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Categoria")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Impacto")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Request.Category.Name)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Request.Impact.Name)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Título")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Atribuido a")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>
 
-        @if (Model.Task.Owner == null)
-        {
-            <dd>
-                @Html.DisplayName("Por atribuir") @Html.ActionLink("Atribuir Tarefa", "Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-white" })
-            </dd>
-        }
-        else
-        {
-            <dd>
-                @Html.DisplayFor(model => model.Task.Owner.Name.FirstName) @Html.DisplayFor(model => model.Task.Owner.Name.LastName) @Html.ActionLink("Transferir Tarefa", "Edit", new { id = Model.Id }, new { @class = "btn btn-white" })
-            </dd>
-        }
-    
-        <dt>
-            @Html.DisplayName("Estado")
-        </dt>
+                        <dt>
+                            @Html.DisplayName("Descrição")
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Task.status)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Request.Description)
+                        </dd>
 
-    </dl>
-    
-    @Html.ActionLink("Guardar alterações", "Index", null, new { @class = "btn btn-primary"})
-    @Html.ActionLink("Regressar à Lista", "Index", null, new { @class = "btn btn-white" })
+                        <dt>
+                            @Html.DisplayName("Estado da tarefa")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Task.Status)
+                        </dd>
+
+                    </dl>
+
+
+                    @Html.ActionLink("Transferir para", "Transfer", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Alterar o estado", "ChangeStatus", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Resolver tarefa", "Resolve", "Resolution", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Regressar à lista", "WithoutUser", null, new { @class = "btn btn-white" })
 
                 </div>
             </div>

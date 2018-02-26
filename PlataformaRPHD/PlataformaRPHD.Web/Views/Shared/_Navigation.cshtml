@@ -1,12 +1,12 @@
 ﻿<nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
-        <ul class="nav" id="side-menu">
+        @*<ul class="nav" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                <strong class="font-bold">Example user</strong>
+                                <strong class="font-bold">@HttpContext.Current.User.Identity.Name</strong>
                             </span> <span class="text-muted text-xs block">Example menu <b class="caret"></b></span>
                         </span>
                     </a>
@@ -24,6 +24,26 @@
             <li class="@Html.IsSelected(action: "Minor")">
                 <a href="@Url.Action("Minor", "Home")"><i class="fa fa-desktop"></i> <span class="nav-label">Minor page</span></a>
             </li>
+        </ul>*@
+        <ul class="nav" id="side-menu">
+            @*@if (HttpContext.Current.User.IsInRole("STICket_UTL"))
+            {*@
+            <li>
+                <a href="@Url.Action("CreateRequestUser", "Requests")"><i class="fa fa-desktop"></i> <span class="nav-label">Criar Pedido</span></a>
+            </li>
+            <li>
+                <a href="@Url.Action("Search", "Requests")"><i class="fa fa-desktop"></i> <span class="nav-label">Procurar Pedido</span></a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Requests")"><i class="fa fa-desktop"></i> <span class="nav-label">Os meus Pedidos</span></a>
+            </li>
+            }
+            @*@if (HttpContext.Current.User.IsInRole("STICket_TEC"))
+            {*@
+            <li>
+                <a href="@Url.Action("Search", "Requests")"><i class="fa fa-desktop"></i> <span class="nav-label">Procurar Todos Pedidos</span></a>
+            </li>
+            @*}*@
         </ul>
     </div>
 </nav>

@@ -60,6 +60,7 @@
     <Compile Include="Entities\SatisfactionSurvey.cs" />
     <Compile Include="Entities\Service.cs" />
     <Compile Include="Entities\Task.cs" />
+    <Compile Include="Entities\TaskStatus.cs" />
     <Compile Include="Entities\Transfer.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserName.cs" />

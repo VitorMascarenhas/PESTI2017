@@ -5,14 +5,14 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 
-namespace PlataformaRPHD.Web.ViewModels
+namespace PlataformaRPHD.Web.Services
 {
     public class MailService
     {
         private string mail;
         private string mailPassword;
         private string smtpServer;
-        private string port;
+d        private string port;
         private MailMessage mailMessage;
 
         public MailService()
@@ -23,14 +23,10 @@ namespace PlataformaRPHD.Web.ViewModels
             port = ConfigurationManager.AppSettings["MailPort"];
         }
 
-        public void CreateMail(List<string> to, string subject, string body)
+        public void CreateMail(string subject, string body)
         {
             mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(mail);
-            foreach(var item in to)
-            {
-                mailMessage.To.Add(item);
-            }
             mailMessage.IsBodyHtml = true;
             mailMessage.Subject = subject;
             mailMessage.Body = body;
@@ -38,13 +34,26 @@ namespace PlataformaRPHD.Web.ViewModels
             mailMessage.BodyEncoding = Encoding.GetEncoding("ISO-8859-1");
         }
 
-        public void Send()
+        public void AddMail(MailAddress mailAdress)
         {
-            SmtpClient smtpClient = new SmtpClient();
-            smtpClient.Host = mail;
-            smtpClient.Port = Convert.ToInt16(port);
-            smtpClient.Credentials = new NetworkCredential(mail, mailPassword);
-            smtpClient.Send(mailMessage);
+            this.mailMessage.To.Add(mailAdress);
+        }
+
+        public bool Send()
+        {
+            try {
+                SmtpClient smtpClient = new SmtpClient();
+                smtpClient.Host = smtpServer;
+                smtpClient.Port = Convert.ToInt16(port);
+                NetworkCredential authinfo = new NetworkCredential(mail, mailPassword);
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = authinfo;
+                smtpClient.Send(mailMessage);
+                return true;
+            } catch(Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

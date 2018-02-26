@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
@@ -10,7 +11,9 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public string ResolutionType { get; set; }
 
-        public virtual ICollection<Task> Tasks { get; set; }
+        public DateTime ResolutionDate { get; set; }
+
+        public virtual ICollection<Task> Tasks { get; private set; }
 
         private Resolution() //EF
         {
@@ -21,6 +24,8 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         {
             this.resolutionText = resolution;
             this.ResolutionType = ResolutionType;
+            this.ResolutionDate = new DateTime();
+            this.ResolutionDate = DateTime.Now;
         }
 
         public void AddTask(Task task)

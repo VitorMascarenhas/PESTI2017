@@ -13,6 +13,7 @@ namespace PlataformaRPHD.Infrastructure.Data
         public STICketContext() : base("STICketConnectionString")
         {
             //Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Attachment> Attachments { get; set; }

@@ -18,14 +18,37 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
             return this.Find(i => i.Task.Id == taskId, null, includeProperties).SingleOrDefault();
         }
 
-        public IEnumerable<Interaction> GetInteractionsByTaskStatus(string status, string includeProperties = "")
+        public IEnumerable<Interaction> GetInteractionsByOpenTaskStatus(string user, string includeProperties = "")
         {
-            return this.Find(x => x.Task.Status == status, null, includeProperties);
+            return this.Find(x => x.Task.Status == "Aberto" && x.Task.Owner.mechanographicNumber == user, null, includeProperties);
         }
 
+        // interactions by open status
         public Interaction GetInteractionWithProperties(int interactionId, string includeProperties = "")
         {
             return this.Find(x => x.Id == interactionId, null, includeProperties).SingleOrDefault();
+        }
+
+        // interactions by close status
+        public IEnumerable<Interaction> GetInteractionsByCloseTaskStatus(string user, string includeProperties = "")
+        {
+            return this.Find(x => x.Task.Status == "Fechado" && x.Task.Owner.mechanographicNumber == user, null, includeProperties);
+        }
+
+        // interactions by close status
+        public IEnumerable<Interaction> GetInteractionsByPendingTaskStatus(string user, string includeProperties = "")
+        {
+            return this.Find(x => x.Task.Status == "Pendente" && x.Task.Owner.mechanographicNumber == user, null, includeProperties);
+        }
+        
+        public IEnumerable<Interaction> GetInteractionsByTaskWithoutUser(string includeProperties = "")
+        {
+            return this.Find(x => x.Task.Owner == null, null, includeProperties);
+        }
+
+        public Interaction GetInteractionById(int id, string includeProperties = "")
+        {
+            return this.Find(x => x.Id == id, null, includeProperties).FirstOrDefault();
         }
     }
 }

@@ -25,13 +25,15 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         {
         }
 
-        public Transfer(int TaskId, User ofUser, User fromUser, User whoUser, string description)
+        public Transfer(Task task, User ofUser, User fromUser, User whoUser, string description)
         {
-            this.TaskId = TaskId;
+            this.Task = task;
             this.OfUser = ofUser;
             this.FromUser = fromUser;
             this.WhoTransferred = whoUser;
             this.description = description;
+            this.tranfered = new DateTime();
+            this.tranfered = DateTime.Now;
         }
     }
 }

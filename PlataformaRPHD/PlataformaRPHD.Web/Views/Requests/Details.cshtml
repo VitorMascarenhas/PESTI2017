@@ -31,72 +31,80 @@
                 <div class="ibox-content">
 
 
-				    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayName("Data do registo")
-        </dt>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayName("Data do registo")
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TimeOfRegistration)
-        </dd>
-        
-        <dt>
-            @Html.DisplayName("Serviço")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TimeOfRegistration)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Interactions.FirstOrDefault().service.Name)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Serviço")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Título")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Interactions.FirstOrDefault().service.Name)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Categoria")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Descrição")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Category.Name)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Título")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Equipamento")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SourceComputer)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Descrição")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Contacto")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Contact)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Equipamento")
+                        </dt>
 
-        <dt>
-            @Html.DisplayName("Origem")
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SourceComputer)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Origin.Name)
-        </dd>
-        
-        <dt>
-            @Html.DisplayName("Impacto")
-        </dt>
-        
-        <dd>
-            @Html.DisplayFor(model => model.Impact.Name)
-        </dd>
+                        <dt>
+                            @Html.DisplayName("Contacto")
+                        </dt>
 
-    </dl>
+                        <dd>
+                            @Html.DisplayFor(model => model.Contact)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayName("Origem")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Origin.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayName("Impacto")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Impact.Name)
+                        </dd>
+
+                    </dl>
 
                     <table class="table table-striped">
                         <tr>

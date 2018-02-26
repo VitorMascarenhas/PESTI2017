@@ -5,6 +5,7 @@ using PlataformaRPHD.Infrastructure.Data.Repositories;
 using System.Collections.Generic;
 using PlataformaRPHD.Web.ViewModels;
 using AutoMapper;
+using System;
 
 namespace PlataformaRPHD.Web.Controllers
 {
@@ -20,10 +21,58 @@ namespace PlataformaRPHD.Web.Controllers
         // GET: /Requests/
         public ActionResult Index()
         {
-            var requests = unitOfWork.RequestRepository.GetOpenRequestsByUser("Origin,Impact", "info5292");
+            var requests = unitOfWork.RequestRepository.GetOpenRequestsByUser("Origin,Impact,Category", HttpContext.User.Identity.Name);
 
             IEnumerable<RequestViewModel> result = Mapper.Map<IEnumerable<RequestViewModel>>(requests);
 
+            return View(result);
+        }
+
+        public ActionResult ClosedRequests()
+        {
+            var requests = unitOfWork.RequestRepository.GetClosedRequestsWithoutSatisfactionSurvey(HttpContext.User.Identity.Name, "Origin,Interactions,Category");
+            
+            return View(requests);
+        }
+
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpPatch]
+        public ActionResult Search(int? id, string FromTimeOfRegistration, string ToTimeOfRegistration, string Title, string Description)
+        {
+            DateTime from = Convert.ToDateTime(FromTimeOfRegistration);
+            DateTime to = Convert.ToDateTime(ToTimeOfRegistration);
+
+            var requests = unitOfWork.RequestRepository.SearchRquestById(id.Value, from, to, Title, Description, HttpContext.User.Identity.Name);
+
+            IEnumerable<RequestViewModel> result = Mapper.Map<IEnumerable<RequestViewModel>>(requests);
+
+            return View(result);
+        }
+
+        public ActionResult SearchAllRequests()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SearchAllRequests(int? id, string FromTimeOfRegistration, string ToTimeOfRegistration, string Title, string Description)
+        {
+            DateTime from = Convert.ToDateTime(FromTimeOfRegistration);
+            DateTime to = Convert.ToDateTime(ToTimeOfRegistration);
+
+            var requests = unitOfWork.RequestRepository.SearchAllRquestsById(id.Value, from, to, Title, Description);
+
+            IEnumerable<RequestViewModel> result = Mapper.Map<IEnumerable<RequestViewModel>>(requests);
+
+            return RedirectToAction("ResultRequest", result);
+        }
+
+        public ActionResult ResultRequest(IEnumerable<RequestViewModel> result)
+        {
             return View(result);
         }
 

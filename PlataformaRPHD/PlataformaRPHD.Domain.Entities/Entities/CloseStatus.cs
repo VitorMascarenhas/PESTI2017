@@ -2,14 +2,12 @@
 
 namespace PlataformaRPHD.Domain.Entities.Entities
 {
-    public class CloseStatus
+    public class CloseStatus : TaskStatus
     {
         private Task _task;
-        private string status;
 
         private CloseStatus() //EF
         {
-            this.status = "Fechado";
         }
 
         public CloseStatus(Task task)
@@ -19,7 +17,7 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public void ChangeStatus()
         {
-            _task.Status = this.status;
+            _task.Status = "Fechado";
             this._task.close = true;
         }
     }

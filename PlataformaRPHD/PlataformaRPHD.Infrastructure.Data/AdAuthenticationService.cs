@@ -234,7 +234,9 @@ namespace PlataformaRPHD.Infrastructure.Data
             var identity = new ClaimsIdentity("ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             identity.AddClaim(new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "Windows"));
             identity.AddClaim(new Claim(ClaimTypes.Name, userPrincipal.SamAccountName));
-            identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userPrincipal.SamAccountName));
+            //identity.AddClaim(new Claim(ClaimTypes.Email, userPrincipal.EmailAddress));
+            //identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userPrincipal.Name + " " + userPrincipal.MiddleName + " " + userPrincipal.Surname));
+            //identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userPrincipal.SamAccountName));
             identity.AddClaim(new Claim("DisplayName", userPrincipal.DisplayName));
 
             if (!string.IsNullOrEmpty(userPrincipal.EmailAddress))

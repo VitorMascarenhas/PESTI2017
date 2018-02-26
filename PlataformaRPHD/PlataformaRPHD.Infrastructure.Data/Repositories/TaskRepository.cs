@@ -32,5 +32,25 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
         {
             return this.Find(x => x.Status == status);
         }
+
+        public IEnumerable<Task> GetOpenStatus(string user)
+        {
+            return this.Find(x => x.Owner.mechanographicNumber == user && x.Status == "Aberto");
+        }
+
+        public IEnumerable<Task> GetCloseStatus(string user)
+        {
+            return this.Find(x => x.Owner.mechanographicNumber == user && x.Status == "Fechado");
+        }
+
+        public IEnumerable<Task> GetPendingStatus(string user)
+        {
+            return this.Find(x => x.Owner.mechanographicNumber == user && x.Status == "Pendente");
+        }
+
+        public IEnumerable<Task> GetTasksWithoutUser()
+        {
+            return this.Find(x => x.Owner == null);
+        }
     }
 }

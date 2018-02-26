@@ -16,5 +16,17 @@ namespace PlataformaRPHD.Web.ViewModels
         public ICollection<Message> HistoryMessages { get; set; }
 
         public TaskViewModel Task { get; set; }
+
+        public string userId { get; set; }
+
+        public string Description { get; set; }
+
+        public string statusDescription { get; set; }
+
+        public string statusId { get; set; }
+
+        public string ResolutionText { get; set; }
+
+        public string ResolutionType { get; set; }
     }
 }

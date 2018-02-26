@@ -22,5 +22,10 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
         {
             return this.Find(x => x.Approved == false);
         }
+
+        public IEnumerable<Wizard> GetMyWizards(string samAccountName)
+        {
+            return this.Find(x => x.CreateBy.mechanographicNumber == samAccountName);
+        }
     }
 }

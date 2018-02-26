@@ -8,5 +8,7 @@ namespace PlataformaRPHD.Domain.Interfaces.Interfaces
         IEnumerable<Wizard> GetApprovedWizards();
 
         IEnumerable<Wizard> GetNotApprovedWizards();
+
+        IEnumerable<Wizard> GetMyWizards(string samAccountName);
     }
 }

@@ -23,11 +23,13 @@ namespace PlataformaRPHD.Domain.Entities.Entities
         {
         }
 
-        public ChangeTaskStatus(string status)
+        public ChangeTaskStatus(string status, User user, string description)
         {
             this.Status = status;
             this.changed = new DateTime();
             this.changed = DateTime.Now;
+            this.auth = user;
+            this.Description = description;
         }
     }
 }

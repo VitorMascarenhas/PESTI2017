@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using PlataformaRPHD.Domain.Entities.Entities;
+using PlataformaRPHD.Infrastructure.Data;
 using PlataformaRPHD.Infrastructure.Data.Repositories;
+using PlataformaRPHD.Web.Services;
 using PlataformaRPHD.Web.ViewModels;
 using System.Collections.Generic;
 using System.Net;
@@ -21,19 +23,29 @@ namespace PlataformaRPHD.Web.Controllers
         // GET: /Tasks/
         public ActionResult Index()
         {
-            var interaction = unitOfWork.InteractionRepository.GetAll("Task.Owner");
+            var interactions = unitOfWork.InteractionRepository.GetInteractionsByOpenTaskStatus(HttpContext.User.Identity.Name, "Task,service,Request");
             
-            var result = Mapper.Map<IEnumerable<InteractionViewModel>>(interaction);
+            var result = Mapper.Map<IEnumerable<InteractionViewModel>>(interactions);
 
             return View(result);
         }
-        
-        // CRIAR VISTA PARA TAREFAS ABERTAS
-        public ActionResult MyTasksStatus(string status)
-        {
-            var tasks = unitOfWork.TaskRepository.GetTaskByUserWithState("info5292", status);
 
-            IEnumerable<TaskViewModel> result = Mapper.Map<IEnumerable<TaskViewModel>>(tasks);
+        // GET: /Tasks/ClosedTasks/
+        public ActionResult ClosedTasks()
+        {
+            var interactions = unitOfWork.InteractionRepository.GetInteractionsByCloseTaskStatus(HttpContext.User.Identity.Name, "Tasks.Status,service,Request.TimeOfRegistration");
+
+            var result = Mapper.Map<IEnumerable<InteractionViewModel>>(interactions);
+
+            return View(result);
+        }
+
+        // GET: /Tasks/PendingTasks/
+        public ActionResult PendingTasks()
+        {
+            var interactions = unitOfWork.InteractionRepository.GetInteractionsByPendingTaskStatus(HttpContext.User.Identity.Name, "Tasks.Status,service,Request.TimeOfRegistration");
+
+            var result = Mapper.Map<IEnumerable<InteractionViewModel>>(interactions);
 
             return View(result);
         }
@@ -45,53 +57,91 @@ namespace PlataformaRPHD.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var interaction = unitOfWork.InteractionRepository.GetInteractionWithProperties(id.Value, "Request.Owner,Request.Category,Request.Origin,Request.Impact,Service,Task.Owner");
-
-
+            Interaction interaction = unitOfWork.InteractionRepository.GetInteractionByTaskId(id.Value, "Request.Impact,Request.Origin,Request.Category,Request.Owner,Task,service");
             if (interaction == null)
             {
                 return HttpNotFound();
             }
-            
             InteractionViewModel interactionViewModel = Mapper.Map<InteractionViewModel>(interaction);
-            
             return View(interactionViewModel);
         }
-        
-        // GET: /Tasks/Edit/5
-        public ActionResult Edit(int? id)
+
+        // GET: /Tasks/WithoutUser/
+        public ActionResult WithoutUser()
+        {
+            var interactions = unitOfWork.InteractionRepository.GetInteractionsByTaskWithoutUser("Task,Request,Request.Owner");
+
+            return View(interactions);
+        }
+
+        // GET: /Tasks/WithoutUser/
+        public ActionResult Transfer(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var interaction = unitOfWork.InteractionRepository.Get(id.Value);
-
-            InteractionViewModel interactionViewModel = Mapper.Map<InteractionViewModel>(interaction);
-
-            if (interactionViewModel == null)
+            Interaction interaction = unitOfWork.InteractionRepository.GetInteractionById(id.Value, "Request.Impact,Request.Origin,Request.Category,Request.Owner,Task,service");
+            if (interaction == null)
             {
                 return HttpNotFound();
+            }
+            InteractionViewModel interactionViewModel = Mapper.Map<InteractionViewModel>(interaction);
+            return View(interactionViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Transfer([Bind(Include = "Id,userId,Description")] InteractionViewModel interactionViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                Interaction interaction = unitOfWork.InteractionRepository.GetInteractionById(interactionViewModel.Id, "Task,Task.Owner");
+
+                UserService us = new UserService();
+                User auth = us.UpdateUserInDB(HttpContext.User.Identity.Name);
+                User forUser = us.UpdateUserInDB(interactionViewModel.userId);
+
+                interaction.Task.Transfer(forUser, auth, interactionViewModel.Description);
+                unitOfWork.TaskRepository.Update(interaction.Task);
+                unitOfWork.SaveChanges();
+
+                return RedirectToAction("WithoutUser");
             }
             return View(interactionViewModel);
         }
 
-        // POST: /Tasks/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        public ActionResult ChangeStatus(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Interaction interaction = unitOfWork.InteractionRepository.GetInteractionById(id.Value, "Request.Impact,Request.Origin,Request.Category,Request.Owner,Task,service");
+            if (interaction == null)
+            {
+                return HttpNotFound();
+            }
+            InteractionViewModel interactionViewModel = Mapper.Map<InteractionViewModel>(interaction);
+            return View(interactionViewModel);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(InteractionViewModel interactionViewModel)
+        public ActionResult ChangeStatus([Bind(Include = "Id,StatusDescription,statusId")] InteractionViewModel interactionViewModel)
         {
             if (ModelState.IsValid)
             {
-                var interaction = unitOfWork.InteractionRepository.GetInteractionWithProperties(interactionViewModel.Id, "Task.Owner");
-                interaction.Task.Owner.Id = interactionViewModel.Task.Owner.Id;
+                Interaction interaction = unitOfWork.InteractionRepository.GetInteractionById(interactionViewModel.Id, "Task");
 
-                unitOfWork.InteractionRepository.Update(interaction);
+                User auth = unitOfWork.UserRepository.GetUserBySamAccountName(HttpContext.User.Identity.Name);
+
+                interaction.Task.ChangeStatus(interactionViewModel.statusId, auth, interactionViewModel.statusDescription);
+                
+                unitOfWork.TaskRepository.Update(interaction.Task);
                 unitOfWork.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("WithoutUser");
             }
             return View(interactionViewModel);
         }

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using PlataformaRPHD.Domain.Entities.Entities;
 
 namespace PlataformaRPHD.Tests
@@ -9,79 +10,133 @@ namespace PlataformaRPHD.Tests
         [Test]
         public void ChangeTaskStatusTest()
         {
-            UserName un = new UserName("Vitor", "Mascarenhas");
-            User u1 = new User(un, "sad5292", "vitor.mascarenhas@ulsm.min-saude.pt", "2343");
+            UserName un1 = new UserName("Vitor", "Mascarenhas");
+            User user1 = new User(un1, "info5292", "vitor.mascarenhas@ulsm.min-saude.pt", "1881");
 
-            UserName un2 = new UserName("Pedro", "Sousa");
-            User u2 = new User(un2, "sad1243", "pedro.sousa@ulsm.min-saude.pt", "6813");
-
-            Service s1 = new Service();
+            Mock<Task> mock = new Mock<Task>();
             
-            Request r1 = new Request(u1, u2, "Erro aplicação sonho.", "A aplicação sonho deixou de funcionar.");
+            Task task = new Task();
 
-            Interaction i1 = new Interaction(s1, r1);
+            var expectedOutcome = mock.Object;
+
+            Assert.AreEqual(task.close, expectedOutcome.close);
+            Assert.AreEqual(task.HistoryChangeStatus, expectedOutcome.HistoryChangeStatus);
+            Assert.AreEqual(task.Owner, expectedOutcome.Owner);
+            Assert.AreEqual(task.Resolution, expectedOutcome.Resolution);
+            Assert.AreEqual(task.Status, expectedOutcome.Status);
+            Assert.AreEqual(task.Transfers, expectedOutcome.Transfers);
+        }
+
+        [Test]
+        public void ChangeTaskStatusTest1()
+        {
+            UserName un1 = new UserName("Vitor", "Mascarenhas");
+            User user1 = new User(un1, "info5292", "vitor.mascarenhas@ulsm.min-saude.pt", "1881");
+
+            Mock<Task> mock = new Mock<Task>();
+
+            var expectedOutcome = mock.Object;
+            expectedOutcome.ChangeStatus("Pendente", user1, "Aguardar material por parte do fornecedor");
             
-            Task task1 = new Task(u1, i1);
-            int c = task1.HistoryChangeStatus.Count;
-            Assert.AreEqual(c, 1);
+            Task task = new Task();
+            task.ChangeStatus("Pendente", user1, "Aguardar material por parte do fornecedor");
 
-            task1.ChangeStatus("Fechado");
-            c = task1.HistoryChangeStatus.Count;
-            Assert.AreEqual(c, 2);
+            Assert.AreEqual(task.close, expectedOutcome.close);
+            Assert.AreEqual(task.HistoryChangeStatus, expectedOutcome.HistoryChangeStatus);
+            Assert.AreEqual(task.Owner, expectedOutcome.Owner);
+            Assert.AreEqual(task.Resolution, expectedOutcome.Resolution);
+            Assert.AreEqual(task.Status, expectedOutcome.Status);
+            Assert.AreEqual(task.Transfers, expectedOutcome.Transfers);
+        }
 
-            task1.ChangeStatus("Fechado");
-            c = task1.HistoryChangeStatus.Count;
-            Assert.AreEqual(c, 2);
+        [Test]
+        public void ChangeTaskStatusTest2()
+        {
+            UserName un1 = new UserName("Vitor", "Mascarenhas");
+            User user1 = new User(un1, "info5292", "vitor.mascarenhas@ulsm.min-saude.pt", "1881");
 
-            task1.ChangeStatus("Aberto");
-            c = task1.HistoryChangeStatus.Count;
-            Assert.AreEqual(c, 2);
+            Mock<Task> mock = new Mock<Task>();
 
-            task1.ChangeStatus("Aberto");
-            c = task1.HistoryChangeStatus.Count;
-            Assert.AreEqual(c, 2);
-            
-            task1.ChangeStatus("Fechado");
-            c = task1.HistoryChangeStatus.Count;
-            Assert.AreEqual(c, 2);
+            var expectedOutcome = mock.Object;
+            expectedOutcome.ChangeStatus("Pendente", user1, "Aguardar material por parte do fornecedor");
+
+            Task task = new Task();
+            task.ChangeStatus("Pendente", user1, "Aguardar material por parte do fornecedor");
+
+            Assert.AreEqual(task.close, expectedOutcome.close);
+            Assert.AreEqual(task.HistoryChangeStatus, expectedOutcome.HistoryChangeStatus);
+            Assert.AreEqual(task.Owner, expectedOutcome.Owner);
+            Assert.AreEqual(task.Resolution, expectedOutcome.Resolution);
+            Assert.AreEqual(task.Status, expectedOutcome.Status);
+            Assert.AreEqual(task.Transfers, expectedOutcome.Transfers);
+
+            expectedOutcome.ChangeStatus("Aberto", user1, "Disponivel material para substituição");
+
+            task.ChangeStatus("Aberto", user1, "Disponivel material para substituição");
+
+            Assert.AreEqual(task.close, expectedOutcome.close);
+            Assert.AreEqual(task.HistoryChangeStatus, expectedOutcome.HistoryChangeStatus);
+            Assert.AreEqual(task.Owner, expectedOutcome.Owner);
+            Assert.AreEqual(task.Resolution, expectedOutcome.Resolution);
+            Assert.AreEqual(task.Status, expectedOutcome.Status);
+            Assert.AreEqual(task.Transfers, expectedOutcome.Transfers);
+        }
+
+        [Test]
+        public void ChangeTaskStatusTest3()
+        {
+            UserName un1 = new UserName("Vitor", "Mascarenhas");
+            User user1 = new User(un1, "info5292", "vitor.mascarenhas@ulsm.min-saude.pt", "1881");
+
+            Mock<Task> mock = new Mock<Task>();
+
+            var expectedOutcome = mock.Object;
+            expectedOutcome.ChangeStatus("Pendente", user1, "Aguardar material por parte do fornecedor");
+
+            Task task = new Task();
+            task.ChangeStatus("Pendente", user1, "Aguardar material por parte do fornecedor");
+
+            Assert.AreEqual(task.close, expectedOutcome.close);
+            Assert.AreEqual(task.HistoryChangeStatus, expectedOutcome.HistoryChangeStatus);
+            Assert.AreEqual(task.Owner, expectedOutcome.Owner);
+            Assert.AreEqual(task.Resolution, expectedOutcome.Resolution);
+            Assert.AreEqual(task.Status, expectedOutcome.Status);
+            Assert.AreEqual(task.Transfers, expectedOutcome.Transfers);
+
+            expectedOutcome.ChangeStatus("Aberto", user1, "Disponivel material para substituição");
+
+            task.ChangeStatus("Aberto", user1, "Disponivel material para substituição");
+
+            Assert.AreEqual(task.close, expectedOutcome.close);
+            Assert.AreEqual(task.HistoryChangeStatus, expectedOutcome.HistoryChangeStatus);
+            Assert.AreEqual(task.Owner, expectedOutcome.Owner);
+            Assert.AreEqual(task.Resolution, expectedOutcome.Resolution);
+            Assert.AreEqual(task.Status, expectedOutcome.Status);
+            Assert.AreEqual(task.Transfers, expectedOutcome.Transfers);
+
+            expectedOutcome.ChangeStatus("Fechado", user1, "Disponivel material para substituição");
+
+            task.ChangeStatus("Fechado", user1, "Disponivel material para substituição");
+
+            Assert.AreEqual(task.close, expectedOutcome.close);
+            Assert.AreEqual(task.HistoryChangeStatus, expectedOutcome.HistoryChangeStatus);
+            Assert.AreEqual(task.Owner, expectedOutcome.Owner);
+            Assert.AreEqual(task.Resolution, expectedOutcome.Resolution);
+            Assert.AreEqual(task.Status, expectedOutcome.Status);
+            Assert.AreEqual(task.Transfers, expectedOutcome.Transfers);
         }
 
         [Test]
         public void TransferTaskTest()
         {
             UserName un1 = new UserName("Vitor", "Mascarenhas");
-            User u1 = new User(un1, "info5292", "vitor.mascarenhas@ulsm.min-saude.pt", "1881");
-            
+            User user1 = new User(un1, "info5292", "vitor.mascarenhas@ulsm.min-saude.pt", "1881");
 
-            UserName un2 = new UserName("Carlos", "Alberto");
-            User u2 = new User(un2, "info1234", "carlos.alberto@ulsm.min-saude.pt", "5454");
+            UserName un2 = new UserName("João", "Santos");
+            User user2 = new User(un2, "info5913", "joaopedro.santos@ulsm.min-saude.pt", "5425");
 
-            UserName un3 = new UserName("João", "Alves");
-            User u3 = new User(un3, "sad5432", "joao.alves@ulsm.min-saude.pt", "5424");
-
-            Service s1 = new Service();
-            
-            Request r1 = new Request(u1, u2, "Avaria de rato", "O rato deixou de funcionar.");
-
-            Interaction i1 = new Interaction(s1, r1);
-            
-            Task task = new Task(u1, i1);
-
-            Assert.AreEqual(task.Owner.Id, 1);
-            Assert.AreEqual(task.Owner.Name.FirstName, "Vitor");
-            Assert.AreEqual(task.Owner.Name.LastName, "Mascarenhas");
-            task.Transfer(u2, u3, "Impossibilidade.");
-
-            Assert.AreEqual(task.Transfers.Count, 1);
-            Assert.AreEqual(task.Owner.Name.FirstName, "Carlos");
-            Assert.AreEqual(task.Owner.Name.LastName, "Alberto");
-
-            task.Transfer(u2, u3, "Impossibilidade.");
-            Assert.AreEqual(task.Owner.Id, 2);
-            Assert.AreEqual(task.Owner.Name.FirstName, "Carlos");
-            Assert.AreEqual(task.Owner.Name.LastName, "Alberto");
-
-
+            UserName un3 = new UserName("Andreia", "Pinto");
+            User user3 = new User(un3, "info4224", "andreia.pinto@ulsm.min-saude.pt", "5407");
 
         }
     }

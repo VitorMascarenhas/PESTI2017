@@ -32,11 +32,13 @@
                 </div>
                 <div class="ibox-content">
 
-                    @using (Html.BeginForm())
+                    @using (Html.BeginForm("CreateWizard", "Wizard", null, FormMethod.Post, new {
+                        enctype = "multipart/form-data"
+                    }))
                     {
-                        @Html.AntiForgeryToken()
+                                    @Html.AntiForgeryToken()
 
-                        <div class="form-horizontal">
+                                    <div class="form-horizontal">
                             @Html.ValidationSummary(true)
 
                             <div class="form-group">
@@ -57,7 +59,7 @@
 
                             <div class="ibox-title">
                                 <div class="ibox-tools">
-                                    <input type="file" id="files" name="file1" multiple class="btn btn-primary btn-xs" />
+                                    <input type="file" id="files" name="File1" multiple class="btn btn-primary btn-xs" />
                                     @*@Html.ActionLink("Adicionar", "AddAttachment", null, new { @class = "btn btn-primary btn-xs" })*@
                                 </div>
                             </div>
@@ -72,7 +74,7 @@
 
                             <div class="ibox-title">
                                 <div class="ibox-tools">
-                                    <input type="file" id="files" name="file2" multiple class="btn btn-primary btn-xs" />
+                                    <input type="file" id="files" name="File2" multiple class="btn btn-primary btn-xs" />
                                     @*@Html.ActionLink("Adicionar", "AddAttachment", null, new { @class = "btn btn-primary btn-xs" })*@
                                 </div>
                             </div>
@@ -87,7 +89,7 @@
                             
                             <div class="ibox-title">
                                 <div class="ibox-tools">
-                                    <input type="file" id="files" name="file2" multiple class="btn btn-primary btn-xs" />
+                                    <input type="file" id="files" name="File3" multiple class="btn btn-primary btn-xs" />
                                     @*@Html.ActionLink("Adicionar", "AddAttachment", null, new { @class = "btn btn-primary btn-xs" })*@
                                 </div>
                             </div>

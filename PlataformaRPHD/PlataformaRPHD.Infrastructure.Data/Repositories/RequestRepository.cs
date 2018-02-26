@@ -42,5 +42,20 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
         {
             return this.Find(x => x.Id == requestId, null, includeProperties).SingleOrDefault();
         }
+
+        public IEnumerable<Request> SearchRquestById(int id, DateTime fromData, DateTime toData, string title, string description, string samAccountName)
+        {
+            return this.Find(x => x.Id == id && x.TimeOfRegistration >= fromData && x.TimeOfRegistration <= toData && x.Title.Contains(title) && x.Description.Contains(description) && x.Owner.mechanographicNumber == samAccountName);
+        }
+
+        public IEnumerable<Request> SearchAllRquestsById(int id, DateTime fromData, DateTime toData, string title, string description)
+        {
+            return this.Find(x => x.Id == id && x.TimeOfRegistration >= fromData && x.TimeOfRegistration <= toData && x.Title.Contains(title) && x.Description.Contains(description));
+        }
+
+        public IEnumerable<Request> GetClosedRequestsWithoutSatisfactionSurvey(string user, string includeProperties = "")
+        {
+            return this.Find(x => x.Interactions.FirstOrDefault().Task.Status == "Fechado" && x.WhoRegistered.mechanographicNumber == user, null, includeProperties);
+        }
     }
 }

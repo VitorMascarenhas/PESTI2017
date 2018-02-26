@@ -8,6 +8,8 @@
 
         public string Title { get; set; }
 
+        public User CreateBy { get; set; }
+
         public Step Step { get; set; }
         
         public bool Approved { get; set; }
@@ -16,6 +18,11 @@
 
         private Wizard() // For EF
         {
+        }
+
+        public Wizard(string title)
+        {
+            this.Title = title;
         }
 
         public Wizard(string title, Step step)

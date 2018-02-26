@@ -10,6 +10,14 @@ namespace PlataformaRPHD.Domain.Interfaces.Interfaces
 
         Interaction GetInteractionByTaskId(int taskId, string includeProperties = "");
 
-        IEnumerable<Interaction> GetInteractionsByTaskStatus(string status, string includeProperties = "");
+        IEnumerable<Interaction> GetInteractionsByOpenTaskStatus(string user, string includeProperties = "");
+
+        IEnumerable<Interaction> GetInteractionsByCloseTaskStatus(string user, string includeProperties = "");
+
+        IEnumerable<Interaction> GetInteractionsByPendingTaskStatus(string user, string includeProperties = "");
+
+        IEnumerable<Interaction> GetInteractionsByTaskWithoutUser(string IncludeProperties = "");
+
+        Interaction GetInteractionById(int id, string includeProperties = "");
     }
 }

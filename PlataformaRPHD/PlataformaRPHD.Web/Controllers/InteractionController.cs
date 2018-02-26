@@ -23,7 +23,7 @@ namespace PlataformaRPHD.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Interaction interaction = unitOfWork.InteractionRepository.GetInteractionWithProperties(id.Value, "HistoryMessages,Request,Task");
+            Interaction interaction = unitOfWork.InteractionRepository.GetInteractionWithProperties(id.Value, "HistoryMessages,Request,Task,Task.Owner");
             if (interaction == null)
             {
                 return HttpNotFound();

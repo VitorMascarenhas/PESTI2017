@@ -16,6 +16,10 @@ namespace PlataformaRPHD.Web.ViewModels
 
         public DateTime TimeOfRegistration { get; set; }
 
+        public DateTime FromTimeOfRegistration { get; set; }
+
+        public DateTime ToTimeOfRegistration { get; set; }
+
         public string Title { get; set; }
 
         public string Description { get; set; }

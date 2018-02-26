@@ -1,0 +1,12 @@
+﻿@model PlataformaRPHD.Web.ViewModels.RequestViewModel
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TimeOfRegistration)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+    </td>
+</tr>

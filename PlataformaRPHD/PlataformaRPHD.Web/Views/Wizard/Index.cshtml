@@ -30,6 +30,9 @@
                             <th>
                                 @Html.DisplayName("Título")
                             </th>
+                            <th>
+                                @Html.DisplayName("Aprovado")
+                            </th>
                             <th></th>
                         </tr>
 
@@ -40,8 +43,10 @@
                                     @Html.DisplayFor(modelItem => item.Title)
                                 </td>
                                 <td>
+                                    @Html.DisplayFor(modelItem => item.Approved)
+                                </td>
+                                <td>
                                     @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
-                                    @Html.ActionLink("Aprovar", "Approv", new { id = item.Id }, new { @class = "btn btn-white btn-sm" })
                                 </td>
                             </tr>
                         }
