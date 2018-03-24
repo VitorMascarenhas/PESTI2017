@@ -24,7 +24,7 @@ namespace PlataformaRPHD.Web.Controllers
         {
             var categories = unitOfWork.CategoryRepository.GetAll();
             var result = Mapper.Map<IEnumerable<CategoryViewModel>>(categories);
-            return View(result);
+            return View("Index", result);
         }
 
         // GET: /CategoriesViewModels/Details/5

@@ -31,6 +31,8 @@ namespace PlataformaRPHD.Domain.Entities.Entities
 
         public virtual Impact Impact { get; set; }
 
+        public SatisfactionSurvey SatisfactionSurvey { get; set; }
+
         private Request() //EF
         {
             this.Interactions = new HashSet<Interaction>();

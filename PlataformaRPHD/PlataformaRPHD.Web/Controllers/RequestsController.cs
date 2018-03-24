@@ -100,5 +100,27 @@ namespace PlataformaRPHD.Web.Controllers
             }
             return View(request);
         }
+
+        public ActionResult RequestSatisfaction(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Request request = unitOfWork.RequestRepository.GetRequestByUserWithProperties(id.Value, "Interactions.Service,Origin,Impact");
+            if (request == null)
+            {
+                return HttpNotFound();
+            }
+            RequestWithSatisfactionSurveyViewModel requestSatisfaction = Mapper.Map<RequestWithSatisfactionSurveyViewModel>(request);
+            
+            return View(requestSatisfaction);
+        }
+
+        [HttpPost]
+        public ActionResult RequestSatisfaction()
+        {
+            return RedirectToAction("Index");
+        }
     }
 }

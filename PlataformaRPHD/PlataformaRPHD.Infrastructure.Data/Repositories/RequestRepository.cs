@@ -55,7 +55,7 @@ namespace PlataformaRPHD.Infrastructure.Data.Repositories
 
         public IEnumerable<Request> GetClosedRequestsWithoutSatisfactionSurvey(string user, string includeProperties = "")
         {
-            return this.Find(x => x.Interactions.FirstOrDefault().Task.Status == "Fechado" && x.WhoRegistered.mechanographicNumber == user, null, includeProperties);
+            return this.Find(x => x.Interactions.FirstOrDefault().Task.Status == "Fechado" && x.WhoRegistered.mechanographicNumber == user && x.SatisfactionSurvey == null, null, includeProperties);
         }
     }
 }

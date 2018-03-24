@@ -38,21 +38,21 @@ namespace PlataformaRPHD.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangeStatus([Bind(Include = "Id,StatusDescription,statusId,ResolutionType,ResolutionText")] InteractionViewModel interactionViewModel)
+        public ActionResult Resolve([Bind(Include = "Id,StatusDescription,statusId,ResolutionType,ResolutionText")] InteractionViewModel interactionViewModel)
         {
             if (ModelState.IsValid)
             {
                 Interaction interaction = unitOfWork.InteractionRepository.GetInteractionById(interactionViewModel.Id, "Task");
-
-                Resolution resolution = new Resolution(interactionViewModel.ResolutionText, interactionViewModel.ResolutionType);
+                interaction.Task.Resolution = new Resolution(interactionViewModel.ResolutionText, interactionViewModel.ResolutionType);
+                
                 User auth = unitOfWork.UserRepository.GetUserBySamAccountName(HttpContext.User.Identity.Name);
                 interaction.Task.ChangeStatus("Fechado", auth, interactionViewModel.ResolutionText);
-                resolution.AddTask(interaction.Task);
-
-                unitOfWork.ResolutionRepository.Update(resolution);
+                interaction.Task.Status = "Fechado";
+                interaction.Task.close = true;
+                unitOfWork.TaskRepository.Update(interaction.Task);
                 unitOfWork.SaveChanges();
 
-                return RedirectToAction("WithoutUser");
+                return RedirectToAction("Index", "Tasks");
             }
             return View(interactionViewModel);
         }

@@ -52,10 +52,10 @@
                                         @Html.DisplayFor(Item => item.Request.TimeOfRegistration)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(Item => item.service)
+                                        @Html.DisplayFor(Item => item.service.Name)
                                     </td>
                                     <td>
-                                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                                        @Html.ActionLink("Detalhes", "Details", new { id = item.Task.Id }, new { @class = "btn btn-primary btn-sm" })
                                     </td>
                                 </tr>
                             }

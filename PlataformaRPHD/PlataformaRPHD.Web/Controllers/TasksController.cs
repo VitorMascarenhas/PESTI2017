@@ -33,7 +33,7 @@ namespace PlataformaRPHD.Web.Controllers
         // GET: /Tasks/ClosedTasks/
         public ActionResult ClosedTasks()
         {
-            var interactions = unitOfWork.InteractionRepository.GetInteractionsByCloseTaskStatus(HttpContext.User.Identity.Name, "Tasks.Status,service,Request.TimeOfRegistration");
+            var interactions = unitOfWork.InteractionRepository.GetInteractionsByCloseTaskStatus(HttpContext.User.Identity.Name, "Task,service,Request");
 
             var result = Mapper.Map<IEnumerable<InteractionViewModel>>(interactions);
 
@@ -43,7 +43,7 @@ namespace PlataformaRPHD.Web.Controllers
         // GET: /Tasks/PendingTasks/
         public ActionResult PendingTasks()
         {
-            var interactions = unitOfWork.InteractionRepository.GetInteractionsByPendingTaskStatus(HttpContext.User.Identity.Name, "Tasks.Status,service,Request.TimeOfRegistration");
+            var interactions = unitOfWork.InteractionRepository.GetInteractionsByPendingTaskStatus(HttpContext.User.Identity.Name, "Task,service,Request");
 
             var result = Mapper.Map<IEnumerable<InteractionViewModel>>(interactions);
 

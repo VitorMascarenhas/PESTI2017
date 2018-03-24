@@ -137,6 +137,10 @@
     <Compile Include="Migrations\201802222207413_resolutionWithData.Designer.cs">
       <DependentUpon>201802222207413_resolutionWithData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803152228588_requestwithss.cs" />
+    <Compile Include="Migrations\201803152228588_requestwithss.Designer.cs">
+      <DependentUpon>201803152228588_requestwithss.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\AttachmentRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -201,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802222207413_resolutionWithData.resx">
       <DependentUpon>201802222207413_resolutionWithData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803152228588_requestwithss.resx">
+      <DependentUpon>201803152228588_requestwithss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

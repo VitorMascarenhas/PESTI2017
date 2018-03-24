@@ -252,7 +252,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RequestsController.cs" />
     <Compile Include="Controllers\ResolutionController.cs" />
-    <Compile Include="Controllers\SatisfactionSurveyController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Controllers\WizardController.cs" />
@@ -274,6 +273,7 @@
     <Compile Include="ViewModels\AttachmentViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CreateRequestViewModel.cs" />
+    <Compile Include="ViewModels\DataViewModel.cs" />
     <Compile Include="ViewModels\InteractionViewModel.cs" />
     <Compile Include="ViewModels\CreateRequestUserViewModel.cs" />
     <Compile Include="Services\MailService.cs" />
@@ -538,7 +538,6 @@
     <Content Include="Views\Requests\Index.cshtml" />
     <Content Include="Views\Interaction\InteractionDetails.cshtml" />
     <Content Include="Views\Tasks\Index.cshtml" />
-    <Content Include="Views\SatisfactionSurvey\Index.cshtml" />
     <Content Include="Views\Wizard\Index.cshtml" />
     <Content Include="Views\Wizard\CreateWizard.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
@@ -556,6 +555,7 @@
     <Content Include="Views\Tasks\WithoutUser.cshtml" />
     <Content Include="Views\Tasks\ChangeStatus.cshtml" />
     <Content Include="Views\Resolution\Resolve.cshtml" />
+    <Content Include="Views\Requests\RequestSatisfaction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

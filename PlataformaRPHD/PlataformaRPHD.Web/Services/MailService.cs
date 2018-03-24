@@ -12,7 +12,7 @@ namespace PlataformaRPHD.Web.Services
         private string mail;
         private string mailPassword;
         private string smtpServer;
-d        private string port;
+        private string port;
         private MailMessage mailMessage;
 
         public MailService()

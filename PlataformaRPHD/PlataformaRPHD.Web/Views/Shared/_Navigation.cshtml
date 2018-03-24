@@ -26,24 +26,37 @@
             </li>
         </ul>*@
         <ul class="nav" id="side-menu">
-            @*@if (HttpContext.Current.User.IsInRole("STICket_UTL"))
-            {*@
             <li>
-                <a href="@Url.Action("CreateRequestUser", "Requests")"><i class="fa fa-desktop"></i> <span class="nav-label">Criar Pedido</span></a>
+                Pedidos
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "CreateRequestUser")"><i class="fa fa-desktop"></i> <span class="nav-label">Criar Pedido</span></a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Requests")"><i class="fa fa-desktop"></i> <span class="nav-label">Os meus Pedidos Abertos</span></a>
+            </li>
+            <li>
+                <a href="@Url.Action("ClosedRequests", "Requests")"><i class="fa fa-desktop"></i> <span class="nav-label">Os meus Pedidos Fechados</span></a>
             </li>
             <li>
                 <a href="@Url.Action("Search", "Requests")"><i class="fa fa-desktop"></i> <span class="nav-label">Procurar Pedido</span></a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Requests")"><i class="fa fa-desktop"></i> <span class="nav-label">Os meus Pedidos</span></a>
+                <a href="@Url.Action("SearchAllRequests", "Requests")"><i class="fa fa-desktop"></i> <span class="nav-label">Procurar Todos Pedidos</span></a>
             </li>
-            }
-            @*@if (HttpContext.Current.User.IsInRole("STICket_TEC"))
-            {*@
+
             <li>
-                <a href="@Url.Action("Search", "Requests")"><i class="fa fa-desktop"></i> <span class="nav-label">Procurar Todos Pedidos</span></a>
+                <a href="@Url.Action("Index", "Tasks")"><i class="fa fa-desktop"></i> <span class="nav-label">As Minhas Tarefas Abertas</span></a>
             </li>
-            @*}*@
+            <li>
+                <a href="@Url.Action("ClosedTasks", "Tasks")"><i class="fa fa-desktop"></i> <span class="nav-label">As Minhas Tarefas Fechadas</span></a>
+            </li>
+            <li>
+                <a href="@Url.Action("PendingTasks", "Tasks")"><i class="fa fa-desktop"></i> <span class="nav-label">As Minhas Tarefas Pendentes</span></a>
+            </li>
+            <li>
+                <a href="@Url.Action("WithoutUser", "Tasks")"><i class="fa fa-desktop"></i> <span class="nav-label">Tarefas Por Transferir</span></a>
+            </li>
         </ul>
     </div>
 </nav>

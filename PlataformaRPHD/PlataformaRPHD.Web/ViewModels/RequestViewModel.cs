@@ -37,5 +37,7 @@ namespace PlataformaRPHD.Web.ViewModels
         public virtual Origin Origin { get; set; }
 
         public virtual Impact Impact { get; set; }
+
+        public SatisfactionSurvey SatisfactionSurvey { get; set; }
     }
 }

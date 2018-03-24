@@ -6,10 +6,10 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-4">
-        <h2>ClosedRequests</h2>
+        <h2>Pedidos fechados</h2>
         <ol class="breadcrumb">
             <li class="active">
-                <strong>Request</strong>
+                <strong>Pedidos fechados</strong>
             </li>
         </ol>
     </div>
@@ -21,29 +21,17 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>List of Request</h5>
-					<div class="ibox-tools">
-						@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-xs"})
-					</div>
+                    <h5>Lista de pedidos fechados</h5>
                 </div>
                 <div class="ibox-content">
 
 <table class="table table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.TimeOfRegistration)
+            @Html.DisplayName("Data do registo")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SourceComputer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contact)
+            @Html.DisplayName("Título")
         </th>
         <th></th>
     </tr>
@@ -57,18 +45,11 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SourceComputer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contact)
-        </td>
-        <td>
-			@Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-primary btn-sm"})
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
+            @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+            @if (item.SatisfactionSurvey == null)
+            {
+                @Html.ActionLink("Responder inquérito", "RequestSatisfaction", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+            }
         </td>
     </tr>
 }

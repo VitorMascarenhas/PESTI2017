@@ -6,6 +6,7 @@ using PlataformaRPHD.Web.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
+using System.Web;
 using System.Web.Mvc;
 
 namespace PlataformaRPHD.Web.Controllers
@@ -118,7 +119,7 @@ namespace PlataformaRPHD.Web.Controllers
             builder.WithImpact(impact);
 
             builder.WithTitle(createRequestUserViewModel.Title);
-            builder.WithDescription(createRequestUserViewModel.Description);
+            builder.WithDescription(HttpUtility.HtmlDecode(createRequestUserViewModel.Description));
 
             Service service = unitOfWork.ServiceRepository.Get(createRequestUserViewModel.ServiceId);
             InteractionBuilder interactionBuilder = new InteractionBuilder();
